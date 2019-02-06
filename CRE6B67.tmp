@@ -154,7 +154,9 @@
 \newcolumntype{B}[1]{>{\centering\arraybackslash}m{#1}}
 \makenomenclature
 
-\newcommand{\CC}{C\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\tiny\bf+}\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\tiny\bf+}\;}
+
+
+%Bsp für reelle Zahlen
 \begin{document}
 \begin{titlepage}
 \thispagestyle{empty} \enlargethispage{1.4in}
@@ -204,54 +206,47 @@ Coburg, \today
 \tableofcontents
 \pagebreak
 \section{Einleitung}
-Im Zeitalter der Digitalisierung werden immer größere Datenmengen produziert, gespeichert und übertragen, was sowohl den Einsatz als auch die Suche nach effizienten Verfahren zur Datenkom{\tt{pre}}ssion unerläßlich macht.
+Im Zeitalter der Digitalisierung werden immer größere Datenmengen produziert, gespeichert und übertragen, was sowohl den Einsatz als auch die Suche nach effizienten Verfahren zur Datenkompression unerläßlich macht.
 Hierfür schlägt Jaroslaw Duda\cite{Duda} ein neues Verfahren mit dem Namen "`asymmetrische Zahlensysteme"' vor, das seitdem von Unternehmen wie Facebook\cite{fb}, Google\cite{google} und Apple\cite{apple} verwendet wird. 
 Im Rahmen dieser Bachelorarbeit über asymmetrische Zahlensysteme sollen zunächst grundlegende Begriffe aus dem Bereich der Codierungstheorie geklärt und gänge Entropiecodierer besprochen werden.
-Anschließend sollen die in \cite{Giesen}, \cite{Duda} und \cite{Krajcevski} angegebene Verfahren {\tt{uabs}} und {\tt{rans}} untersucht werden.
-\par
-Ziel dieser Arbeit ist Verallgemeinerung des {\tt{uabs}}-Verfahrens auf ein $n$-elementiges Symbolalphabet ({\tt{uans}}-Verfahren) und die Anwendung des  {\tt{uans}}- sowie des {\tt{rans}}-Verfahren auf Bilddateien. Zusätzlich soll der Einfluß einer vorgeschalteten Filterung -- die in Kapitel ~\ref{Filter} besprochen wird -- untersucht werden. Hierfür werden die verwendeten Filter und die beiden Verfahren in \CC implementiert. 
-\par
-\vspace{0.5cm}
-Nachfolgende Abbildung veranschaulicht den Programmfluss:
+Anschließend soll ein Teil der  in \cite{Giesen}, \cite{Duda} und \cite{Krajcevski} angegebene Verfahren untersucht verallgemeinert und verglichen werden.
+Ziel dieser Arbeit ist dann die Anwendung der beiden Verfahren auf die Kompression von Bildern. Zusätzlich soll der Einfluß einer Vorfilterung  - wie sie bei dem png-Verfahren verwendet wird - untersucht werden. Hierfür werden die verwendeten Filter und die beiden Verfahren in C++ implementiert. Zunächst wird das Bild dann mit einem Filter vorkonditionert und anschließend mit einem der besprochenen Verfahren komprimiert. Bei der Dekomprimierung wird in umgekehrter Reihenfolge verfahren. Insbesondere sollen die Schritte des folgenden Diagrams besprochen werden\footnote{Die Ausführung erfolgt in Leserichtung. Als dunkelgrau gekennzeichnete Schritte werden in jedem Fall ausgeführt, die zweite Normalisierung ist nur bei dem Verfahren UANS obligat, die erste Normalisierung ist optional.}. Im Anhang findet sich eine Anleitung zur Bedienung des Programms.
 
-\begin{center}
-{\color{gray!50!blue}\rule{9cm}{0.1mm}}
-\vspace{0.2cm}
-\\
-\begin{tabular}{c c}
-initialer Zustand & schreiben beendet 
-\\
-{\tt{readImage}} & {\tt{writeImage}}
-\\
-$\downarrow$ & $\uparrow$ 
-\\
-{\tt{normalize}} & 
-\\
-$\downarrow$ & 
-\\
-{\tt{execute{\tt{pre}}condition}} & {\tt{execute{\tt{post}}condition}}
-\\
-$\downarrow$ & $\uparrow$ 
-\\
-{\tt{encode}} & {\tt{decode}}
-\\
-$\downarrow$ & $\uparrow$ 
-\\
-{\tt{writeBinaryFile}} & {\tt{readBinaryFile}}
-\\
-$\downarrow$ & $\uparrow$ 
-\\
-finaler Zustand & finaler Zustand
-\end{tabular}
-{\color{gray!50!red}\rule{9cm}{0.1mm}}
-\vspace{0.5cm}
-\captionof{figure}{Programmfluß der Implementierung}
-\end{center}
-In Leserichtung wird das Bild gelesen, vorkonditionert, normalisiert und 
-anschließend komprimiert.
-Die Dekomprimierung erfolgt in umgekehrter Leserichtung. 
-\par
-In Kapitel ~\ref{Kommandozeilenparameter} findet sich eine Anleitung zur Bedienung der \CC Implementierung.
+
+\begin{flushleft}
+\begin{tikzpicture}
+ \draw(-2.5,0.0)node[]{read$\_$Image}
+		(-0.75,0.0)node[circle=2cm,fill = gray]{}
+		(-0.75,0.0) -- (0.15,-1.0)
+		(-1.5,-1.0)node[]{normalize}
+		(0.15,-1.0)node[circle=2cm,fill = lightgray]{}
+		 (0.15,-1.0) -- (1.0, -2.0)
+		(-1.5,-2.0)node[]{execute$\_$Precondition }
+		(1.00,-2.0)node[circle=2cm,fill = gray]{}
+		(1.0, -2.0) -- (1.85, -3.0)
+		(0.5,-3.0)node[]{normalize}
+		(1.85,-3.0)node[circle=2cm,fill = lightgray]{}
+		(1.85, -3.0) -- (2.7, -4.0)
+		(1.5,-4.0)node[]{encode}
+		(2.7,-4.0)node[circle=2cm,fill = gray]{}
+		(2.7, -4.0) -- (3.55, -5.0)
+		(3.55,-5.0)node[circle=2cm,fill = gray]{}
+		(1.9,-5.0)node[]{write$\_$Binary};
+		
+		\draw(10.0,0.0)node[]{write$\_$Image}
+		(8.40,0.0)node[circle=2cm,fill = gray]{}
+		(8.40,0.0) -- (7.55,-1.0)
+		(10.0,-1.0)node[]{execute$\_$Postcondition}
+		(7.55,-1.0)node[circle=2cm,fill = gray]{}
+		 (7.55,-1.0) --(6.70,-2.0)
+		(8.0,-2.0)node[]{decode}
+		(6.70,-2.0)node[circle=2cm,fill = gray]{}
+		((6.70,-2.0) -- (5.85,-3.0)
+		(7.50,-3.0)node[]{read$\_$Binary}
+		(5.85,-3.0)node[circle=2cm,fill = gray]{};	
+\end{tikzpicture}
+\end{flushleft}
+
 \newpage
 \section{Kompression und Dekompression}
 Dieser Abschnitt orientiert sich an\cite{henne} sowie \cite{Lajmi} und klärt die wichtigsten Begriffe aus dem Bereich Datenkompression und stellt gängige Entropiecodierer vor.
@@ -319,7 +314,7 @@ r:=L(\mathcal{K}) - H(\Sigma)
 \end{align*}
 bezeichnet die Redundanz der Kodierung.
 \end{Definition}
-\subsubsection{Kom{\tt{pre}}ssion nach dem Verfahren von Shannon}
+\subsubsection{Kompression nach dem Verfahren von Shannon}
 Nach Shannon gilt:
 \begin{Satz}
 Für Jede Quelle $Q$ und jede beliebige zugehörige Binärcodierung mit 
@@ -361,7 +356,7 @@ e & 0.1  & 4 & 0.9 & 0.1110\ldots & 1110
 \end{center}
 \end{Beispiel}
 Dieses Verfahren ist eines der ersten zur Erstellung von präfixfreien, längenvariablen Codes.
-\subsubsection{Kom{\tt{pre}}ssion nach dem Verfahren von Fano}
+\subsubsection{Kompression nach dem Verfahren von Fano}
 Ein weiteres Beispiel für einen Präfixcode ist die Shannon-Fano Codierung:
 \begin{itemize}
 \item[1)] Sortiere zu kodierende Symbole $x_{1},\ldots,x_{N}$ nach fallender Auftrittswahrscheinlichkeit: 
@@ -536,7 +531,7 @@ d & 000
 \hspace{1.5cm} 
 \end{minipage} 
 Damit kodiert sich die Nachricht {\it a 	a 	b 	a 	b 	c 	a 	b 	c 	d} zu
-$1\, 	1\, 	01\, 	1\, 	01\, 	001\, 	1\, 	01\, 	001\, 	000$.\footnote{\footnotesize{Bei der Dekodierung verfolgt man ausgehend von der Wurzel den ents{\tt{pre}}chende Pfad im Baum bis man an einem Blatt ankommt.}}   
+$1\, 	1\, 	01\, 	1\, 	01\, 	001\, 	1\, 	01\, 	001\, 	000$.\footnote{\footnotesize{Bei der Dekodierung verfolgt man ausgehend von der Wurzel den entsprechende Pfad im Baum bis man an einem Blatt ankommt.}}   
 In diesem Fall erhält man für die Entropie und die erwartete Länge:
 \begin{align*}
 H(Q) &=-\left(  0.4 * \text{log}_{2}(0.4)   +   0.3 * \text{log}_{2}(0.3) +  0.2 * \text{log}_{2}(0.2)\right.\\
@@ -725,17 +720,29 @@ bb & 0.995 &0.1111111010\ldots & 8 & 11111110
 \end{Beispiel}
 \newpage
 \section{Kompression von Bilddateien durch Anwendung von Filtern}\label{Filter}
-Die Komprimierung von Bilddateien kann durch eine Filterung erfolgen, welche mit Ausnahme des unten vorgestellten Filtertyps {\tt{none}} in einer Erniedrigung der Entropie resultieren kann. Im Folgenden sollen die implementierten Filter anhand eines Bildes ( i.F. als {\tt{img}} bezeichnet) mit den Dimensionen  h (Höhe), w (Breite) und c (Anzahl der Farbkanäle) kurz besprochen werden. Das Ergebnis der Vorfilterung wird mit {\tt{pre}}, das der Umkehrung mit {\tt{post}} bezeichnet. Zusätzlich müssen für die Umkehrung  Werte in einem container - der i.F. als {\tt{res}} bezeichnet wird - gespeichert werden. Die neben den Algorithmen gezeichneten Gitter dienen zur Verdeutlichung des gewählten Iterationsweges.
+Um die Komprimierung effizienter zu gestalten erfolgt vor dem eigentlichen Komprimierungsschritt eine Vorfilterung, die mit Ausnahme der Wahl des Filtertyps {\tt{none}} in einer Erniedrigung der Entropie resultieren kann. Im Folgenden sollen die implementierten Filter anhand eines Bildes ( i.F. als {\tt{img}} bezeichnet) mit den Dimensionen  {\tt{h}} (Höhe), {\tt{w}} (Breite) und {\tt{c}} (Anzahl der Farbkanäle) kurz besprochen werden. Das Ergebnis der Vorfilterung wird mit {\tt{pre}}, das der Umkehrung mit {\tt{post}} bezeichnet. Zusätzlich müssen für die Umkehrung  Werte gespeichert werden. Hierbei erweist es sich als zweckmäßig für jeden Farbkanal Werte in einem {\tt{std::Vector}} abzuspeichern, der i.F. als {\tt{res}} bezeichnet wird. Die Darstellung der Filter erfolgt in Pseudocode. Die neben den Algorithmen gezeichneten Gitter dienen zur Verdeutlichung des gewählten Iterationsweges.
 
 \begin{Definition}
 Sei  $(i,j) \in [0, h-1]\times[0, w-1]$ und $0\leq k < c$.
 Dann bezeichnet  $\text{*}(i,j,k):=\text{*}_{i,j,k}$ den Wert von * an der Stelle $(i,j,k)$.
 \end{Definition}
-Die Wahl der Filter orientiert sich an \cite{png}:
+Die Wahl der Filter orientiert sich an \cite{png}.Dort sind die Definitionen für {\tt{none}}, {\tt{sub}}, {\tt{up}}, {\tt{average2}} und {\tt{paeth}} angegeben, die restlichen Filter stellen eine Verallgemeinerung von {\tt{average2}}  dar.
 \subsection{Verwendete Filter}
 \subsubsection{Filtertyp 0: {\tt{none}}}
-Hierbei wird keine Vorfilterung betrieben. Jedes Byte von {\tt{img}} verbleibt unverändert.
-
+Hierbei wird keine Vorfilterung betrieben. Jedes Byte von {\tt{img}} verbleibt unverändert:
+\begin{Algorithmus}
+\\
+\begin{tabular}{c|c}
+Verschlüsselung & Entschlüsselung
+\\
+\hline
+PROCEDURE ENCODE() & PROCEDURE DECODE()
+\\
+{\tt{pre}}={\tt{img}} &  {\tt{img}}={\tt{post}}
+\\
+END PROCEDURE & END PROCEDURE
+\end{tabular}
+\end{Algorithmus}
 \subsubsection{Filtertyp 1: {\tt{sub}}}
 \begin{minipage}[h]{.6\textwidth}
 Jedes Pixel von {\tt{img}} wird durch die Differenz zu seinem linken Nachbarn ersetzt. Für jeden Farbkanal wird die rechte Kante des Bildes gespeichert.
@@ -774,44 +781,42 @@ Jedes Pixel von {\tt{img}} wird durch die Differenz zu seinem linken Nachbarn er
 \end{tikzpicture}
 \end{flushright}
 \end{minipage}
-\par
-\vspace{1cm}
+
+\begin{Algorithmus}
+\\
 \begin{tabular}{c|c}
 Verschlüsselung & Entschlüsselung
 \\
 \hline
-PROCEDURE ENCODE({\tt{img}},{\tt{pre}},{\tt{res}}) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},{\tt{res}})
+{\tt{PROCEDURE ENCODE(img,pre,res)}} & {\tt{PROCEDURE DECODE(pre,post,res)}}
 \\
-new buffer; $x=1$; $y=0$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
+{\tt{new buffer; x=1; y=0; k=0;}} & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
 \\
-{\tt{pre}}.resize$((h-1)*(w-1)*c)$; & $x=w-1$; $y=h-1$; $k=c-1$;
+{\tt{pre.resize((h-1)*(w-1)*c)}}; & {\tt{x=w-1; y=h-1; k=c-1;}}
 \\
-WHILE$(k < c)$ &                  WHILE$(k > 0)$
+{\tt{WHILE(k < c)}} &    {\tt{WHILE(k > 0)}}
 \\
-WHILE$(y < h)$ &               $\text{buffer} = \text{{\tt{res}}}[k];$
+{\tt{WHILE(y < h)}} &    {\tt{buffer = res[k];}}
+\end{tabular}
+\begin{tabular}{c|c}
+Verschlüsselung & Entschlüsselung
 \\
+\hline
 WHILE$(x < w)$ &              WHILE$(y>0)$
 \\
-$\text{{\tt{pre}}}_{x,y,k}\footnotemark\leftarrow \text{{\tt{img}}}_{x,y,k} - \text{{\tt{img}}}_{x-1,y,k};$ &  $\text{{\tt{post}}}_{x,y,k}\leftarrow \text{buffer}[y]$
+$\text{PRE}_{x,y,k}\footnotemark\leftarrow \text{IMG}_{x,y,k} - \text{IMG}_{x-1,y,k};$ &  $\text{POST}_{x,y,k}\leftarrow \text{buffer}[y]$
 \\
 $x++$; & WHILE$(x>1)$
-\end{tabular}
-\footnotetext{Die Berechnung muß ohne Überlauf erfolgen.}
-
-\begin{center}
-\begin{tabular}{c|c}
-Verschlüsselung & Entschlüsselung
 \\
-\hline
-END WHILE &  $\text{{\tt{post}}}_{x-1,y,k}\footnotemark[4]\leftarrow \text{{\tt{post}}}_{x,y,k} - \text{{\tt{pre}}}_{x,y,k};$
+END WHILE &  $\text{POST}_{x-1,y,k}\footnotemark[4]\leftarrow \text{POST}_{x,y,k} - \text{PRE}_{x,y,k};$
 \\
-buffer.save$(\text{{\tt{img}}}_{w-1,y,k})$;\;$x=1$; & $x--;$
+buffer.save$(\text{IMG}_{w-1,y,k})$;\;$x=1$; & $x--;$
 \\
 $y++$; &  END WHILE; 
 \\
 END while & $y--;\;x=w-1;$ 
 \\
-{\tt{res}}$[k]$ = buffer;  & END WHILE 
+RES$[k]$ = buffer;  & END WHILE 
 \\
 $k++;$ $y=1;$ &  $k--;$ 
 \\
@@ -819,12 +824,11 @@ END WHILE  & END WHILE
 \\
 END PROCEDURE & END PROCEDURE
 \end{tabular}
-\end{center}
-
-
-\subsubsection{Filtertyp 2: {\tt{up}}}
+\footnotetext{Die Berechnung muß ohne Überlauf erfolgen.}
+\end{Algorithmus}
+\subsubsection{Filtertyp 2: UP}
 \begin{minipage}[h]{.6\textwidth}
-Jedes Pixel von {\tt{img}} wird durch die Differenz zu seinem oberen Nachbarn ersetzt. Für jeden Farbkanal wird die untere Kante des Bildes gespeichert.
+Jedes Pixel von IMG wird durch die Differenz zu seinem oberen Nachbarn ersetzt. Für jeden Farbkanal wird die untere Kante des Bildes gespeichert.
 \vspace{1.5cm}
 \end{minipage}
 \hfill
@@ -863,35 +867,38 @@ Jedes Pixel von {\tt{img}} wird durch die Differenz zu seinem oberen Nachbarn er
 \end{flushright}
 \end{minipage}
 
+
+\begin{Algorithmus}
+\\
 \begin{tabular}{c|c}
 Verschlüsselung & Entschlüsselung
 \\
 \hline
-PROCEDURE ENCODE({\tt{img}},{\tt{pre}},{\tt{res}}) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},{\tt{res}})
+PROCEDURE ENCODE(IMG,PRE,RES) & PROCEDURE DECODE(PRE,POST,RES)
 \\
-new buffer; $x=0$;$y=1$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
+new buffer; $x=0$;$y=1$; $k=0$; & POST.resize$((h-1)*(w-1)*c)$;
 \\
-{\tt{pre}}.resize$((h-1)*(w-1)*c)$; & $x=w-1$;$y=h-1$; $k=c-1$;
+PRE.resize$((h-1)*(w-1)*c)$; & $x=w-1$;$y=h-1$; $k=c-1$;
 \\
 WHILE$(k < c)$ &  WHILE$(k > 0)$
 \\
-WHILE$(x < w)$ &  $\text{buffer} = \text{{\tt{res}}}[k];$
+WHILE$(x < w)$ &  $\text{buffer} = \text{RES}[k];$
 \\
 WHILE$(y < h)$ &   WHILE$(x>0)$
 \\
-$\text{{\tt{pre}}}_{x,y,k}\footnotemark[4]\leftarrow \text{{\tt{img}}}_{x,y,k} - \text{{\tt{img}}}_{x,y-1,k};$ &  $\text{{\tt{post}}}_{x,y,k}\leftarrow \text{buffer}[x];$
+$\text{PRE}_{x,y,k}\footnotemark[4]\leftarrow \text{IMG}_{x,y,k} - \text{IMG}_{x,y-1,k};$ &  $\text{POST}_{x,y,k}\leftarrow \text{buffer}[x];$
 \\
 $y++$; & WHILE$(y>1)$
 \\
-END WHILE &  $\text{{\tt{post}}}_{x,y-1,k}\footnotemark[4]\leftarrow \text{{\tt{post}}}_{x,y,k} - \text{{\tt{pre}}}_{x,y,k};$
+END WHILE &  $\text{POST}_{x,y-1,k}\footnotemark[4]\leftarrow \text{POST}_{x,y,k} - \text{PRE}_{x,y,k};$
 \\
-buffer.save$(\text{{\tt{img}}}_{x,y,k})$;\;$y=1$; & $y--;$
+buffer.save$(\text{IMG}_{x,y,k})$;\;$y=1$; & $y--;$
 \\
 $x++$; & END WHILE 
 \\
 END WHILE &  $y=h-1;$ $x--;$
 \\
-{\tt{res}}$[k]$ = buffer;& END WHILE 
+RES$[k]$ = buffer;& END WHILE 
 \\
  $k++;$ $x=1;$ &  $k--;$ 
 \\
@@ -899,11 +906,12 @@ END WHILE  & END WHILE
 \\ 
 END PROCEDURE & END PROCEDURE
 \end{tabular}
+\end{Algorithmus}
 
-\subsubsection{Filtertyp 3: {\tt{average2}}}
+\subsubsection{Filtertyp 3: AVERAGE-2}
 
 \begin{minipage}[h]{.6\textwidth}
-Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem linken und oberen  Nachbarn ersetzt. Für jeden Farbkanal wird die rechte Kante des Bildes gespeichert.
+Jedes Pixel von IMG wird durch die Differenz zu dem Mittelwert aus seinem linken und oberen  Nachbarn ersetzt. Für jeden Farbkanal wird die rechte Kante des Bildes gespeichert.
 \vspace{1cm}
 \end{minipage}
 \hfill
@@ -946,33 +954,33 @@ Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem
 Verschlüsselung & Entschlüsselung
 \\
 \hline
-PROCEDURE ENCODE({\tt{img}},{\tt{pre}},{\tt{res}}) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},{\tt{res}})
+PROCEDURE ENCODE(IMG,PRE,RES) & PROCEDURE DECODE(PRE,POST,RES)
 \\
-new buffer; $x=0$; $y=0$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
+new buffer; $x=0$; $y=0$; $k=0$; & POST.resize$((h-1)*(w-1)*c)$;
 \\
-{\tt{pre}}.resize$((h-1)*(w-1)*c)$; & $x=w-1$;$y=0$; $k=c-1$;
+PRE.resize$((h-1)*(w-1)*c)$; & $x=w-1$;$y=0$; $k=c-1$;
 \\
 WHILE$(k < c)$ &                  WHILE$(k > 0)$
 \\
-WHILE$(y < h)$ &               $\text{buffer} = \text{{\tt{res}}}[k];$
+WHILE$(y < h)$ &               $\text{buffer} = \text{RES}[k];$
 \\
 WHILE$(x < w)$ &              WHILE$(y<h)$
 \\
-$\text{{\tt{pre}}}_{x,y,k}\footnotemark[4]\leftarrow \text{{\tt{img}}}_{x,y,k} - 1/2 *(\text{{\tt{img}}}_{x-1,y,k}$ &  $\text{{\tt{post}}}_{x,y,k}\leftarrow \text{buffer}[y]$
+$\text{PRE}_{x,y,k}\footnotemark[4]\leftarrow \text{IMG}_{x,y,k} - 1/2 *(\text{IMG}_{x-1,y,k}$ &  $\text{POST}_{x,y,k}\leftarrow \text{buffer}[y]$
 \\
-$+\;\text{{\tt{img}}}_{x,y-1,k});$  & WHILE$(x>=1)$
+$+\;\text{IMG}_{x,y-1,k});$  & WHILE$(x>=1)$
 \\
-$x++;$ &  $\text{{\tt{post}}}_{x-1,y,k}\footnotemark[4]\leftarrow \text{{\tt{post}}}_{x,y,k} - 1/2* (\text{{\tt{post}}}_{x,y-1,k}$  
+$x++;$ &  $\text{POST}_{x-1,y,k}\footnotemark[4]\leftarrow \text{POST}_{x,y,k} - 1/2* (\text{POST}_{x,y-1,k}$  
 \\
-END WHILE  & $+\;\text{{\tt{pre}}}_{x,y,k});$
+END WHILE  & $+\;\text{PRE}_{x,y,k});$
 \\
-buffer.save$(\text{{\tt{img}}}_{x,y,k});$  & $x--;$
+buffer.save$(\text{IMG}_{x,y,k});$  & $x--;$
 \\
 $x=0$; $y++$;  &   END WHILE; 
 \\
 END WHILE   & $y++;$ 
 \\
-{\tt{res}}$[k]$ = buffer;  & $x=w-1;$ 
+RES$[k]$ = buffer;  & $x=w-1;$ 
 \\
 $k++;$   &  END WHILE   
 \\
@@ -986,7 +994,7 @@ END PROCEDURE & END PROCEDURE
 
 \subsubsection{Filtertyp 4: AVERAGE-3}
 \begin{minipage}[h]{.6\textwidth}
-Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem linken,oberen und rechten  Nachbarn ersetzt. Für jeden Farbkanal wird die rechte Kante des Bildes gespeichert.
+Jedes Pixel von IMG wird durch die Differenz zu dem Mittelwert aus seinem linken,oberen und rechten  Nachbarn ersetzt. Für jeden Farbkanal wird die rechte Kante des Bildes gespeichert.
 \vspace{1cm}
 \end{minipage}
 \hfill
@@ -1029,11 +1037,11 @@ Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem
 Verschlüsselung & Entschlüsselung
 \\
 \hline
-PROCEDURE ENCODE({\tt{img}},{\tt{pre}},{\tt{res}}) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},{\tt{res}})
+PROCEDURE ENCODE(IMG,PRE,RES) & PROCEDURE DECODE(PRE,POST,RES)
 \\
-new buffer; $x=0$; $y=0$; $k=0$ & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
+new buffer; $x=0$; $y=0$; $k=0$ & POST.resize$((h-1)*(w-1)*c)$;
 \\
-{\tt{pre}}.resize$((h-1)*(w-1)*c)$; & $x=w-1$;$y=0$; $k=c-1$
+PRE.resize$((h-1)*(w-1)*c)$; & $x=w-1$;$y=0$; $k=c-1$
 \end{tabular}
 \begin{tabular}{c|c}
 Verschlüsselung & Entschlüsselung
@@ -1041,25 +1049,25 @@ Verschlüsselung & Entschlüsselung
 \hline
 WHILE$(k < c)$ &                  WHILE$(k > 0)$
 \\
-WHILE$(y < h)$ &               $\text{buffer} = \text{{\tt{res}}}[k];$
+WHILE$(y < h)$ &               $\text{buffer} = \text{RES}[k];$
 \\
 WHILE$(x < w)$ &              WHILE$(y<h)$
 \\
-$\text{{\tt{pre}}}_{x,y,k}\footnotemark[4]\leftarrow \text{{\tt{img}}}_{x,y,k} - 1/3 *(\text{{\tt{img}}}_{x-1,y,k}$ &  $\text{{\tt{post}}}_{x,y,k}\leftarrow \text{buffer}[y];$
+$\text{PRE}_{x,y,k}\footnotemark[4]\leftarrow \text{IMG}_{x,y,k} - 1/3 *(\text{IMG}_{x-1,y,k}$ &  $\text{POST}_{x,y,k}\leftarrow \text{buffer}[y];$
 \\
-$+\;\text{{\tt{img}}}_{x,y-1,k} + \text{{\tt{img}}}_{x+1,y,k});$  & WHILE$(x>1)$
+$+\;\text{IMG}_{x,y-1,k} + \text{IMG}_{x+1,y,k});$  & WHILE$(x>1)$
 \\
-$x++;$ &  $\text{{\tt{post}}}_{x-1,y,k}\footnotemark[4]\leftarrow \text{{\tt{post}}}_{x,y,k} - 1/3 *(\text{{\tt{post}}}_{x,y-1,k} $    
+$x++;$ &  $\text{POST}_{x-1,y,k}\footnotemark[4]\leftarrow \text{POST}_{x,y,k} - 1/3 *(\text{POST}_{x,y-1,k} $    
 \\
-END WHILE  & $+\;\text{{\tt{post}}}_{x+1,y,k} + \text{{\tt{pre}}}_{x,y,k});$
+END WHILE  & $+\;\text{POST}_{x+1,y,k} + \text{PRE}_{x,y,k});$
 \\
-buffer.save$(\text{{\tt{img}}}_{x,y,k});$  & $x--;$
+buffer.save$(\text{IMG}_{x,y,k});$  & $x--;$
 \\
 $x=0$; $y++$;  &   END WHILE; 
 \\
 END WHILE   & $y++;\;x=w-1;$ 
 \\
-{\tt{res}}$[k]$ = buffer;  &  END WHILE 
+RES$[k]$ = buffer;  &  END WHILE 
 \\
 $k++;$ $y=0;$   &   $k--;$ 
 \\
@@ -1070,7 +1078,7 @@ END PROCEDURE & END PROCEDURE
 \end{Algorithmus}
 \subsubsection{Filtertyp 5: AVERAGE-4}
 \begin{minipage}[h]{.6\textwidth}
-Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem linken, oberen, rechten und unteren Nachbarn ersetzt. Für jeden Farbkanal wird die untere Kante des Bildes gespeichert.
+Jedes Pixel von IMG wird durch die Differenz zu dem Mittelwert aus seinem linken, oberen, rechten und unteren Nachbarn ersetzt. Für jeden Farbkanal wird die untere Kante des Bildes gespeichert.
 \vspace{1cm}
 \end{minipage}
 \hfill
@@ -1115,35 +1123,35 @@ Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem
 Verschlüsselung & Entschlüsselung
 \\
 \hline
-PROCEDURE ENCODE({\tt{img}},{\tt{pre}},{\tt{res}}) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},{\tt{res}})
+PROCEDURE ENCODE(IMG,PRE,RES) & PROCEDURE DECODE(PRE,POST,RES)
 \\
-new buffer; $x=0$; $y=0$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
+new buffer; $x=0$; $y=0$; $k=0$; & POST.resize$((h-1)*(w-1)*c)$;
 \\
-{\tt{pre}}.resize$((h-1)*(w-1)*c)$; & $x=0$; $y=h-1$; $k=c-1$;
+PRE.resize$((h-1)*(w-1)*c)$; & $x=0$; $y=h-1$; $k=c-1$;
 \\
 WHILE$(k < c)$ &                  WHILE$(k > 0)$
 \\
-WHILE$(x < w)$ &               $\text{buffer} = \text{{\tt{res}}}[k];$
+WHILE$(x < w)$ &               $\text{buffer} = \text{RES}[k];$
 \\
 WHILE$(y < h)$ &            write(buffer);
 \\
-$\text{{\tt{pre}}}_{x,y,k}\footnotemark[4]\leftarrow \text{{\tt{img}}}_{x,y,k} - 1/4 *(\text{{\tt{img}}}_{x-1,y,k}$ & WHILE$(y > 0)$ 
+$\text{PRE}_{x,y,k}\footnotemark[4]\leftarrow \text{IMG}_{x,y,k} - 1/4 *(\text{IMG}_{x-1,y,k}$ & WHILE$(y > 0)$ 
 \\
-$+\;\text{{\tt{img}}}_{x,y-1,k} + \text{{\tt{img}}}_{x+1,y,k}$  &  WHILE$(x<w)$
+$+\;\text{IMG}_{x,y-1,k} + \text{IMG}_{x+1,y,k}$  &  WHILE$(x<w)$
 \\
-$+\;\text{{\tt{img}}}_{x,y+1,k});$ & $\text{{\tt{post}}}_{x,y-1,k}\footnotemark[4]\leftarrow \text{{\tt{post}}}_{x,y,k} - 1/4 *(\text{{\tt{post}}}_{x-1,y,k} $ 
+$+\;\text{IMG}_{x,y+1,k});$ & $\text{POST}_{x,y-1,k}\footnotemark[4]\leftarrow \text{POST}_{x,y,k} - 1/4 *(\text{POST}_{x-1,y,k} $ 
 \\
-$y++;$ &   $+\;\text{{\tt{post}}}_{x+1,y,k}  + \text{{\tt{post}}}_{x,y+1,k}$  
+$y++;$ &   $+\;\text{POST}_{x+1,y,k}  + \text{POST}_{x,y+1,k}$  
 \\
-END WHILE  & $+\;\text{{\tt{pre}}}_{x,y,k});$
+END WHILE  & $+\;\text{PRE}_{x,y,k});$
 \\
-buffer.save$(\text{{\tt{img}}}_{x,y,k});$  & $x++;$
+buffer.save$(\text{IMG}_{x,y,k});$  & $x++;$
 \\
 $y=0$; $x++$;  &   END WHILE; 
 \\
 END WHILE   & $y--;\;x=0;$ 
 \\
-{\tt{res}}$[k]$ = buffer;  &  END WHILE 
+RES$[k]$ = buffer;  &  END WHILE 
 \\
 $k++;$ $x=0;$   &   $k--;$ $y=h-1$;
 \\
@@ -1160,7 +1168,7 @@ END PROCEDURE & END PROCEDURE
 
 \subsubsection{Filtertyp 6: AVERAGE-5}
 \begin{minipage}[h]{.6\textwidth}
-Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem linken,links oberen, oberen, rechten und unteren Nachbarn ersetzt. Für jeden Farbkanal wird die untere Kante des Bildes gespeichert.
+Jedes Pixel von IMG wird durch die Differenz zu dem Mittelwert aus seinem linken,links oberen, oberen, rechten und unteren Nachbarn ersetzt. Für jeden Farbkanal wird die untere Kante des Bildes gespeichert.
 \vspace{0.5cm}
 \end{minipage}
 \hfill
@@ -1205,35 +1213,35 @@ Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem
 Verschlüsselung & Entschlüsselung
 \\
 \hline
-PROCEDURE ENCODE({\tt{img}},{\tt{pre}},{\tt{res}}) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},{\tt{res}})
+PROCEDURE ENCODE(IMG,PRE,RES) & PROCEDURE DECODE(PRE,POST,RES)
 \\
-new buffer; $x=0$; $y=0$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
+new buffer; $x=0$; $y=0$; $k=0$; & POST.resize$((h-1)*(w-1)*c)$;
 \\
-{\tt{pre}}.resize$((h-1)*(w-1)*c)$; & $x=0$; $y=h-1$; $k=c-1$;
+PRE.resize$((h-1)*(w-1)*c)$; & $x=0$; $y=h-1$; $k=c-1$;
 \\
 WHILE$(k < c)$ &                  WHILE$(k > 0)$
 \\
-WHILE$(x < w)$ &               $\text{buffer} = \text{{\tt{res}}}[k];$
+WHILE$(x < w)$ &               $\text{buffer} = \text{RES}[k];$
 \\
 WHILE$(y < h)$ &            write(buffer);
 \\
-$\text{{\tt{pre}}}_{x,y,k}\footnotemark[4]\leftarrow \text{{\tt{img}}}_{x,y,k} - 1/5 *(\text{{\tt{img}}}_{x-1,y,k}$ & WHILE$(y > 0)$ 
+$\text{PRE}_{x,y,k}\footnotemark[4]\leftarrow \text{IMG}_{x,y,k} - 1/5 *(\text{IMG}_{x-1,y,k}$ & WHILE$(y > 0)$ 
 \\
-$+\;\text{{\tt{img}}}_{x-1,y-1,k} + \text{{\tt{img}}}_{x,y-1,k}$  &  WHILE$(x<w)$
+$+\;\text{IMG}_{x-1,y-1,k} + \text{IMG}_{x,y-1,k}$  &  WHILE$(x<w)$
 \\
-$+\;\text{{\tt{img}}}_{x+1,y,k} + \text{{\tt{img}}}_{x,y+1,k});$ & $\text{{\tt{post}}}_{x,y-1,k}\footnotemark[4]\leftarrow \text{{\tt{post}}}_{x,y,k} - 1/5 *(\text{{\tt{post}}}_{x-1,y,k} $ 
+$+\;\text{IMG}_{x+1,y,k} + \text{IMG}_{x,y+1,k});$ & $\text{POST}_{x,y-1,k}\footnotemark[4]\leftarrow \text{POST}_{x,y,k} - 1/5 *(\text{POST}_{x-1,y,k} $ 
 \\
-$y++;$ &   $+\;\text{{\tt{post}}}_{x-1,y-1,k} + \text{{\tt{post}}}_{x+1,y,k}$  
+$y++;$ &   $+\;\text{POST}_{x-1,y-1,k} + \text{POST}_{x+1,y,k}$  
 \\
-END WHILE  & $+\;\text{{\tt{post}}}_{x,y+1,k} + \text{{\tt{pre}}}_{x,y,k});$
+END WHILE  & $+\;\text{POST}_{x,y+1,k} + \text{PRE}_{x,y,k});$
 \\
-buffer.save$(\text{{\tt{img}}}_{x,y,k});$  & $x++;$
+buffer.save$(\text{IMG}_{x,y,k});$  & $x++;$
 \\
 $y=0$; $x++$;  &   END WHILE; 
 \\
 END WHILE   & $y--;\;x=0;$ 
 \\
-{\tt{res}}$[k]$ = buffer;  &  END WHILE 
+RES$[k]$ = buffer;  &  END WHILE 
 \\
 $k++;$ $x=0;$   &   $k--;$ $y=h-1$;
 \\
@@ -1245,7 +1253,7 @@ END PROCEDURE & END PROCEDURE
 
 \subsubsection{Filtertyp 7: AVERAGE-6}
 \begin{minipage}[h]{.6\textwidth}
-Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem linken, links oberen, oberen, rechts oberen, rechten und unteren Nachbarn ersetzt. Für jeden Farbkanal wird die linke und die untere Kante des Bildes gespeichert.
+Jedes Pixel von IMG wird durch die Differenz zu dem Mittelwert aus seinem linken, links oberen, oberen, rechts oberen, rechten und unteren Nachbarn ersetzt. Für jeden Farbkanal wird die linke und die untere Kante des Bildes gespeichert.
 \vspace{0.5cm}
 \end{minipage}
 \hfill
@@ -1297,19 +1305,19 @@ Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem
 Verschlüsselung & Entschlüsselung
 \\
 \hline
-PROCEDURE ENCODE({\tt{img}},{\tt{pre}},{\tt{res}}) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},{\tt{res}})
+PROCEDURE ENCODE(IMG,PRE,RES) & PROCEDURE DECODE(PRE,POST,RES)
 \end{tabular}
 \begin{tabular}{c|c}
 Verschlüsselung & Entschlüsselung
 \\
 \hline
-new buffer; $x=0$; $y=0$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
+new buffer; $x=0$; $y=0$; $k=0$; & POST.resize$((h-1)*(w-1)*c)$;
 \\
-{\tt{pre}}.resize$((h-1)*(w-1)*c)$; & $x=0$; $y=h-1$; $k=c-1$;
+PRE.resize$((h-1)*(w-1)*c)$; & $x=0$; $y=h-1$; $k=c-1$;
 \\
 WHILE$(k < c)$ &                  WHILE$(k > 0)$
 \\
-{\tt{res}}$[k]$ = Process(buffer); &  $\text{buffer} = \text{{\tt{res}}}[k];$
+RES$[k]$ = Process(buffer); &  $\text{buffer} = \text{RES}[k];$
 \\
 buffer.clear(); & write(buffer); 
 \\
@@ -1317,13 +1325,13 @@ WHILE$(x < w)$ &   WHILE$(y > 0)$
 \\
 WHILE$(y < h)$ &   WHILE$(x<w)$     
 \\
-$\text{{\tt{pre}}}_{x,y,k}\footnotemark[4]\leftarrow \text{{\tt{img}}}_{x,y,k} - 1/6 *(\text{{\tt{img}}}_{x-1,y,k}$ &  $\text{{\tt{post}}}_{x+1,y-1,k}\footnotemark[4]\leftarrow \text{{\tt{post}}}_{x,y,k} - 1/6 *(\text{{\tt{post}}}_{x-1,y,k} $ 
+$\text{PRE}_{x,y,k}\footnotemark[4]\leftarrow \text{IMG}_{x,y,k} - 1/6 *(\text{IMG}_{x-1,y,k}$ &  $\text{POST}_{x+1,y-1,k}\footnotemark[4]\leftarrow \text{POST}_{x,y,k} - 1/6 *(\text{POST}_{x-1,y,k} $ 
 \\
-$+\;\text{{\tt{img}}}_{x-1,y-1,k} + \text{{\tt{img}}}_{x,y-1,k}$ & $+\;\text{{\tt{post}}}_{x-1,y-1,k} + \text{{\tt{post}}}_{x,y-1,k}$  
+$+\;\text{IMG}_{x-1,y-1,k} + \text{IMG}_{x,y-1,k}$ & $+\;\text{POST}_{x-1,y-1,k} + \text{POST}_{x,y-1,k}$  
 \\
-$+\;\text{{\tt{img}}}_{x+1,y-1,k} + \text{{\tt{img}}}_{x+1,y,k};$ & $+\;\text{{\tt{post}}}_{x+1,y,k} + \text{{\tt{post}}}_{x,y+1,k}  $
+$+\;\text{IMG}_{x+1,y-1,k} + \text{IMG}_{x+1,y,k};$ & $+\;\text{POST}_{x+1,y,k} + \text{POST}_{x,y+1,k}  $
 \\
- $+\;\text{{\tt{img}}}_{x,y+1,k});$    &   $+\; \text{{\tt{pre}}}_{x,y,k});$
+ $+\;\text{IMG}_{x,y+1,k});$    &   $+\; \text{PRE}_{x,y,k});$
 \\
  $y++;$  & $x++;$
 \\
@@ -1343,7 +1351,7 @@ END PROCEDURE & END PROCEDURE
 
 \subsubsection{Filtertyp 8: AVERAGE-7}
 \begin{minipage}[h]{.6\textwidth}
-Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem linken, links oberen, oberen, rechts oberen, rechten, rechts unteren und unteren Nachbarn ersetzt. Für jeden Farbkanal wird die linke und die untere Kante des Bildes gespeichert.
+Jedes Pixel von IMG wird durch die Differenz zu dem Mittelwert aus seinem linken, links oberen, oberen, rechts oberen, rechten, rechts unteren und unteren Nachbarn ersetzt. Für jeden Farbkanal wird die linke und die untere Kante des Bildes gespeichert.
 \vspace{0.5cm}
 \end{minipage}
 \hfill
@@ -1395,15 +1403,15 @@ Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem
 Verschlüsselung & Entschlüsselung
 \\
 \hline
-PROCEDURE ENCODE({\tt{img}},{\tt{pre}},{\tt{res}}) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},{\tt{res}})
+PROCEDURE ENCODE(IMG,PRE,RES) & PROCEDURE DECODE(PRE,POST,RES)
 \\
-new buffer; $x=0$; $y=0$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
+new buffer; $x=0$; $y=0$; $k=0$; & POST.resize$((h-1)*(w-1)*c)$;
 \\
-{\tt{pre}}.resize$((h-1)*(w-1)*c)$; & $x=0$; $y=h-1$; $k=c-1$;
+PRE.resize$((h-1)*(w-1)*c)$; & $x=0$; $y=h-1$; $k=c-1$;
 \\
 WHILE$(k < c)$ &                  WHILE$(k > 0)$
 \\
-{\tt{res}}$[k]$ = Process(buffer);  &  $\text{buffer} = \text{{\tt{res}}}[k];$
+RES$[k]$ = Process(buffer);  &  $\text{buffer} = \text{RES}[k];$
 \\
 buffer.clear(); & write(buffer);
 \\
@@ -1411,13 +1419,13 @@ WHILE$(x < w)$ &   WHILE$(y > 0)$
 \\
 WHILE$(y < h)$ &   WHILE$(x<w)$     
 \\
-$\text{{\tt{pre}}}_{x,y,k}\footnotemark[4]\leftarrow \text{{\tt{img}}}_{x,y,k} - 1/7 *(\text{{\tt{img}}}_{x-1,y,k}$ &  $\text{{\tt{post}}}_{x+1,y-1,k}\footnotemark[4]\leftarrow \text{{\tt{post}}}_{x,y,k} - 1/7 *(\text{{\tt{post}}}_{x-1,y,k} $ 
+$\text{PRE}_{x,y,k}\footnotemark[4]\leftarrow \text{IMG}_{x,y,k} - 1/7 *(\text{IMG}_{x-1,y,k}$ &  $\text{POST}_{x+1,y-1,k}\footnotemark[4]\leftarrow \text{POST}_{x,y,k} - 1/7 *(\text{POST}_{x-1,y,k} $ 
 \\
-$+\;\text{{\tt{img}}}_{x-1,y-1,k} + \text{{\tt{img}}}_{x,y-1,k}$ & $+\;\text{{\tt{post}}}_{x-1,y-1,k} + \text{{\tt{post}}}_{x,y-1,k}$  
+$+\;\text{IMG}_{x-1,y-1,k} + \text{IMG}_{x,y-1,k}$ & $+\;\text{POST}_{x-1,y-1,k} + \text{POST}_{x,y-1,k}$  
 \\
-$+\;\text{{\tt{img}}}_{x+1,y-1,k} + \text{{\tt{img}}}_{x+1,y,k}$ & $+\;\text{{\tt{post}}}_{x+1,y,k} + \text{{\tt{post}}}_{x+1,y+1,k}  $
+$+\;\text{IMG}_{x+1,y-1,k} + \text{IMG}_{x+1,y,k}$ & $+\;\text{POST}_{x+1,y,k} + \text{POST}_{x+1,y+1,k}  $
 \\
- $+\;\text{{\tt{img}}}_{x+1,y+1,k} +\;\text{{\tt{img}}}_{x,y+1,k});$    &   $+\;\text{{\tt{post}}}_{x,y+1,k} + \text{{\tt{pre}}}_{x,y,k});$
+ $+\;\text{IMG}_{x+1,y+1,k} +\;\text{IMG}_{x,y+1,k});$    &   $+\;\text{POST}_{x,y+1,k} + \text{PRE}_{x,y,k});$
 \\
  $y++;$  & $x++;$
 \end{tabular}
@@ -1441,7 +1449,7 @@ END PROCEDURE & END PROCEDURE
 
 \subsubsection{Filtertyp 9: AVERAGE-8}
 \begin{minipage}[h]{.6\textwidth}
-Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem linken, links oberen, oberen, rechts oberen, rechten, rechts unteren, unteren und links unteren Nachbarn ersetzt. Für jeden Farbkanal wird die linke und die untere Kante des Bildes gespeichert.
+Jedes Pixel von IMG wird durch die Differenz zu dem Mittelwert aus seinem linken, links oberen, oberen, rechts oberen, rechten, rechts unteren, unteren und links unteren Nachbarn ersetzt. Für jeden Farbkanal wird die linke und die untere Kante des Bildes gespeichert.
 \vspace{0.5cm}
 \end{minipage}
 \hfill
@@ -1493,15 +1501,15 @@ Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem
 Verschlüsselung & Entschlüsselung
 \\
 \hline
-PROCEDURE ENCODE({\tt{img}},{\tt{pre}},{\tt{res}}) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},{\tt{res}})
+PROCEDURE ENCODE(IMG,PRE,RES) & PROCEDURE DECODE(PRE,POST,RES)
 \\
-new buffer; $x=0$; $y=0$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
+new buffer; $x=0$; $y=0$; $k=0$; & POST.resize$((h-1)*(w-1)*c)$;
 \\
-{\tt{pre}}.resize$((h-1)*(w-1)*c)$; & $x=0$; $y=h-1$; $k=c-1$;
+PRE.resize$((h-1)*(w-1)*c)$; & $x=0$; $y=h-1$; $k=c-1$;
 \\
 WHILE$(k < c)$ &                  WHILE$(k > 0)$
 \\
-{\tt{res}}$[k]$ = Process(buffer); &  $\text{buffer} = \text{{\tt{res}}}[k];$
+RES$[k]$ = Process(buffer); &  $\text{buffer} = \text{RES}[k];$
 \\
 buffer.clear(); & write(buffer);
 \\
@@ -1509,15 +1517,15 @@ WHILE$(x < w)$ &   WHILE$(y > 0)$
 \\
 WHILE$(y < h)$ &   WHILE$(x<w)$     
 \\
-$\text{{\tt{pre}}}_{x,y,k}\footnotemark[4]\leftarrow \text{{\tt{img}}}_{x,y,k} - 1/8 *(\text{{\tt{img}}}_{x-1,y,k}$ &  $\text{{\tt{post}}}_{x+1,y-1,k}\footnotemark[4]\leftarrow \text{{\tt{post}}}_{x,y,k} - 1/8 *(\text{{\tt{post}}}_{x-1,y,k} $ 
+$\text{PRE}_{x,y,k}\footnotemark[4]\leftarrow \text{IMG}_{x,y,k} - 1/8 *(\text{IMG}_{x-1,y,k}$ &  $\text{POST}_{x+1,y-1,k}\footnotemark[4]\leftarrow \text{POST}_{x,y,k} - 1/8 *(\text{POST}_{x-1,y,k} $ 
 \\
-$+\;\text{{\tt{img}}}_{x-1,y-1,k} + \text{{\tt{img}}}_{x,y-1,k}$ & $+\;\text{{\tt{post}}}_{x-1,y-1,k} + \text{{\tt{post}}}_{x,y-1,k}$  
+$+\;\text{IMG}_{x-1,y-1,k} + \text{IMG}_{x,y-1,k}$ & $+\;\text{POST}_{x-1,y-1,k} + \text{POST}_{x,y-1,k}$  
 \\
-$+\;\text{{\tt{img}}}_{x+1,y-1,k} + \text{{\tt{img}}}_{x+1,y,k}$ & $+\;\text{{\tt{post}}}_{x+1,y,k} + \text{{\tt{post}}}_{x+1,y+1,k}  $
+$+\;\text{IMG}_{x+1,y-1,k} + \text{IMG}_{x+1,y,k}$ & $+\;\text{POST}_{x+1,y,k} + \text{POST}_{x+1,y+1,k}  $
 \\
- $+\;\text{{\tt{img}}}_{x+1,y+1,k} +\;\text{{\tt{img}}}_{x,y+1,k}$    &   $+\;\text{{\tt{post}}}_{x,y+1,k} + \text{{\tt{post}}}_{x-1,y+1,k} $
+ $+\;\text{IMG}_{x+1,y+1,k} +\;\text{IMG}_{x,y+1,k}$    &   $+\;\text{POST}_{x,y+1,k} + \text{POST}_{x-1,y+1,k} $
 \\
-$+\;\text{{\tt{img}}}_{x-1,y+1,k});$ & $+\;\text{{\tt{pre}}}_{x,y,k});$   
+$+\;\text{IMG}_{x-1,y+1,k});$ & $+\;\text{PRE}_{x,y,k});$   
 \\
 $y++;$ & $x++;$
 \\
@@ -1538,7 +1546,7 @@ END PROCEDURE & END PROCEDURE
 
 \subsubsection{Filtertyp 10: PAETH}
 \begin{minipage}[h]{.6\textwidth}
-Jedes Pixel von {\tt{img}} wird seinen Paeth-Prädiktor ersetzt. Für jeden Farbkanal wird die linke Kante des Bildes gespeichert.
+Jedes Pixel von IMG wird seinen Paeth-Prädiktor ersetzt. Für jeden Farbkanal wird die linke Kante des Bildes gespeichert.
 \vspace{0.5cm}
 \end{minipage}
 \hfill
@@ -1581,23 +1589,23 @@ Jedes Pixel von {\tt{img}} wird seinen Paeth-Prädiktor ersetzt. Für jeden Farb
 Verschlüsselung & Entschlüsselung
 \\
 \hline
-PROCEDURE ENCODE({\tt{img}},{\tt{pre}},{\tt{res}}) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},{\tt{res}})
+PROCEDURE ENCODE(IMG,PRE,RES) & PROCEDURE DECODE(PRE,POST,RES)
 \\
-new buffer; $x=0$; $y=0$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
+new buffer; $x=0$; $y=0$; $k=0$; & POST.resize$((h-1)*(w-1)*c)$;
 \\
-{\tt{pre}}.resize$((h-1)*(w-1)*c)$; & $x=1$; $y=0$; $k=c-1$;
+PRE.resize$((h-1)*(w-1)*c)$; & $x=1$; $y=0$; $k=c-1$;
 \\
 WHILE$(k < c)$ &                  WHILE$(k > 0)$
 \\
-WHILE$(y < h)$ &               $\text{buffer} = \text{{\tt{res}}}[k];$
+WHILE$(y < h)$ &               $\text{buffer} = \text{RES}[k];$
 \\
-buffer.save$(\text{{\tt{img}}}_{0,y,k})$; &  WHILE$(y < h)$
+buffer.save$(\text{IMG}_{0,y,k})$; &  WHILE$(y < h)$
 \\
-WHILE$(x < w)$ &  $\text{{\tt{post}}}_{x-1,y,k}\leftarrow \text{buffer}[y]$        
+WHILE$(x < w)$ &  $\text{POST}_{x-1,y,k}\leftarrow \text{buffer}[y]$        
 \\
-$\text{{\tt{pre}}}_{x,y,k}\footnotemark[4]\leftarrow \text{PAETH}(\text{{\tt{img}}}_{x,y,k})$ & WHILE$(x>1)$
+$\text{PRE}_{x,y,k}\footnotemark[4]\leftarrow \text{PAETH}(\text{IMG}_{x,y,k})$ & WHILE$(x>1)$
 \\
-$x++$; &  $\text{{\tt{post}}}_{x,y,k}\footnotemark[4]\leftarrow \text{PAETH}(\text{{\tt{post}}}_{x,y,k}) + \text{{\tt{pre}}}_{x,y,k};$
+$x++$; &  $\text{POST}_{x,y,k}\footnotemark[4]\leftarrow \text{PAETH}(\text{POST}_{x,y,k}) + \text{PRE}_{x,y,k};$
 \\
 END WHILE & $x++;$
 \\
@@ -1605,7 +1613,7 @@ $x=0$; $y++$; & END WHILE
 \\
  END while &  $y++;\;x=1;$
 \\
- {\tt{res}}$[k]$ = buffer; &  END WHILE 
+ RES$[k]$ = buffer; &  END WHILE 
 \\
 $k++;$ $y=0;$  & $k--;$
 \\
@@ -1614,16 +1622,16 @@ END WHILE & END WHILE
 END PROCEDURE  &  END PROCEDURE
 \end{tabular}
 \end{Algorithmus}
-Hierbei ermittelt der PAETH-{\tt{pre}}diktor folgenden Wert
+Hierbei ermittelt der PAETH-Prediktor folgenden Wert
 \begin{Algorithmus}
 \begin{align*}
-\text{PAETH}(\text{{\tt{img}}}_{x,y,k})&:= \text{{\tt{img}}}_{x-1,y,k}  + \text{{\tt{img}}}_{x,y-1,k} - \text{{\tt{img}}}_{x-1,y-1,k};
+\text{PAETH}(\text{IMG}_{x,y,k})&:= \text{IMG}_{x-1,y,k}  + \text{IMG}_{x,y-1,k} - \text{IMG}_{x-1,y-1,k};
 \\
-\text{left}&:=\left|\text{{\tt{img}}}_{x-1,y,k} - \text{PAETH}(\text{{\tt{img}}}_{x,y,k})\right|; 
+\text{left}&:=\left|\text{IMG}_{x-1,y,k} - \text{PAETH}(\text{IMG}_{x,y,k})\right|; 
 \\
-\text{up}&:=\left|\text{{\tt{img}}}_{x,y-1,k} - \text{PAETH}(\text{{\tt{img}}}_{x,y,k})\right|;
+\text{up}&:=\left|\text{IMG}_{x,y-1,k} - \text{PAETH}(\text{IMG}_{x,y,k})\right|;
 \\
-\text{leftUp}&:=\left|\text{{\tt{img}}}_{x-1,y-1,k} - \text{PAETH}(\text{{\tt{img}}}_{x,y,k})\right|;
+\text{leftUp}&:=\left|\text{IMG}_{x-1,y-1,k} - \text{PAETH}(\text{IMG}_{x,y,k})\right|;
 \\
 \text{IF}(\text{left}& \leq \text{up} \;\&\&\;  \text{left} \leq \text{leftUp})
 \\
@@ -1637,7 +1645,7 @@ Hierbei ermittelt der PAETH-{\tt{pre}}diktor folgenden Wert
 \end{align*}
 \end{Algorithmus}
 \subsection{Fazit zur Wahl der Filter}
-Sämtliche Filtertypen lassen sich für jeden Farbkanal parallel verarbeiten, zusätzlich lässt sich der Filtertyp \textbf{Sub} für jede Reihe und der Filtertyp \textbf{Up} für jede Spalte parallelisieren. Eine Tabelle die den Einfluss der Filterung auf die Entropie wiedergibt, findet sich in den Ergebnissen.
+Sämtliche Filtertypen lassen sich für jeden Farbkanal parallel verarbeiten, zusätzlich lässt sich der Filtertyp \textbf{Sub} für jede Reihe und der Filtertyp \textbf{Up} für jede Spalte parallelisieren. Die Implementierung der Filter findet sich in der Klasse Preconditioner.  Eine Tabelle die den Einfluss der Filterung auf die Entropie wiedergibt, findet sich in den Ergebnissen.
 \newpage
 \section{Asymmetrische Zahlensysteme}\label{ANS}
 \subsection{Einführung}
@@ -2227,7 +2235,7 @@ Sei z.B. $b=4$ und $L=16$ und $\alpha$ ein Symbol mit der relativen Häufigkeit 
 \par
 Zusammenfassend ist das ANS-Verfahren damit besser geeignet. 
 \par
-Im Falle der Terminierung liefert das uANS-Verfahren  aber die bessere Kom{\tt{pre}}ssionsrate:
+Im Falle der Terminierung liefert das uANS-Verfahren  aber die bessere Kompressionsrate:
 \begin{Beispiel}
 Man betrachte die Komprimierung des Wortes $\mathcal{T}$:="`MISSISSIPPI"'  für $b=2$, $L=16$, $M=8$ durch beide Verfahren:
 \par
@@ -2252,7 +2260,7 @@ Der Huffmann-Algorithmus kodiert jedes Symbol einzeln, während der erweiterte H
 
 \newpage
 \section{Vektorisierung}
-In diesem Abschnitt werden die beiden in Kapitel ~\ref{ANS} besprochenen Verfahren auf Bilddateien angewendet. 
+In diesem Abschnitt werden die beiden in Kapitel ~\ref{ANS} besprochenen Verfahren auf Bilddateien\footnote{Selbstverständlich lassen sich diese Verfahren auch auf durch Filter vorkomprimierte Dateien anwenden(siehe Kapitel ~\ref{Filter}).} anwenden. 
 Hierbei besteht das Quellalphabet $\A$ aus den Zahlen $0,1,\ldots,255$, also $\left|\A\right| = 256$. Die Ermittlung der Häufigkeiten $F_{s}\;s\in\A$ durch Iteration über sämtliche RGBA-Werte kann parallelisiert erfolgen. Als Container erweist sich hierfür ein std::vector als zweckmäßig. Die Ermittlung der Häufigkeiten erfolgt kann parallel erfolgen.\footnote{Die Implementierung hierfür erfolgt in der Klasse Histogram.}
 \subsection{Normalisierung}
 Um das Verfahren uANS anwenden zu können, müssen die auftretenden Häufigkeiten zunächst normalisiert werden, die Kompression mit ANS kann mit einer optionalen Normalisierung kombiniert werden.
@@ -2262,19 +2270,19 @@ Um das Verfahren uANS anwenden zu können, müssen die auftretenden Häufigkeite
 \begin{Algorithmus}\label{powOf2}
 \\
 \begin{tabular}{l}
-FUNCTION NEXTPOWEROF2({\tt{res}}) 
+FUNCTION NEXTPOWEROF2(RES) 
 \\
 $UP=2$; $BELOW=1$; 
 \\
-WHILE$({\tt{res}} > 1)$ 
+WHILE$(RES > 1)$ 
 \\
-${\tt{res}} >>= 1;$ $UP <<= 1;$
+$RES >>= 1;$ $UP <<= 1;$
 \\
 END WHILE
 \\
 BELOW = UP >> 1;  
 \\
-return UP-{\tt{res}} > {\tt{res}} - BELOW ? 
+return UP-RES > RES - BELOW ? 
 \\
 BELOW : UP;
 \\
@@ -2476,57 +2484,57 @@ Im Folgenden wird der Einfluss der Normalisierung auf ein Bild (Siehe nächster 
 Im Folgenden wird er Einfluss der verwendeten Filter demonstriert. 
 \par
 \hspace{1.5cm}
-%\begin{center}
-%\includegraphics[width=0.8\linewidth,height=0.7\textheight]{{\tt{pre}}conditioning/Bounty}
-%\captionof{figure}{Filtertyp 0 - {\tt{none}}}
-%\end{center}
-%
-%\begin{center}
-%\includegraphics[width=0.8\linewidth,height=0.7\textheight]{{\tt{pre}}conditioning/test_SUB}
-%\captionof{figure}{Filtertyp 1 - SUB}
-%\end{center}
-%
-%\begin{center}
-%\includegraphics[width=0.8\linewidth,height=0.7\textheight]{{\tt{pre}}conditioning/test_UP}
-%\captionof{figure}{Filtertyp 2 - UP}
-%\end{center}
-%
-%\begin{center}
-%\includegraphics[width=0.8\linewidth,height=0.7\textheight]{{\tt{pre}}conditioning/test_AVERAGE2}
-%\captionof{figure}{Filtertyp 3 - AVERAGE$\_$2}
-%\end{center}
-%
-%\begin{center}
-%\includegraphics[width=0.8\linewidth,height=0.7\textheight]{{\tt{pre}}conditioning/test_AVERAGE3}
-%\captionof{figure}{Filtertyp 4 - AVERAGE$\_$3}
-%\end{center}
-%
-%\begin{center}
-%\includegraphics[width=0.8\linewidth,height=0.7\textheight]{{\tt{pre}}conditioning/test_AVERAGE4}
-%\captionof{figure}{Filtertyp 5 - AVERAGE$\_$4}
-%\end{center}
-%
-%\begin{center}
-%\includegraphics[width=0.8\linewidth,height=0.7\textheight]{{\tt{pre}}conditioning/test_AVERAGE5}
-%\captionof{figure}{Filtertyp 6 - AVERAGE$\_$5}
-%\end{center}
-%
-%\begin{center}
-%\includegraphics[width=0.8\linewidth,height=0.7\textheight]{{\tt{pre}}conditioning/test_AVERAGE6}
-%\captionof{figure}{Filtertyp 7 - AVERAGE$\_$6}
-%\end{center}\begin{center}
-%
-%\includegraphics[width=0.8\linewidth,height=0.7\textheight]{{\tt{pre}}conditioning/test_AVERAGE7}
-%\captionof{figure}{Filtertyp 8 - AVERAGE$\_$7}
-%\end{center}
-%
-%\begin{center}
-%\includegraphics[width=0.8\linewidth,height=0.7\textheight]{{\tt{pre}}conditioning/test_AVERAGE8}
-%\captionof{figure}{Filtertyp 9 - AVERAGE$\_$8}
-%\end{center}
+\begin{center}
+\includegraphics[width=0.8\linewidth,height=0.7\textheight]{Preconditioning/Bounty}
+\captionof{figure}{Filtertyp 0 - NONE}
+\end{center}
 
 \begin{center}
-\includegraphics[width=0.8\linewidth,height=0.7\textheight]{preconditioning/test_PAETH}
+\includegraphics[width=0.8\linewidth,height=0.7\textheight]{Preconditioning/test_SUB}
+\captionof{figure}{Filtertyp 1 - SUB}
+\end{center}
+
+\begin{center}
+\includegraphics[width=0.8\linewidth,height=0.7\textheight]{Preconditioning/test_UP}
+\captionof{figure}{Filtertyp 2 - UP}
+\end{center}
+
+\begin{center}
+\includegraphics[width=0.8\linewidth,height=0.7\textheight]{Preconditioning/test_AVERAGE2}
+\captionof{figure}{Filtertyp 3 - AVERAGE$\_$2}
+\end{center}
+
+\begin{center}
+\includegraphics[width=0.8\linewidth,height=0.7\textheight]{Preconditioning/test_AVERAGE3}
+\captionof{figure}{Filtertyp 4 - AVERAGE$\_$3}
+\end{center}
+
+\begin{center}
+\includegraphics[width=0.8\linewidth,height=0.7\textheight]{Preconditioning/test_AVERAGE4}
+\captionof{figure}{Filtertyp 5 - AVERAGE$\_$4}
+\end{center}
+
+\begin{center}
+\includegraphics[width=0.8\linewidth,height=0.7\textheight]{Preconditioning/test_AVERAGE5}
+\captionof{figure}{Filtertyp 6 - AVERAGE$\_$5}
+\end{center}
+
+\begin{center}
+\includegraphics[width=0.8\linewidth,height=0.7\textheight]{Preconditioning/test_AVERAGE6}
+\captionof{figure}{Filtertyp 7 - AVERAGE$\_$6}
+\end{center}\begin{center}
+
+\includegraphics[width=0.8\linewidth,height=0.7\textheight]{Preconditioning/test_AVERAGE7}
+\captionof{figure}{Filtertyp 8 - AVERAGE$\_$7}
+\end{center}
+
+\begin{center}
+\includegraphics[width=0.8\linewidth,height=0.7\textheight]{Preconditioning/test_AVERAGE8}
+\captionof{figure}{Filtertyp 9 - AVERAGE$\_$8}
+\end{center}
+
+\begin{center}
+\includegraphics[width=0.8\linewidth,height=0.7\textheight]{Preconditioning/test_PAETH}
 \captionof{figure}{Filtertyp 6 - PAETH}
 \end{center}
 \newpage
@@ -2540,7 +2548,7 @@ Für die Normalisierung ANS erhält man folgende Werte:
 Filtertyp & 0 &  1 & 2 & 3 & 4A & 4B
 \\
 \hline
-\textbf{{\tt{none}}} &  7.58792 & 7.58793 & 7.58792 & 7.58792  & 7.58793 &  7.58792
+\textbf{None} &  7.58792 & 7.58793 & 7.58792 & 7.58792  & 7.58793 &  7.58792
 \\
 \textbf{Sub} & 7.58792 &   7.58793 & 5.52772 &  5.52772 &5.52773  & 5.52773 
 \\
@@ -2572,7 +2580,7 @@ Für die Normalisierung uABS erhält man folgende Werte:
 Filtertyp & 0 &  1 & 2 & 3 & 4 & 5
 \\
 \hline
-\textbf{{\tt{none}}} &  7.58792 & 7.63281 & 7.58792 & 7.58792  & 7.58793 &  7.63281
+\textbf{None} &  7.58792 & 7.63281 & 7.58792 & 7.58792  & 7.58793 &  7.63281
 \\
 \textbf{Sub} & 7.58792 &   7.63281 & 5.52772 &  5.52772 &  5.52773   & 6.0918
 \\
@@ -2597,11 +2605,7 @@ Filtertyp & 0 &  1 & 2 & 3 & 4 & 5
 
 
 \newpage
-\section{Abbildungsverzeichnis}
-\listoffigures
-
-\newpage
-\section{Kommandozeilenparameter}\label{Kommandozeilenparameter}
+\section{Kommandozeilenparameter}
 \newpage
 \listoffigures
 \newpage
@@ -2618,7 +2622,7 @@ Filtertyp & 0 &  1 & 2 & 3 & 4 & 5
 \url{https://www.ostfalia.de/export/sites/default/de/pws/lajmi/Lehre/Codierungstheorie/pdf/Quellencodierung_SS15.pdf}.
 \bibitem[7]{Rohling} Rohling H. {\it Einführung in die Informations- und Codierungstheorie} B.G. Teubner Stuttgart, (1995).
 \bibitem[8]{Huffman} Huffman D. A. {\it A method for the construction of minimum-redundancy codes} Proceedings of the I.R.E.., S. 1098-1101, (1952).
-\bibitem[9]{fb} {\it Smaller and faster data compression with Zstandard} \url{https://code.facebook.com/{\tt{post}}s/1658392934479273/smaller-and-faster-data-com{\tt{pre}}ssion-with-zstandard/}
+\bibitem[9]{fb} {\it Smaller and faster data compression with Zstandard} \url{https://code.facebook.com/posts/1658392934479273/smaller-and-faster-data-compression-with-zstandard/}
 \bibitem[10]{apple}{\it Apple Open-Sources its New Compression Algorithm LZFSE} \url{https://www.infoq.com/news/2016/07/apple-lzfse-lossless-opensource}
 \bibitem[11]{google}{\it Google Draco 3D compressor} \url{https://github.com/google/draco}
 \bibitem[12]{png}{\it PNG (Portable Network Graphics) Specification} \url{https://www.w3.org/TR/PNG-Filters.html}

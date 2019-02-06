@@ -14,11 +14,11 @@ NormalPos.top=26
 NormalPos.right=1898
 NormalPos.bottom=733
 Class=LaTeXView
-Document=..\..\Desktop\sem7\ProjektArbeit\DataMining.tex
+Document=Bachelorarbeit.tex
 
 [Frame0_View0,0]
-TopLine=510
-Cursor=21251
+TopLine=254
+Cursor=6998
 
 [SessionInfo]
 FrameCount=1

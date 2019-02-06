@@ -253,17 +253,17 @@ Die Dekomprimierung erfolgt in umgekehrter Leserichtung.
 \par
 In Kapitel ~\ref{Kommandozeilenparameter} findet sich eine Anleitung zur Bedienung der \CC Implementierung.
 \newpage
-\section{Kompression und Dekompression}
-Dieser Abschnitt orientiert sich an\cite{henne} sowie \cite{Lajmi} und klärt die wichtigsten Begriffe aus dem Bereich Datenkompression und stellt gängige Entropiecodierer vor.
+\section{Kom{\tt{pre}}ssion und Dekom{\tt{pre}}ssion}
+Dieser Abschnitt orientiert sich an\cite{henne} sowie \cite{Lajmi} und klärt die wichtigsten Begriffe aus dem Bereich Datenkom{\tt{pre}}ssion und stellt gängige Entropiecodierer vor.
 \subsection{Grundlagen}
 \begin{Definition}
-Unter Datenkompression versteht man ein Paar $(\X,\Y)$ von Algorithmen - Datenkompressionschema genannt, mit folgenden Eigenschaften:
+Unter Datenkom{\tt{pre}}ssion versteht man ein Paar $(\X,\Y)$ von Algorithmen - Datenkom{\tt{pre}}ssionschema genannt, mit folgenden Eigenschaften:
 
-Der Algorithmus $\X \; \left(Kompression\right)$ konstruiert für die Eingabe $X$ eine Repräsentation $X_c$, die (möglichst) weniger Bits als $X$ benötig.
+Der Algorithmus $\X \; \left(Kom{\tt{pre}}ssion\right)$ konstruiert für die Eingabe $X$ eine Repräsentation $X_c$, die (möglichst) weniger Bits als $X$ benötig.
 \par
-Der Algorithmus  $\Y \; \left(Dekompression\right)$ generiert zu gegebenem $X_c$ die Rekonstruktion $Y$.
+Der Algorithmus  $\Y \; \left(Dekom{\tt{pre}}ssion\right)$ generiert zu gegebenem $X_c$ die Rekonstruktion $Y$.
 \par
- Ein Datenkompressionschema heißt verlustfrei, wenn $X = Y$, ansonsten verlustbehaftet.
+ Ein Datenkom{\tt{pre}}ssionschema heißt verlustfrei, wenn $X = Y$, ansonsten verlustbehaftet.
 \end{Definition}
 Desweiteren definiert man zur Beurteilung der Qualität eines Komprimierungsschemas:
 \begin{Definition}
@@ -271,20 +271,20 @@ Sei $\mu_c$ die Anzahl der Bits von $X_c$ und $\mu$ die Anzahl der Bits von $X$.
 $
 \mu_c \slash \mu
 $
-definierte Ausdruck Kompressionsquotient\footnote{\footnotesize{1Der Kehrwert des Kompressionsquotienten wird auch Kompressionsfaktor genannt.}}.
+definierte Ausdruck Kom{\tt{pre}}ssionsquotient\footnote{\footnotesize{1Der Kehrwert des Kom{\tt{pre}}ssionsquotienten wird auch Kom{\tt{pre}}ssionsfaktor genannt.}}.
 \end{Definition}
-\subsection{Über die Möglichkeit der Datenkompression}
- Vesteht man unter Datenkompression ein Verfahren, das eine bestimmte Repräsentation in eine andere überführt, die stets weniger Bits als die urspüngliche benötigt, dann zeigt ein einfaches Abzählargument, dass es ein solches Verfahren nicht geben kann. Diese Argumentation wird in Arbeiten zum Thema Kolmogorov-Komplexität als sog. Inkompressibilitätsargument bezeichnet und begründet, warum sich bestimmte Bitfolgen nicht komprimieren lassen: Die Kolmogorov-Komplexität einer Bitfolge $t$ ist definiert als die Länge des kürzesten "`Programms"', welches $t$ erzeugt\footnote{\footnotesize{Bei geeigneter Formalisierung des Begriffs
+\subsection{Über die Möglichkeit der Datenkom{\tt{pre}}ssion}
+ Vesteht man unter Datenkom{\tt{pre}}ssion ein Verfahren, das eine bestimmte Repräsentation in eine andere überführt, die stets weniger Bits als die urspüngliche benötigt, dann zeigt ein einfaches Abzählargument, dass es ein solches Verfahren nicht geben kann. Diese Argumentation wird in Arbeiten zum Thema Kolmogorov-Komplexität als sog. Inkom{\tt{pre}}ssibilitätsargument bezeichnet und begründet, warum sich bestimmte Bitfolgen nicht komprimieren lassen: Die Kolmogorov-Komplexität einer Bitfolge $t$ ist definiert als die Länge des kürzesten "`Programms"', welches $t$ erzeugt\footnote{\footnotesize{Bei geeigneter Formalisierung des Begriffs
 "`Programm"' ist die Kolmogorov-Komplexität bis auf eine additive Konstante wohldefiniert.\cite{Li} }}. Eine Bitfolge heißt unkomprimierbar, falls sie selbst ihre kürzeste Beschreibung ist.
-Trotzdem funktioniert die Datenkompression in der Praxis hervorragend:
+Trotzdem funktioniert die Datenkom{\tt{pre}}ssion in der Praxis hervorragend:
 \begin{itemize}
 	\item Einzelne Zeichen (Grundelemente des Alphabets) tauchen nicht mit der selben Wahrscheinlichkeit auf. $\Rightarrow$ 
 verschlüssele wahrscheinlichere Zeichen mit weniger Bit als unwahrscheinlichere (Morse-Alphabet).
 \item Blöcke von Zeichen lassen sich aufgrund der Abhängigkeiten aufeinander folgender Ereignisse geschickter gemeinsam als lose unabhängige Folge einzelner Zeichen verschlüsseln.  
 \item Information ist nicht zufällig, sondern enthält  zahllose Regelmäßigkeiten.
 \par
- Eine Grundstrategie von Kompressionsverfahren beruht darauf, solche Regeln zu entdecken (z.B. Wörterbuchtechniken).
-\item  Für oder von Menschen erzeugte Information ist nicht zusammenhangslos. Vielfach ist es möglich, verschiedene Gattungen von Information zu unterscheiden: Sei z.B. bekannt, dass die vorliegende Bitfolge einen ASCII-Text der englischen Sprache darstellt, so muss ein anderes Kompressionsverfahren (auf Byte-Ebene) als wenn die Bitfolge die zeilenweise Darstellung eines Schwarz-Weiß-Bildes repräsentiert (starke Abhängigkeiten von Bit zu Bit, zeilen- und spaltenweise).
+ Eine Grundstrategie von Kom{\tt{pre}}ssionsverfahren beruht darauf, solche Regeln zu entdecken (z.B. Wörterbuchtechniken).
+\item  Für oder von Menschen erzeugte Information ist nicht zusammenhangslos. Vielfach ist es möglich, verschiedene Gattungen von Information zu unterscheiden: Sei z.B. bekannt, dass die vorliegende Bitfolge einen ASCII-Text der englischen Sprache darstellt, so muss ein anderes Kom{\tt{pre}}ssionsverfahren (auf Byte-Ebene) als wenn die Bitfolge die zeilenweise Darstellung eines Schwarz-Weiß-Bildes repräsentiert (starke Abhängigkeiten von Bit zu Bit, zeilen- und spaltenweise).
 \item Oft kann auf eine exakte Rekonstruierbarkeit des Originals verzichtet werden, da gewisse Feinheiten vom menschlichen Auge oder Ohr nicht wahrgenommen werden:  Frequenzen von Audiodaten, die für das menschliche Ohr gedacht sind und nicht wahrgenommen werden, können, von vornherein vernachlässigt werden.
 \end{itemize}
 \subsection{Entropiekodierer}
@@ -636,7 +636,7 @@ Sei $\Sigma = \{a_{1},a_{2},\ldots,a_{N},\}$ das $N$-elementige Quellalphabet mi
 \begin{align*}
 F(i):=\sum_{k=0}^{i}p(a_i),\quad F(0):=0.
 \end{align*}
-Eine {\it numerische Representation} von $\mathfrak{t}$ ist ein Bruch im Interval $\left.\left[l^{m} ,  u^{m},\right.\right)$ wobei
+Eine {\it numerische Re{\tt{pre}}sentation} von $\mathfrak{t}$ ist ein Bruch im Interval $\left.\left[l^{m} ,  u^{m},\right.\right)$ wobei
 \begin{align*}
 l^{1}:=F(i_1 -1)\quad u^1:=F(i_1)
 \end{align*}
@@ -724,8 +724,8 @@ bb & 0.995 &0.1111111010\ldots & 8 & 11111110
 \end{center}
 \end{Beispiel}
 \newpage
-\section{Kompression von Bilddateien durch Anwendung von Filtern}\label{Filter}
-Die Komprimierung von Bilddateien kann durch eine Filterung erfolgen, welche mit Ausnahme des unten vorgestellten Filtertyps {\tt{none}} in einer Erniedrigung der Entropie resultieren kann. Im Folgenden sollen die implementierten Filter anhand eines Bildes ( i.F. als {\tt{img}} bezeichnet) mit den Dimensionen  h (Höhe), w (Breite) und c (Anzahl der Farbkanäle) kurz besprochen werden. Das Ergebnis der Vorfilterung wird mit {\tt{pre}}, das der Umkehrung mit {\tt{post}} bezeichnet. Zusätzlich müssen für die Umkehrung  Werte in einem container - der i.F. als {\tt{res}} bezeichnet wird - gespeichert werden. Die neben den Algorithmen gezeichneten Gitter dienen zur Verdeutlichung des gewählten Iterationsweges.
+\section{Kom{\tt{pre}}ssion von Bilddateien durch Anwendung von Filtern}\label{Filter}
+Die Komprimierung von Bilddateien kann durch eine Filterung erfolgen, welche mit Ausnahme des unten vorgestellten Filtertyps {\tt{none}} in einer Erniedrigung der Entropie resultieren kann. Im Folgenden sollen die implementierten Filter anhand eines Bildes ( i.F. als {\tt{img}} bezeichnet) mit den Dimensionen  h (Höhe), w (Breite) und c (Anzahl der Farbkanäle) kurz besprochen werden. Das Ergebnis der Vorfilterung wird mit {\tt{pre}}, das der Umkehrung mit {\tt{post}} bezeichnet. Zusätzlich müssen für die Umkehrung  Werte in einem container - der i.F. als RES bezeichnet wird - gespeichert werden. Die neben den Algorithmen gezeichneten Gitter dienen zur Verdeutlichung des gewählten Iterationsweges.
 
 \begin{Definition}
 Sei  $(i,j) \in [0, h-1]\times[0, w-1]$ und $0\leq k < c$.
@@ -734,9 +734,21 @@ Dann bezeichnet  $\text{*}(i,j,k):=\text{*}_{i,j,k}$ den Wert von * an der Stell
 Die Wahl der Filter orientiert sich an \cite{png}:
 \subsection{Verwendete Filter}
 \subsubsection{Filtertyp 0: {\tt{none}}}
-Hierbei wird keine Vorfilterung betrieben. Jedes Byte von {\tt{img}} verbleibt unverändert.
-
-\subsubsection{Filtertyp 1: {\tt{sub}}}
+Hierbei wird keine Vorfilterung betrieben. Jedes Byte von {\tt{img}} verbleibt unverändert:
+\begin{Algorithmus}
+\\
+\begin{tabular}{c|c}
+Verschlüsselung & Entschlüsselung
+\\
+\hline
+PROCEDURE ENCODE() & PROCEDURE DECODE()
+\\
+\text{{\tt{pre}}}=\text{{\tt{img}}} &  \text{{\tt{img}}}=\text{{\tt{post}}}
+\\
+END PROCEDURE & END PROCEDURE
+\end{tabular}
+\end{Algorithmus}
+\subsubsection{Filtertyp 1: SUB}
 \begin{minipage}[h]{.6\textwidth}
 Jedes Pixel von {\tt{img}} wird durch die Differenz zu seinem linken Nachbarn ersetzt. Für jeden Farbkanal wird die rechte Kante des Bildes gespeichert.
 \vspace{1.5cm}
@@ -774,13 +786,14 @@ Jedes Pixel von {\tt{img}} wird durch die Differenz zu seinem linken Nachbarn er
 \end{tikzpicture}
 \end{flushright}
 \end{minipage}
-\par
-\vspace{1cm}
+
+\begin{Algorithmus}
+\\
 \begin{tabular}{c|c}
 Verschlüsselung & Entschlüsselung
 \\
 \hline
-PROCEDURE ENCODE({\tt{img}},{\tt{pre}},{\tt{res}}) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},{\tt{res}})
+PROCEDURE ENCODE({\tt{img}},{\tt{pre}},RES) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},RES)
 \\
 new buffer; $x=1$; $y=0$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
 \\
@@ -788,21 +801,18 @@ new buffer; $x=1$; $y=0$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
 \\
 WHILE$(k < c)$ &                  WHILE$(k > 0)$
 \\
-WHILE$(y < h)$ &               $\text{buffer} = \text{{\tt{res}}}[k];$
+WHILE$(y < h)$ &               $\text{buffer} = \text{RES}[k];$
+\end{tabular}
+\begin{tabular}{c|c}
+Verschlüsselung & Entschlüsselung
 \\
+\hline
 WHILE$(x < w)$ &              WHILE$(y>0)$
 \\
 $\text{{\tt{pre}}}_{x,y,k}\footnotemark\leftarrow \text{{\tt{img}}}_{x,y,k} - \text{{\tt{img}}}_{x-1,y,k};$ &  $\text{{\tt{post}}}_{x,y,k}\leftarrow \text{buffer}[y]$
 \\
 $x++$; & WHILE$(x>1)$
-\end{tabular}
-\footnotetext{Die Berechnung muß ohne Überlauf erfolgen.}
-
-\begin{center}
-\begin{tabular}{c|c}
-Verschlüsselung & Entschlüsselung
 \\
-\hline
 END WHILE &  $\text{{\tt{post}}}_{x-1,y,k}\footnotemark[4]\leftarrow \text{{\tt{post}}}_{x,y,k} - \text{{\tt{pre}}}_{x,y,k};$
 \\
 buffer.save$(\text{{\tt{img}}}_{w-1,y,k})$;\;$x=1$; & $x--;$
@@ -811,7 +821,7 @@ $y++$; &  END WHILE;
 \\
 END while & $y--;\;x=w-1;$ 
 \\
-{\tt{res}}$[k]$ = buffer;  & END WHILE 
+RES$[k]$ = buffer;  & END WHILE 
 \\
 $k++;$ $y=1;$ &  $k--;$ 
 \\
@@ -819,10 +829,9 @@ END WHILE  & END WHILE
 \\
 END PROCEDURE & END PROCEDURE
 \end{tabular}
-\end{center}
-
-
-\subsubsection{Filtertyp 2: {\tt{up}}}
+\footnotetext{Die Berechnung muß ohne Überlauf erfolgen.}
+\end{Algorithmus}
+\subsubsection{Filtertyp 2: UP}
 \begin{minipage}[h]{.6\textwidth}
 Jedes Pixel von {\tt{img}} wird durch die Differenz zu seinem oberen Nachbarn ersetzt. Für jeden Farbkanal wird die untere Kante des Bildes gespeichert.
 \vspace{1.5cm}
@@ -863,11 +872,14 @@ Jedes Pixel von {\tt{img}} wird durch die Differenz zu seinem oberen Nachbarn er
 \end{flushright}
 \end{minipage}
 
+
+\begin{Algorithmus}
+\\
 \begin{tabular}{c|c}
 Verschlüsselung & Entschlüsselung
 \\
 \hline
-PROCEDURE ENCODE({\tt{img}},{\tt{pre}},{\tt{res}}) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},{\tt{res}})
+PROCEDURE ENCODE({\tt{img}},{\tt{pre}},RES) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},RES)
 \\
 new buffer; $x=0$;$y=1$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
 \\
@@ -875,7 +887,7 @@ new buffer; $x=0$;$y=1$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
 \\
 WHILE$(k < c)$ &  WHILE$(k > 0)$
 \\
-WHILE$(x < w)$ &  $\text{buffer} = \text{{\tt{res}}}[k];$
+WHILE$(x < w)$ &  $\text{buffer} = \text{RES}[k];$
 \\
 WHILE$(y < h)$ &   WHILE$(x>0)$
 \\
@@ -891,7 +903,7 @@ $x++$; & END WHILE
 \\
 END WHILE &  $y=h-1;$ $x--;$
 \\
-{\tt{res}}$[k]$ = buffer;& END WHILE 
+RES$[k]$ = buffer;& END WHILE 
 \\
  $k++;$ $x=1;$ &  $k--;$ 
 \\
@@ -899,8 +911,9 @@ END WHILE  & END WHILE
 \\ 
 END PROCEDURE & END PROCEDURE
 \end{tabular}
+\end{Algorithmus}
 
-\subsubsection{Filtertyp 3: {\tt{average2}}}
+\subsubsection{Filtertyp 3: AVERAGE-2}
 
 \begin{minipage}[h]{.6\textwidth}
 Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem linken und oberen  Nachbarn ersetzt. Für jeden Farbkanal wird die rechte Kante des Bildes gespeichert.
@@ -946,7 +959,7 @@ Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem
 Verschlüsselung & Entschlüsselung
 \\
 \hline
-PROCEDURE ENCODE({\tt{img}},{\tt{pre}},{\tt{res}}) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},{\tt{res}})
+PROCEDURE ENCODE({\tt{img}},{\tt{pre}},RES) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},RES)
 \\
 new buffer; $x=0$; $y=0$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
 \\
@@ -954,7 +967,7 @@ new buffer; $x=0$; $y=0$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
 \\
 WHILE$(k < c)$ &                  WHILE$(k > 0)$
 \\
-WHILE$(y < h)$ &               $\text{buffer} = \text{{\tt{res}}}[k];$
+WHILE$(y < h)$ &               $\text{buffer} = \text{RES}[k];$
 \\
 WHILE$(x < w)$ &              WHILE$(y<h)$
 \\
@@ -972,7 +985,7 @@ $x=0$; $y++$;  &   END WHILE;
 \\
 END WHILE   & $y++;$ 
 \\
-{\tt{res}}$[k]$ = buffer;  & $x=w-1;$ 
+RES$[k]$ = buffer;  & $x=w-1;$ 
 \\
 $k++;$   &  END WHILE   
 \\
@@ -1029,7 +1042,7 @@ Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem
 Verschlüsselung & Entschlüsselung
 \\
 \hline
-PROCEDURE ENCODE({\tt{img}},{\tt{pre}},{\tt{res}}) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},{\tt{res}})
+PROCEDURE ENCODE({\tt{img}},{\tt{pre}},RES) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},RES)
 \\
 new buffer; $x=0$; $y=0$; $k=0$ & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
 \\
@@ -1041,7 +1054,7 @@ Verschlüsselung & Entschlüsselung
 \hline
 WHILE$(k < c)$ &                  WHILE$(k > 0)$
 \\
-WHILE$(y < h)$ &               $\text{buffer} = \text{{\tt{res}}}[k];$
+WHILE$(y < h)$ &               $\text{buffer} = \text{RES}[k];$
 \\
 WHILE$(x < w)$ &              WHILE$(y<h)$
 \\
@@ -1059,7 +1072,7 @@ $x=0$; $y++$;  &   END WHILE;
 \\
 END WHILE   & $y++;\;x=w-1;$ 
 \\
-{\tt{res}}$[k]$ = buffer;  &  END WHILE 
+RES$[k]$ = buffer;  &  END WHILE 
 \\
 $k++;$ $y=0;$   &   $k--;$ 
 \\
@@ -1115,7 +1128,7 @@ Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem
 Verschlüsselung & Entschlüsselung
 \\
 \hline
-PROCEDURE ENCODE({\tt{img}},{\tt{pre}},{\tt{res}}) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},{\tt{res}})
+PROCEDURE ENCODE({\tt{img}},{\tt{pre}},RES) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},RES)
 \\
 new buffer; $x=0$; $y=0$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
 \\
@@ -1123,7 +1136,7 @@ new buffer; $x=0$; $y=0$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
 \\
 WHILE$(k < c)$ &                  WHILE$(k > 0)$
 \\
-WHILE$(x < w)$ &               $\text{buffer} = \text{{\tt{res}}}[k];$
+WHILE$(x < w)$ &               $\text{buffer} = \text{RES}[k];$
 \\
 WHILE$(y < h)$ &            write(buffer);
 \\
@@ -1143,7 +1156,7 @@ $y=0$; $x++$;  &   END WHILE;
 \\
 END WHILE   & $y--;\;x=0;$ 
 \\
-{\tt{res}}$[k]$ = buffer;  &  END WHILE 
+RES$[k]$ = buffer;  &  END WHILE 
 \\
 $k++;$ $x=0;$   &   $k--;$ $y=h-1$;
 \\
@@ -1205,7 +1218,7 @@ Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem
 Verschlüsselung & Entschlüsselung
 \\
 \hline
-PROCEDURE ENCODE({\tt{img}},{\tt{pre}},{\tt{res}}) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},{\tt{res}})
+PROCEDURE ENCODE({\tt{img}},{\tt{pre}},RES) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},RES)
 \\
 new buffer; $x=0$; $y=0$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
 \\
@@ -1213,7 +1226,7 @@ new buffer; $x=0$; $y=0$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
 \\
 WHILE$(k < c)$ &                  WHILE$(k > 0)$
 \\
-WHILE$(x < w)$ &               $\text{buffer} = \text{{\tt{res}}}[k];$
+WHILE$(x < w)$ &               $\text{buffer} = \text{RES}[k];$
 \\
 WHILE$(y < h)$ &            write(buffer);
 \\
@@ -1233,7 +1246,7 @@ $y=0$; $x++$;  &   END WHILE;
 \\
 END WHILE   & $y--;\;x=0;$ 
 \\
-{\tt{res}}$[k]$ = buffer;  &  END WHILE 
+RES$[k]$ = buffer;  &  END WHILE 
 \\
 $k++;$ $x=0;$   &   $k--;$ $y=h-1$;
 \\
@@ -1297,7 +1310,7 @@ Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem
 Verschlüsselung & Entschlüsselung
 \\
 \hline
-PROCEDURE ENCODE({\tt{img}},{\tt{pre}},{\tt{res}}) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},{\tt{res}})
+PROCEDURE ENCODE({\tt{img}},{\tt{pre}},RES) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},RES)
 \end{tabular}
 \begin{tabular}{c|c}
 Verschlüsselung & Entschlüsselung
@@ -1309,7 +1322,7 @@ new buffer; $x=0$; $y=0$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
 \\
 WHILE$(k < c)$ &                  WHILE$(k > 0)$
 \\
-{\tt{res}}$[k]$ = Process(buffer); &  $\text{buffer} = \text{{\tt{res}}}[k];$
+RES$[k]$ = Process(buffer); &  $\text{buffer} = \text{RES}[k];$
 \\
 buffer.clear(); & write(buffer); 
 \\
@@ -1395,7 +1408,7 @@ Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem
 Verschlüsselung & Entschlüsselung
 \\
 \hline
-PROCEDURE ENCODE({\tt{img}},{\tt{pre}},{\tt{res}}) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},{\tt{res}})
+PROCEDURE ENCODE({\tt{img}},{\tt{pre}},RES) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},RES)
 \\
 new buffer; $x=0$; $y=0$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
 \\
@@ -1403,7 +1416,7 @@ new buffer; $x=0$; $y=0$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
 \\
 WHILE$(k < c)$ &                  WHILE$(k > 0)$
 \\
-{\tt{res}}$[k]$ = Process(buffer);  &  $\text{buffer} = \text{{\tt{res}}}[k];$
+RES$[k]$ = Process(buffer);  &  $\text{buffer} = \text{RES}[k];$
 \\
 buffer.clear(); & write(buffer);
 \\
@@ -1493,7 +1506,7 @@ Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem
 Verschlüsselung & Entschlüsselung
 \\
 \hline
-PROCEDURE ENCODE({\tt{img}},{\tt{pre}},{\tt{res}}) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},{\tt{res}})
+PROCEDURE ENCODE({\tt{img}},{\tt{pre}},RES) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},RES)
 \\
 new buffer; $x=0$; $y=0$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
 \\
@@ -1501,7 +1514,7 @@ new buffer; $x=0$; $y=0$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
 \\
 WHILE$(k < c)$ &                  WHILE$(k > 0)$
 \\
-{\tt{res}}$[k]$ = Process(buffer); &  $\text{buffer} = \text{{\tt{res}}}[k];$
+RES$[k]$ = Process(buffer); &  $\text{buffer} = \text{RES}[k];$
 \\
 buffer.clear(); & write(buffer);
 \\
@@ -1581,7 +1594,7 @@ Jedes Pixel von {\tt{img}} wird seinen Paeth-Prädiktor ersetzt. Für jeden Farb
 Verschlüsselung & Entschlüsselung
 \\
 \hline
-PROCEDURE ENCODE({\tt{img}},{\tt{pre}},{\tt{res}}) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},{\tt{res}})
+PROCEDURE ENCODE({\tt{img}},{\tt{pre}},RES) & PROCEDURE DECODE({\tt{pre}},{\tt{post}},RES)
 \\
 new buffer; $x=0$; $y=0$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
 \\
@@ -1589,7 +1602,7 @@ new buffer; $x=0$; $y=0$; $k=0$; & {\tt{post}}.resize$((h-1)*(w-1)*c)$;
 \\
 WHILE$(k < c)$ &                  WHILE$(k > 0)$
 \\
-WHILE$(y < h)$ &               $\text{buffer} = \text{{\tt{res}}}[k];$
+WHILE$(y < h)$ &               $\text{buffer} = \text{RES}[k];$
 \\
 buffer.save$(\text{{\tt{img}}}_{0,y,k})$; &  WHILE$(y < h)$
 \\
@@ -1605,7 +1618,7 @@ $x=0$; $y++$; & END WHILE
 \\
  END while &  $y++;\;x=1;$
 \\
- {\tt{res}}$[k]$ = buffer; &  END WHILE 
+ RES$[k]$ = buffer; &  END WHILE 
 \\
 $k++;$ $y=0;$  & $k--;$
 \\
@@ -2262,19 +2275,19 @@ Um das Verfahren uANS anwenden zu können, müssen die auftretenden Häufigkeite
 \begin{Algorithmus}\label{powOf2}
 \\
 \begin{tabular}{l}
-FUNCTION NEXTPOWEROF2({\tt{res}}) 
+FUNCTION NEXTPOWEROF2(RES) 
 \\
 $UP=2$; $BELOW=1$; 
 \\
-WHILE$({\tt{res}} > 1)$ 
+WHILE$(RES > 1)$ 
 \\
-${\tt{res}} >>= 1;$ $UP <<= 1;$
+$RES >>= 1;$ $UP <<= 1;$
 \\
 END WHILE
 \\
 BELOW = UP >> 1;  
 \\
-return UP-{\tt{res}} > {\tt{res}} - BELOW ? 
+return UP-RES > RES - BELOW ? 
 \\
 BELOW : UP;
 \\
@@ -2446,7 +2459,7 @@ Symbol & Häufigkeit & Wahrscheinlichkeit
 \hfill
 \begin{minipage}[h]{.4\textwidth}
 \begin{flushright}
-\includegraphics[width=0.9\linewidth,height=0.5\textheight]{uncompressed}
+\includegraphics[width=0.9\linewidth,height=0.5\textheight]{uncom{\tt{pre}}ssed}
 \end{flushright}
 \end{minipage}
 \captionof{figure}{Auszug: erste 50 Symbole - Fortsetzung}
@@ -2526,7 +2539,7 @@ Im Folgenden wird er Einfluss der verwendeten Filter demonstriert.
 %\end{center}
 
 \begin{center}
-\includegraphics[width=0.8\linewidth,height=0.7\textheight]{preconditioning/test_PAETH}
+\includegraphics[width=0.8\linewidth,height=0.7\textheight]{{\tt{pre}}conditioning/test_PAETH}
 \captionof{figure}{Filtertyp 6 - PAETH}
 \end{center}
 \newpage
