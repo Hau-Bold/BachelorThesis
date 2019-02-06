@@ -15,13 +15,13 @@
 \BOOKMARK [3][-]{subsubsection.3.1.2}{Filtertyp 1: sub}{subsection.3.1}% 15
 \BOOKMARK [3][-]{subsubsection.3.1.3}{Filtertyp 2: up}{subsection.3.1}% 16
 \BOOKMARK [3][-]{subsubsection.3.1.4}{Filtertyp 3: average2}{subsection.3.1}% 17
-\BOOKMARK [3][-]{subsubsection.3.1.5}{Filtertyp 4: AVERAGE-3}{subsection.3.1}% 18
-\BOOKMARK [3][-]{subsubsection.3.1.6}{Filtertyp 5: AVERAGE-4}{subsection.3.1}% 19
-\BOOKMARK [3][-]{subsubsection.3.1.7}{Filtertyp 6: AVERAGE-5}{subsection.3.1}% 20
-\BOOKMARK [3][-]{subsubsection.3.1.8}{Filtertyp 7: AVERAGE-6}{subsection.3.1}% 21
-\BOOKMARK [3][-]{subsubsection.3.1.9}{Filtertyp 8: AVERAGE-7}{subsection.3.1}% 22
-\BOOKMARK [3][-]{subsubsection.3.1.10}{Filtertyp 9: AVERAGE-8}{subsection.3.1}% 23
-\BOOKMARK [3][-]{subsubsection.3.1.11}{Filtertyp 10: PAETH}{subsection.3.1}% 24
+\BOOKMARK [3][-]{subsubsection.3.1.5}{Filtertyp 4: average3}{subsection.3.1}% 18
+\BOOKMARK [3][-]{subsubsection.3.1.6}{Filtertyp 5: average4}{subsection.3.1}% 19
+\BOOKMARK [3][-]{subsubsection.3.1.7}{Filtertyp 6: average5}{subsection.3.1}% 20
+\BOOKMARK [3][-]{subsubsection.3.1.8}{Filtertyp 7: average6}{subsection.3.1}% 21
+\BOOKMARK [3][-]{subsubsection.3.1.9}{Filtertyp 8: average7}{subsection.3.1}% 22
+\BOOKMARK [3][-]{subsubsection.3.1.10}{Filtertyp 9: average8}{subsection.3.1}% 23
+\BOOKMARK [3][-]{subsubsection.3.1.11}{Filtertyp 10: paeth}{subsection.3.1}% 24
 \BOOKMARK [2][-]{subsection.3.2}{Fazit zur Wahl der Filter}{section.3}% 25
 \BOOKMARK [1][-]{section.4}{Asymmetrische Zahlensysteme}{}% 26
 \BOOKMARK [2][-]{subsection.4.1}{Einf\374hrung}{section.4}% 27
@@ -33,8 +33,8 @@
 \BOOKMARK [1][-]{section.5}{Vergleich zu Huffmann und Arithmetischem Kodieren}{}% 33
 \BOOKMARK [1][-]{section.6}{Vektorisierung}{}% 34
 \BOOKMARK [2][-]{subsection.6.1}{Normalisierung}{section.6}% 35
-\BOOKMARK [3][-]{subsubsection.6.1.1}{Normalisierung im Rahmen des uANS-Verfahrens}{subsection.6.1}% 36
-\BOOKMARK [3][-]{subsubsection.6.1.2}{Normalisierung im Rahmen des ANS-Verfahrens}{subsection.6.1}% 37
+\BOOKMARK [3][-]{subsubsection.6.1.1}{Normalisierung der H\344ufigkeiten des uans-Verfahrens}{subsection.6.1}% 36
+\BOOKMARK [3][-]{subsubsection.6.1.2}{Normalisierung der H\344ufigkeiten des rans-Verfahrens}{subsection.6.1}% 37
 \BOOKMARK [1][-]{section.7}{Ergebnisse}{}% 38
 \BOOKMARK [2][-]{subsection.7.1}{Ergebnisse der Normalisierung}{section.7}% 39
 \BOOKMARK [2][-]{subsection.7.2}{Ergebnisse der Filterung}{section.7}% 40
