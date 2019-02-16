@@ -733,7 +733,7 @@ Dann bezeichnet  $\text{*}(i,j,k):=\text{*}_{i,j,k}$ den Wert von * an der Stell
 \end{Definition}
 Die Wahl der Filter orientiert sich an \cite{png}:
 \subsection{Verwendete Filter}
-\subsubsection{Filtertyp 0: {\tt{none}}}
+\subsubsection{Filtertyp 0: {\tt{none}} }
 Hierbei wird keine Vorfilterung betrieben. Jedes Byte von {\tt{img}} verbleibt unverändert.
 
 \subsubsection{Filtertyp 1: {\tt{sub}}}
@@ -1659,7 +1659,7 @@ I_{s} := \left\{ x\;|\; \C(s,x) \in I  \right\}
 \end{align*} 
 von der Form $I_s = \left\{k,k+1,\ldots,b\cdot k -1\right\},\, k\geq 1$ (eine Eigenschaft, die Duda in \cite{Duda} als "`b-Eindeutigkeit"' bezeichnet), dann sind die Algorithmen synchron. 
 \newpage
-\subsection{Einführendes Beispiel: Uniform binary variant streaming  (uABS)}
+\subsection{Einführendes Beispiel: Uniform binary variant streaming  ({\tt{uabs}})}
 Vorab lässt sich das Verfahren folgendermaßen beschreiben:
 \begin{Algorithmus}
 \\
@@ -1775,30 +1775,26 @@ initialer Zustand & & lesen beendet
 {\color{gray!50!red}\rule{8cm}{0.1mm}}
 \end{center}
 \end{Beispiel}
-\subsection{uABS für n-elementige Symbolalphabete (uANS)}
-Ziel des folgenden Unterkapitels ist es das besprochene uABS-Verfahren auf $n$-elementige Symbolalphabete zu verallgemeinern. Dazu schränkt man die Menge der Auftrittswahrscheinlichkeiten ein: 
-\\
+\subsection{{\tt{uabs}} für n-elementige Symbolalphabete ({\tt{uans}})}
+Ziel des folgenden Unterkapitels ist es das besprochene {\tt{uabs}}-Verfahren auf $n$-elementige Symbolalphabete zu verallgemeinern.
 Im folgenden sei $\A$ ein $n$-elementiges Alphabet $(n > 1)$ mit zugehörigen Auftrittswahrscheinlichkeiten $\xP:=\left\{p_{i_{k}}\,|\,1\leq k \leq n-1\right\}$ wobei gilt:
 \begin{align*}
 \forall p_{i_{k}} \in \xP\, \exists\, i_{k}\in\N :\, p_{i_{k}}\cdot 2^{i_{k}} =1,\; \sum_{p\in\xP}p = 1.
 \end{align*}
 Damit lässt sich das  normalisierte Intervall in disjunkte Teilmengen zerlegen:
-\begin{Hilfssatz}
 
-Seien $a_{k}, a_{l}\in \A, k < l$ zwei Symbole mit zugehörigen Auftrittswahrscheinlichkeiten $\left(1 / 2\right)^{k}$ und $\left(1 / 2\right)^{l}$.
-Dann sind die Mengen
+\begin{Hilfssatz}
+Seien $a_{k}, a_{l}\in \A, k < l$ zwei Symbole mit $p_k=1 / 2^{k}$ und $p_l=1 / 2^{l}$.
+Sei $0<= r_k <2^k$ und $r_l:=\min_{r\in\N}
+\left\{(r_k-r)\text{mod}\,2^k \not\equiv 0\right\}$.
+Folgende Mengen sind disjunkt\footnote{\footnotesize{Dieser Sachverhalt gilt für jede Primzahl.}}:
+
 \begin{align*}
-I_{a_k}&:=\left\{2^k + n\cdot r_k \,\left|\right.\, n\in\N\right\},\;\text{mit}\; 0<= r_k <2^k,
-\\
-\text{und} 
-\\
-I_{a_l}&:=\left\{2^l +  n\cdot r_l\,\left|\right.\,\,n\in\N \right\},
-\quad
-r_l:=\min_{r\in\N}
-\left\{(r_k-r)\text{mod}\,2^k \not\equiv 0\right\}
+I_{a_k}:=\left\{2^k + n\cdot r_k \,\left|\right.\, n\in\N\right\},\;\;
+I_{a_l}:=\left\{2^l +  n\cdot r_l\,\left|\right.\,\,n\in\N \right\}.
 \end{align*}
-disjunkt.\footnote{\footnotesize{Dieser Sachverhalt gilt für jede Primzahl.}}
 \end{Hilfssatz}
+
 \begin{proof}
 Sei $\mu\in\N$ mit $\mu\in I_{a_k}\cap I_{a_l}$. Dann existieren $s,t \in\N$ mit
 \begin{align*}
@@ -1856,15 +1852,15 @@ $b, c$ & 1/4 & $\left\{1,3\right\}$
 \end{align*}
 \end{Beispiel}
 \begin{Beispiel}
-Für die Demonstration eines konkreten Beispiels kodieren und dekodieren wir die auf dem drei-Symbol Alphabet  $\A :=\left\{a, b, c\right\}$    mit $p_a=1 /2, p_b = 1/4, p_c = 1/4$ bestehende Nachricht "`abbac"' für $b=2,\;L=16$. Dazu definieren wir
+Für die Demonstration eines konkreten Beispiels wird die auf dem drei-Symbol Alphabet  $\A :=\left\{a, b, c\right\}$    mit $p_a=1 /2, p_b = 1/4, p_c = 1/4$ bestehende Nachricht "`abbac"' für $b=2,\;L=16$ kodiert und dekodiert. Sei
 \begin{align*}
 \C(a,x)&=2 x
 \\
 \C(b,x) &= 4 x + 1
 \\
-\C(c,x) &= 4 x + 3
+\C(c,x) &= 4 x + 3.
 \end{align*}
-und erhalten durch einfaches Rechnen die den Symbolen korrespondierenden $b$-eindeutigen Index-Mengen:
+Dann erhält man durch einfaches Rechnen die den Symbolen korrespondierenden $b$-eindeutigen Index-Mengen:
 \par
 \vspace{0.5cm}
 \begin{center}
@@ -1879,7 +1875,7 @@ c	&  & &  & 4& 	&  &  &  5&  &  &  & 6 &  &  & & 7 	\\
 \end{tabular}
 \end{center}
 \vspace{0.5cm}
-Offensichtlich lässt sich dann folgende Inverse definieren:
+Offensichtlich lässt sich folgende Inverse definieren:
 $$
 \D(x):
                \begin{cases}
@@ -1888,8 +1884,8 @@ $$
 									\left(c, (x-3)/ 4 \right)          & \text{für}\,\, x \equiv 3 \,\text{mod}\, 4\\
                 \end{cases}
 $$
-Dabei gilt: Wird $u\in\A$ mit $\C$ codiert, dann wächst $x$ um den Faktor $X = 1 / p_u$. Sei nun $L=16$ und $b=2$, dann erhält man das normalisierte Interval $I=\left\{16, 17,\ldots,31\right\}$.
-\newpage
+Dabei gilt: Wird $u\in\A$ mit $\C$ codiert wächst $x$ um den Faktor $X = 1 / p_u$. Für $L=16$ und $b=2$ erhält man das normalisierte Interval $I=\left\{16, 17,\ldots,31\right\}$.
+
 \begin{center}
 {\color{gray!50!blue}\rule{8cm}{0.5mm}}
 \\
@@ -1930,7 +1926,18 @@ encode 'b' & & decode 'b'
 $\uparrow$ & 4 & $\downarrow$
 \\
 $x \not\in I_{b}$; save(1) &  &$x\not\in I$; read()=1;
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{c c c}
+Kodierer & x & Dekodierer
+\end{tabular}
+\vspace{-0.2cm}
 \\
+{\color{gray!50!blue}\rule{8cm}{0.1mm}}
+\\
+\begin{tabular}{c c c}
 $\uparrow$ & 9 & $\downarrow$
 \\
 $x \not\in I_{b}$; save(0) &  &$x\not\in I$; read()=0;
@@ -1963,20 +1970,19 @@ initialer Zustand & & lesen beendet
 {\color{gray!50!red}\rule{8cm}{0.1mm}}
 \end{center}
 \end{Beispiel}
-\newpage
+
 Für das Wachstumsverhalten der Entropie erhalten wir:
 \begin{Hilfssatz}
 Sei $\A$ ein $N$ elementiges Symbolalphabet mit zugehörigen Auftrittswahrscheinlichkeiten $\left(\frac{1}{2}\right)^{i_{k}}$ und $k+k_{0}\geq\frac{2^{i_k}}{i_k} \geq k$ für alle $k$ und $k_{0}\in\N$, dann ist $H(\A)-H_{0}$ beschränkt.
 \end{Hilfssatz}
 \begin{proof}
 \begin{align*}
-H(Q) - H_{0} &=-\sum_{k=1}^{N-1}\frac{1}{2}^{i_{k}} \text{log}_{2}\frac{1}{2}^{i_{k}} - \text{log}_{2}(N-1)
-\\
- & = \sum_{k=1}^{N-1}i_{k}\cdot \frac{1}{2}^{i_{k}} - \frac{\text{log}(N-1)}{\text{log}(2)}.
+H(\A) - H_{0} =-\sum_{k=1}^{N-1}\frac{1}{2}^{i_{k}} \text{log}_{2}\frac{1}{2}^{i_{k}} - \text{log}_{2}(N-1)
+= \sum_{k=1}^{N-1}i_{k}\cdot \frac{1}{2}^{i_{k}} - \frac{\text{log}(N-1)}{\text{log}(2)}.
 \end{align*}
 Damit folgt:
 \begin{align*}
-\sum_{k=1}^{N-1}\frac{1}{k+k_{0}} - \frac{\text{log}(N-1)}{\text{log}(2)} \leq H(Q) - H_{0} &\leq \sum_{k=1}^{N-1} \frac{1}{k+1} - \frac{\text{log}(N-1)}{\text{log}(2)}
+\sum_{k=1}^{N-1}\frac{1}{k+k_{0}} - \frac{\text{log}(N-1)}{\text{log}(2)} \leq H(\A) - H_{0} &\leq \sum_{k=1}^{N-1} \frac{1}{k+1} - \frac{\text{log}(N-1)}{\text{log}(2)}
 \\
 & <  \sum_{k=1}^{N} \frac{1}{k} - \text{log}(N-1) .
 \end{align*}
@@ -2004,13 +2010,13 @@ Da für alle $x>-1$ gilt $\text{log}(x+1)\leq x$ folgt
 &\geq \sum_{k=1}^{N}\frac{1}{k} -  \sum_{k=1}^{N-1}\frac{1}{k} > 0.
 \end{align*}
 \end{proof}
-\begin{figure}
-	    \centering
-				     \includegraphics[width=\textwidth, height = 0.5\textheight]{Entropieschranken}
-\end{figure}
-\newpage
-\subsection{Allgemeine Asymmetrische Zahlensysteme (ANS)}
-In diesem Abschnitt betrachten das in \cite{Krajcevski} angegebene Verfahren, welches ohne die Benutzung der in der uABS verwendeten Index-Mengen auskommt und insbesondere Auftrittswahrscheinlichkeiten der einzelnen Symbole nicht durch Potenzen von 1/2 approximieren muss:
+%\begin{figure}
+	    %\centering
+				     %\includegraphics[width=\textwidth, height = 0.5\textheight]{
+%Entropieschranken}
+%\end{figure}
+\subsection{Allgemeine Asymmetrische Zahlensysteme ({\tt{rans}})}
+In diesem Abschnitt betrachten das in \cite{Krajcevski} angegebene Verfahren, welches ohne die Benutzung der in der {\tt{uabs}} verwendeten Index-Mengen auskommt und die Auftrittswahrscheinlichkeiten der einzelnen Symbole nicht approximieren muss:
 \par
 Sei $F_{s}$ die Häufigkeit des Symbols $s\in\A$ und $M:=\sum_{s\in\A}F_{s}$.
 \begin{align*}
@@ -2230,10 +2236,7 @@ $\mathcal{T}\stackrel{\text{ANS}}{\mapsto} 1|01|100|1|110|00|0|00|1|0010|19$
 \vspace{0.5cm}
 \\
 Das ANS-Verfahren benötigt zur Dekomprimierung von $\mathcal{T}$ zusätzliche Information. Der Grund diese Umstandes liegt in der Konstruktion: Das ANS-Verfahren normalisiert nur bei der Kodierung aus positiver Richtung in das "`normalisierte Interval"' $I(L,b)$, während das uANS-Verfahren das Bitmuster so lange ausließt und den augenblicklichen Wert erhöht, bis ein Wert größer als $L$ gefunden ist.
-
 \end{Beispiel}
-\subsection{Beschleunigung des uANS-Verfahrens}
-In diesem Unterabschnitt wird eine Zusatzbedingung formuliert unter der die oben aufgeführen Schwächen des uANS-Verfahrens nicht auftreten.
 
 \section{Vergleich zu Huffmann und Arithmetischem Kodieren}
 Der Huffmann-Algorithmus kodiert jedes Symbol einzeln, während der erweiterte Huffman-Algorithmus zu einer gegebenen Länge jede erdenkliche Folge einzeln verschlüsselt. Der Vorteil der Erweiterung liegt darin, dass sich ein anfänglich nicht zu komprimierender Code doch komprimieren lässt. Allerdings ist die Codierung ab einer bestimmten Länge kaum realisierbar. Dieses Problem tritt bei der Verwendung von asymmetrischen Zahlensystemen nicht auf: Jede Folge ist komprimierbar.

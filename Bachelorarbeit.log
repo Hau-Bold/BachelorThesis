@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.11.7)  6 FEB 2019 15:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.11.7)  16 FEB 2019 09:36
 entering extended mode
 **./Bachelorarbeit.tex
 (Bachelorarbeit.tex
@@ -1158,7 +1158,7 @@ Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
 (lastpage)             ! on input line 158.
 
-<Logo.png, id=182, 2007.5pt x 378.41376pt>
+<Logo.png, id=178, 2007.5pt x 378.41376pt>
 File: Logo.png Graphic file (type png)
  <use Logo.png>
 Package pdftex.def Info: Logo.png used on input line 175.
@@ -1188,17 +1188,17 @@ LaTeX Font Info:    Try loading font information for T1+cmtt on input line 8.
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 40.
+(babel)             in language  on input line 39.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 40.
+(babel)             in language  on input line 39.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 40.
+(babel)             in language  on input line 39.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 40.
+(babel)             in language  on input line 39.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.40 ...se der Normalisierung}{37}{subsection.7.1}
+l.39 ...se der Normalisierung}{36}{subsection.7.1}
                                                    [1])
 \tf@toc=\write6
 \openout6 = `Bachelorarbeit.toc'.
@@ -1627,8 +1627,9 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1661.
  [22]
-Overfull \hbox (23.42621pt too wide) in paragraph at lines 1662--1662
-[]\T1/cmr/bx/n/14.4 Einführendes Bei-spiel: Uni-form bi-na-ry va-ri-ant stre-a-ming (uABS) 
+Overfull \hbox (11.85266pt too wide) in paragraph at lines 1662--1662
+[]\T1/cmr/bx/n/14.4 Einführendes Bei-spiel: Uni-form bi-na-ry va-ri-ant stre-a-ming (\T1/cmtt/m/n/14.4 uabs\T1/cmr/bx/n/
+14.4 ) 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
@@ -1649,156 +1650,135 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1778.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1786--1787
+Underfull \hbox (badness 10000) in paragraph at lines 1795--1796
 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1799.
+(babel)             in language  on input line 1796.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1799.
+(babel)             in language  on input line 1796.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1799.
+(babel)             in language  on input line 1796.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1799.
+(babel)             in language  on input line 1796.
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 1799--1801
+Underfull \hbox (badness 10000) in paragraph at lines 1816--1817
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1820--1821
-
- []
-
-
-Overfull \hbox (18.42346pt too wide) in paragraph at lines 1856--1856
+Overfull \hbox (18.42346pt too wide) in paragraph at lines 1852--1852
 [] 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1860.
+(babel)             in language  on input line 1862.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1860.
+(babel)             in language  on input line 1862.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1860.
+(babel)             in language  on input line 1862.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1860.
+(babel)             in language  on input line 1862.
 [25]
+Overfull \hbox (19.76341pt too wide) in paragraph at lines 1862--1864
+\T1/cmr/m/n/12 Dann er-hält man durch ein-fa-ches Rech-nen die den Sym-bo-len kor-re-spon-die-ren-den $\OML/cmm/m/it/12 
+b$\T1/cmr/m/n/12 -eindeutigen
+ []
+
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1892.
+(babel)             in language  on input line 1937.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1892.
+(babel)             in language  on input line 1937.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1892.
+(babel)             in language  on input line 1937.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1892.
- [26]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1966.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1966.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1966.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1966.
- [27]
-Underfull \hbox (badness 10000) in paragraph at lines 1968--1970
+(babel)             in language  on input line 1937.
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 1975--1977
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1971--1972
+Underfull \hbox (badness 10000) in paragraph at lines 1978--1979
 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2006.
+(babel)             in language  on input line 2000.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2006.
+(babel)             in language  on input line 2000.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2006.
+(babel)             in language  on input line 2000.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2006.
-[28] <Entropieschranken.png, id=422, 742.27313pt x 596.98032pt>
-File: Entropieschranken.png Graphic file (type png)
- <use Entropieschranken.png>
-Package pdftex.def Info: Entropieschranken.png used on input line 2009.
-(pdftex.def)             Requested size: 455.25507pt x 312.98212pt.
+(babel)             in language  on input line 2000.
+[27]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2011.
+(babel)             in language  on input line 2018.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2011.
+(babel)             in language  on input line 2018.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2011.
+(babel)             in language  on input line 2048.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2011.
- [29 <./Entropieschranken.png>]
+(babel)             in language  on input line 2048.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2012.
+(babel)             in language  on input line 2048.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2012.
+(babel)             in language  on input line 2048.
+ [28]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2095.
+(babel)             in language  on input line 2153.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2095.
+(babel)             in language  on input line 2153.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2095.
+(babel)             in language  on input line 2153.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2095.
+(babel)             in language  on input line 2153.
+ [29]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 2154.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 2154.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 2154.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 2154.
  [30]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2148.
+(babel)             in language  on input line 2198.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2148.
+(babel)             in language  on input line 2198.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2148.
+(babel)             in language  on input line 2222.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2148.
+(babel)             in language  on input line 2222.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 2222.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 2222.
  [31]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2192.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2192.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2216.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2216.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2216.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2216.
- [32]
-Overfull \hbox (2.61049pt too wide) in paragraph at lines 2223--2233
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 2229--2239
 []$[]$  $[]$
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2235.
+(babel)             in language  on input line 2241.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2235.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2238.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2238.
+(babel)             in language  on input line 2241.
 
-Overfull \hbox (1.86931pt too wide) in paragraph at lines 2239--2240
+Overfull \hbox (1.86931pt too wide) in paragraph at lines 2242--2243
 \T1/cmr/m/n/12 Der Huffmann-Algorithmus ko-diert je-des Sym-bol ein-zeln, wäh-rend der er-wei-ter-te Huffman-
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2241.
+(babel)             in language  on input line 2244.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2241.
+(babel)             in language  on input line 2244.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2241.
+(babel)             in language  on input line 2244.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2241.
-[33]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2242.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2242.
+(babel)             in language  on input line 2244.
+[32]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 2245.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1808,310 +1788,314 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 2248.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2299.
+(babel)             in language  on input line 2251.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2299.
+(babel)             in language  on input line 2251.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 2302.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 2302.
 
-Overfull \hbox (48.13072pt too wide) in paragraph at lines 2303--2368
+Overfull \hbox (48.13072pt too wide) in paragraph at lines 2306--2371
 []$[]$  $[]$
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2368.
+(babel)             in language  on input line 2371.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2368.
+(babel)             in language  on input line 2371.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2368.
+(babel)             in language  on input line 2371.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2368.
-[34]
-Overfull \hbox (20.62207pt too wide) in paragraph at lines 2373--2398
+(babel)             in language  on input line 2371.
+[33]
+Overfull \hbox (20.62207pt too wide) in paragraph at lines 2376--2401
 [][] 
  []
 
-<antechima.png, id=452, 2055.68pt x 1541.76pt>
+<antechima.png, id=443, 2055.68pt x 1541.76pt>
 File: antechima.png Graphic file (type png)
  <use antechima.png>
-Package pdftex.def Info: antechima.png used on input line 2404.
+Package pdftex.def Info: antechima.png used on input line 2407.
 (pdftex.def)             Requested size: 163.86179pt x 312.98103pt.
 
-Underfull \hbox (badness 1168) in paragraph at lines 2409--2433
+Underfull \hbox (badness 1168) in paragraph at lines 2412--2436
 \T1/cmr/m/n/12 und set-zen sämt-li-che rgb-Werte auf r$\OT1/cmr/m/n/12 00$\T1/cmr/m/n/12 .
  []
 
 
-Overfull \hbox (20.62207pt too wide) in paragraph at lines 2409--2433
+Overfull \hbox (20.62207pt too wide) in paragraph at lines 2412--2436
 [] 
  []
 
-<uncompressed.png, id=453, 587.94656pt x 395.22656pt>
+<uncompressed.png, id=444, 587.94656pt x 395.22656pt>
 File: uncompressed.png Graphic file (type png)
  <use uncompressed.png>
-Package pdftex.def Info: uncompressed.png used on input line 2437.
+Package pdftex.def Info: uncompressed.png used on input line 2440.
 (pdftex.def)             Requested size: 163.87929pt x 312.98541pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2440.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2440.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2440.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2440.
- [35 <./antechima.png>]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2442.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2442.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2442.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2442.
- [36 <./uncompressed.png>]
-Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 2443.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 2443.
 Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 2443.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 2443.
+ [34 <./antechima.png>]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 2445.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 2445.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 2445.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 2445.
+ [35 <./uncompressed.png>]
+Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 2446.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 2446.
- <Normalization/unnormalized.png, id=467, 741.52031pt x 596.98032pt>
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 2449.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 2449.
+ <Normalization/unnormalized.png, id=457, 741.52031pt x 596.98032pt>
 File: Normalization/unnormalized.png Graphic file (type png)
  <use Normalization/unnormalized.png>
-Package pdftex.def Info: Normalization/unnormalized.png used on input line 2451.
+Package pdftex.def Info: Normalization/unnormalized.png used on input line 2454.
 (pdftex.def)             Requested size: 364.19673pt x 438.1695pt.
 
-<Normalization/normalized.png, id=468, 742.27313pt x 596.98032pt>
+<Normalization/normalized.png, id=458, 742.27313pt x 596.98032pt>
 File: Normalization/normalized.png Graphic file (type png)
  <use Normalization/normalized.png>
-Package pdftex.def Info: Normalization/normalized.png used on input line 2455.
+Package pdftex.def Info: Normalization/normalized.png used on input line 2458.
 (pdftex.def)             Requested size: 364.20404pt x 438.1695pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2456.
+(babel)             in language  on input line 2459.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2456.
+(babel)             in language  on input line 2459.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2456.
+(babel)             in language  on input line 2459.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2456.
- [37 <./Normalization/unnormalized.png>] <Normalization/normalizedPowerOfTwo.png, id=475, 742.27313pt x 596.98032pt>
+(babel)             in language  on input line 2459.
+ [36 <./Normalization/unnormalized.png>] <Normalization/normalizedPowerOfTwo.png, id=466, 742.27313pt x 596.98032pt>
 File: Normalization/normalizedPowerOfTwo.png Graphic file (type png)
 
 <use Normalization/normalizedPowerOfTwo.png>
-Package pdftex.def Info: Normalization/normalizedPowerOfTwo.png used on input line 2459.
+Package pdftex.def Info: Normalization/normalizedPowerOfTwo.png used on input line 2462.
 (pdftex.def)             Requested size: 364.20404pt x 438.1695pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2460.
+(babel)             in language  on input line 2463.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2460.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2460.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2460.
- [38 <./Normalization/normalized.png>]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2462.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2462.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2462.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2462.
- [39 <./Normalization/normalizedPowerOfTwo.png>]
+(babel)             in language  on input line 2463.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 2463.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 2463.
- <preconditioning/test_PAETH.jpg, id=486, 953.5625pt x 722.7pt>
+ [37 <./Normalization/normalized.png>]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 2465.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 2465.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 2465.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 2465.
+ [38 <./Normalization/normalizedPowerOfTwo.png>]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 2466.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 2466.
+ <preconditioning/test_PAETH.jpg, id=477, 953.5625pt x 722.7pt>
 File: preconditioning/test_PAETH.jpg Graphic file (type jpg)
  <use preconditioning/test_PAETH.jpg>
-Package pdftex.def Info: preconditioning/test_PAETH.jpg used on input line 2517.
+Package pdftex.def Info: preconditioning/test_PAETH.jpg used on input line 2520.
 (pdftex.def)             Requested size: 364.20538pt x 438.16667pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2520.
+(babel)             in language  on input line 2523.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2520.
+(babel)             in language  on input line 2523.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2520.
+(babel)             in language  on input line 2523.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2520.
- [40 <./preconditioning/test_PAETH.jpg>]
+(babel)             in language  on input line 2523.
+ [39 <./preconditioning/test_PAETH.jpg>]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2521.
+(babel)             in language  on input line 2524.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2521.
+(babel)             in language  on input line 2524.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2587.
+(babel)             in language  on input line 2590.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2587.
+(babel)             in language  on input line 2590.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2587.
+(babel)             in language  on input line 2590.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2587.
- [41]
+(babel)             in language  on input line 2590.
+ [40]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2588.
+(babel)             in language  on input line 2591.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2588.
+(babel)             in language  on input line 2591.
  (Bachelorarbeit.lof)
 \tf@lof=\write7
 \openout7 = `Bachelorarbeit.lof'.
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2591.
+(babel)             in language  on input line 2594.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2591.
+(babel)             in language  on input line 2594.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2591.
+(babel)             in language  on input line 2594.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2591.
- [42]
+(babel)             in language  on input line 2594.
+ [41]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2592.
+(babel)             in language  on input line 2595.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2592.
+(babel)             in language  on input line 2595.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2593.
+(babel)             in language  on input line 2596.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2593.
+(babel)             in language  on input line 2596.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2593.
+(babel)             in language  on input line 2596.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2593.
- [43] (Bachelorarbeit.lof)
+(babel)             in language  on input line 2596.
+ [42] (Bachelorarbeit.lof)
 \tf@lof=\write8
 \openout8 = `Bachelorarbeit.lof'.
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2595.
+(babel)             in language  on input line 2598.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2595.
+(babel)             in language  on input line 2598.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2595.
+(babel)             in language  on input line 2598.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2595.
- [44]
+(babel)             in language  on input line 2598.
+ [43]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2596.
+(babel)             in language  on input line 2599.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2596.
+(babel)             in language  on input line 2599.
 
-Underfull \hbox (badness 1728) in paragraph at lines 2605--2607
+Underfull \hbox (badness 1728) in paragraph at lines 2608--2610
 []\T1/cmr/m/n/12 Lajmi L. \T1/cmr/m/it/12 In-for-ma-ti-ons-theo-rie und Co-die-rung []$\T1/cmtt/m/n/12 https : / / www .
  ostfalia . de /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2605--2607
+Underfull \hbox (badness 10000) in paragraph at lines 2608--2610
 \T1/cmtt/m/n/12 export / sites / default / de / pws / lajmi / Lehre / Codierungstheorie / pdf /
  []
 
 
-Underfull \hbox (badness 7558) in paragraph at lines 2609--2610
+Underfull \hbox (badness 7558) in paragraph at lines 2612--2613
 []\T1/cmr/m/it/12 Smaller and fas-ter da-ta com-pres-si-on with Zstan-dard []$\T1/cmtt/m/n/12 https : / / code .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2609--2610
+Underfull \hbox (badness 10000) in paragraph at lines 2612--2613
 \T1/cmtt/m/n/12 facebook . com / {\protect \ protect \ protect \ edefT1{T1} \ let \ enc @
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2609--2610
+Underfull \hbox (badness 10000) in paragraph at lines 2612--2613
 \T1/cmtt/m/n/12 update \ relax \ protect \ edefcmr{cmr} \ protect \ edefm{m} \ protect \
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2609--2610
+Underfull \hbox (badness 10000) in paragraph at lines 2612--2613
 \T1/cmtt/m/n/12 edefn{n} \ protect \ xdef \ T1 / cmr / m / it / 12{\T1 / cmr / m / n / 12} \ T1 / cmr /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2609--2610
+Underfull \hbox (badness 10000) in paragraph at lines 2612--2613
 \T1/cmtt/m/n/12 m / it / 12 \ size @ update \ enc @ update \ ignorespaces \ relax \ protect \
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2609--2610
+Underfull \hbox (badness 10000) in paragraph at lines 2612--2613
 \T1/cmtt/m/n/12 relax \ protect \ edefcmr{cmtt} \ protect \ xdef \ T1 / cmr / m / it / 12{\T1 /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2609--2610
+Underfull \hbox (badness 10000) in paragraph at lines 2612--2613
 \T1/cmtt/m/n/12 cmr / m / n / 12} \ T1 / cmr / m / it / 12 \ size @ update \ enc @ update{post}}s /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2609--2610
+Underfull \hbox (badness 10000) in paragraph at lines 2612--2613
 \T1/cmtt/m/n/12 1658392934479273 / smaller-[]and-[]faster-[]data-[]com{\protect \ protect \
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2609--2610
+Underfull \hbox (badness 10000) in paragraph at lines 2612--2613
 \T1/cmtt/m/n/12 protect \ edefT1{T1} \ let \ enc @ update \ relax \ protect \ edefcmr{cmr} \
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2609--2610
+Underfull \hbox (badness 10000) in paragraph at lines 2612--2613
 \T1/cmtt/m/n/12 protect \ edefm{m} \ protect \ edefn{n} \ protect \ xdef \ T1 / cmr / m / it /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2609--2610
+Underfull \hbox (badness 10000) in paragraph at lines 2612--2613
 \T1/cmtt/m/n/12 12{\T1 / cmr / m / n / 12} \ T1 / cmr / m / it / 12 \ size @ update \ enc @ update \
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2609--2610
+Underfull \hbox (badness 10000) in paragraph at lines 2612--2613
 \T1/cmtt/m/n/12 ignorespaces \ relax \ protect \ relax \ protect \ edefcmr{cmtt} \ protect \
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2609--2610
+Underfull \hbox (badness 10000) in paragraph at lines 2612--2613
 \T1/cmtt/m/n/12 xdef \ T1 / cmr / m / it / 12{\T1 / cmr / m / n / 12} \ T1 / cmr / m / it / 12 \ size @ update \
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2612.
+(babel)             in language  on input line 2615.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2612.
+(babel)             in language  on input line 2615.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2612.
+(babel)             in language  on input line 2615.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2612.
-[45]
-Underfull \hbox (badness 1122) in paragraph at lines 2612--2613
+(babel)             in language  on input line 2615.
+[44]
+Underfull \hbox (badness 1122) in paragraph at lines 2615--2616
 []\T1/cmr/m/it/12 PNG (Por-ta-ble Net-work Gra-phics) Spe-ci-fi-ca-ti-on []$\T1/cmtt/m/n/12 https : / / www . w3 . org /
  TR /
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2617.
+(babel)             in language  on input line 2620.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2617.
+(babel)             in language  on input line 2620.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2617.
+(babel)             in language  on input line 2620.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2617.
-[46pdfTeX warning (ext4): destination with the same identifier (name{cite.Breymann}) has been already used, duplicate ig
+(babel)             in language  on input line 2620.
+[45pdfTeX warning (ext4): destination with the same identifier (name{cite.Breymann}) has been already used, duplicate ig
 nored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2617 \newpage
+l.2620 \newpage
                ]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2632.
+(babel)             in language  on input line 2635.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2632.
+(babel)             in language  on input line 2635.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2632.
+(babel)             in language  on input line 2635.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2632.
+(babel)             in language  on input line 2635.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2632 \end{titlepage}
+l.2635 \end{titlepage}
                        [1]
 \Changes@OutFile=\write9
 \openout9 = `Bachelorarbeit.soc'.
@@ -2122,28 +2106,28 @@ l.2632 \end{titlepage}
  
 AED: lastpage setting LastPage
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 2634.
+(babel)             in language  on input line 2637.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 2634.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2634.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2634.
+(babel)             in language  on input line 2637.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2637.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2637.
 (Bachelorarbeit.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2634.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2634.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2637.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2637.
 Package rerunfilecheck Info: File `Bachelorarbeit.out' has not changed.
-(rerunfilecheck)             Checksum: 53C018F8C2ACCC555D0149CF25C00E5E;3534.
+(rerunfilecheck)             Checksum: 6348A9AE29113AB957EB7828C0CB5B25;3451.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2634.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2637.
  ) 
 Here is how much of TeX's memory you used:
- 19915 strings out of 493323
- 354671 string characters out of 3139060
- 456919 words of memory out of 3000000
- 22849 multiletter control sequences out of 15000+200000
- 27881 words of font info for 73 fonts, out of 3000000 for 9000
+ 19910 strings out of 493323
+ 354547 string characters out of 3139060
+ 456929 words of memory out of 3000000
+ 22846 multiletter control sequences out of 15000+200000
+ 28194 words of font info for 74 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,17n,65p,1049b,725s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exist, replaced by a fixed one
@@ -2157,30 +2141,30 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist,
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
  <C:\Users\Haubold\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1440.pk> <C:\Users\Haubold\AppData\Lo
-cal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1000.pk> <C:\Users\Haubold\AppData\Local\MiKTeX\2.9\fonts\pk\ljfou
-r\jknappen\ec\dpi600\ecti1200.pk> <C:\Users\Haubold\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000
-.pk> <C:\Users\Haubold\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0700.pk> <C:\Users\Haubold\AppDat
-a\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0800.pk> <C:\Users\Haubold\AppData\Local\MiKTeX\2.9\fonts\pk\l
-jfour\jknappen\ec\dpi600\ecsx1200.pk> <C:\Users\Haubold\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx
-1440.pk> <C:\Users\Haubold\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx0600.pk> <C:\Users\Haubold\Ap
-pData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1200.pk> <C:\Users\Haubold\AppData\Local\MiKTeX\2.9\fonts\
-pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\Haubold\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
-ecrm1200.pk> <C:\Users\Haubold\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsl1200.pk> <C:\Users\Haubol
-d\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1728.pk> <C:\Users\Haubold\AppData\Local\MiKTeX\2.9\fo
-nts\pk\ljfour\jknappen\ec\dpi600\ecbx2488.pk> <C:\Users\Haubold\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi
-600\ecrm2074.pk> <C:\Users\Haubold\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx2074.pk><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-mi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
-onts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/euler/eufm10.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/symbols/msbm10.pfb>
-Output written on Bachelorarbeit.pdf (48 pages, 6690317 bytes).
+cal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1440.pk> <C:\Users\Haubold\AppData\Local\MiKTeX\2.9\fonts\pk\ljfou
+r\jknappen\ec\dpi600\ectt1000.pk> <C:\Users\Haubold\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1200
+.pk> <C:\Users\Haubold\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk> <C:\Users\Haubold\AppDat
+a\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0700.pk> <C:\Users\Haubold\AppData\Local\MiKTeX\2.9\fonts\pk\l
+jfour\jknappen\ec\dpi600\ecrm0800.pk> <C:\Users\Haubold\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx
+1200.pk> <C:\Users\Haubold\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C:\Users\Haubold\Ap
+pData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx0600.pk> <C:\Users\Haubold\AppData\Local\MiKTeX\2.9\fonts\
+pk\ljfour\jknappen\ec\dpi600\ectt1200.pk> <C:\Users\Haubold\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
+ecbx1200.pk> <C:\Users\Haubold\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\Haubol
+d\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsl1200.pk> <C:\Users\Haubold\AppData\Local\MiKTeX\2.9\fo
+nts\pk\ljfour\jknappen\ec\dpi600\ecbx1728.pk> <C:\Users\Haubold\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi
+600\ecbx2488.pk> <C:\Users\Haubold\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm2074.pk> <C:\Users\Ha
+ubold\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx2074.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb>
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/euler/eufm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Bachelorarbeit.pdf (47 pages, 6647376 bytes).
 PDF statistics:
  1302 PDF objects out of 1440 (max. 8388607)
- 122 named destinations out of 1000 (max. 500000)
- 405 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 120 named destinations out of 1000 (max. 500000)
+ 392 words of extra memory for PDF output out of 10000 (max. 10000000)
 
