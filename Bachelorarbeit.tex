@@ -2222,14 +2222,14 @@ Der Huffmann-Algorithmus kodiert jedes Symbol einzeln, während der erweiterte H
 
 \newpage
 \section{Vektorisierung}
-In diesem Abschnitt werden die beiden in Kapitel ~\ref{ANS} besprochenen Verfahren auf Bilddateien angewendet. 
-Hierbei besteht das Quellalphabet $\A$ aus den Zahlen $0,1,\ldots,255$, also $\left|\A\right| = 256$. Die Ermittlung der Häufigkeiten $F_{s}\;s\in\A$ durch Iteration über sämtliche RGBA-Werte erfolgt parallelisiert. 
+In diesem Abschnitt werden die beiden in Kapitel ~\ref{ANS} besprochenen Verfahren auf Bilddateien angewendet, also 
+ $\A=\{0,1,\ldots,255\}$. Die Ermittlung der Häufigkeiten $F_{s}\;s\in\A$ durch Iteration über sämtliche RGBA-Werte erfolgt parallelisiert. 
 \subsection{Normalisierung}
 Wesentliche Voruassetzung für die Anwendung der beiden Verfahren ist eine Normalisierung der Häufigkeiten $F_{s}\;s\in\A$ welche Gegenstand der beiden folgenden Unterabschnitte ist.
 
 \subsubsection{Normalisierung der Häufigkeiten des {\tt{uans}}-Verfahrens}
 
-Zunächst approximiert man die Summe aller Häufigkeiten und jede auftretende Häufigkeit durch eine Potenz von Zwei mit Hilfe des nächsten Algorithmus:
+Zunächst wird die Summe aller Häufigkeiten und jede auftretende Häufigkeit durch eine Potenz von Zwei approximiert.
 \par
 
 \begin{center}
@@ -2252,8 +2252,7 @@ END FUNCTION
 \end{tabular} 
 \end{center}
 
-Anschließend werden die Häufigkeiten auf diejenige Zweierpotenz normalisiert, die die Summe der Häufigkeiten $\text{sum} = \sum_{s \in \A}F_{s}$
- am besten approximiert. Aus Gründen der Performanz sollten hierbei nur echt positiven Häufigkeiten berücksichtigt werden.
+Anschließend müssen die Häufigkeiten derart verändert werden, dass ihre Summe mit der Approximation der ursprünglichen Summe wieder übereinstimmt. Aus Gründen der Performanz und der Konsistenz werden hierbei nur echt positive Häufigkeiten berücksichtigt:
 
 \begin{center}
 \begin{tabular}{c}
@@ -2279,9 +2278,12 @@ END FUNCTION
 
  
 \subsubsection{Normalisierung der Häufigkeiten des {\tt{rans}}-Verfahrens}
-
+Wie in \cite{Krajcevski} vorgeschlagen, werden die Häufigkeiten zunächst derart skaliert, dass für ihre Summe $M= 2^{11}$ gilt. 
 Die Normalisierung erfolgt analog zur Normalisierung des {\tt{uans}}-Verfahren, hierbei werden nur der Rechts- bzw. Linksshift durch eine Dekrementierung bzw. Inkrementierung durch eins ersetzt.
 
+
+\subsection{Wahl des normalisierten Intervalls}
+Für beide Verfahren werden unterschiedliche Intervalle gewählt. Für das {\tt{rans}}-Verfahren erfolgt die feste Wahl von $b= 2^{16}$ und $L=2^{13}$ während bei dem {\tt{uans}}-Verfahren $b=2$ gewählt wird und $L$ abhängig von Approximation der Summe der Häufigkeiten ist:
 \begin{minipage}[h]{.7\textwidth}
 Abschließend besprechen wir die Anwendung von uANS bei der Komprimierung von Bildern:
 
