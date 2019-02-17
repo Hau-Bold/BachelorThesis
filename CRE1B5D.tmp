@@ -76,7 +76,7 @@
         \textbf{\textsf{Hilfssatz \thesubsection.\theHilfssatz}:}\\}{
         \nopagebreak
         \vspace{-1.0ex}
-        \bigskip\\
+        \bigskip%\\
 }
 
 \makeatletter
@@ -1807,8 +1807,8 @@ Sei $\mu\in\N$ mit $\mu\in I_{a_k}\cap I_{a_l}$. Dann existieren $s,t \in\N$ mit
 \end{align*}
 Hieraus folgt sofort der Widerspruch $(r_l-r_k)\text{mod}\,2^k \equiv 0$, also $I_{a_{k}}= I_{a_{l}}$.
 \end{proof}
-Folgender Algorithmus liefert arithmetische Progressionen zur Zerlegung von $I(L,b)$ in disjunkte Teilmengen: 
-\begin{Algorithmus}
+Folgender Algorithmus liefert die Zerlegung von $I(L,b)$ in disjunkte Teilmenge: 
+\begin{Algorithmus}\label{ALGdivideNI}
 \begin{itemize}
 \item[1] Fasse Symbole mit gleicher Wahrscheinlichkeit zusammen.
 \item[2] Sortiere Zusammenfassung nach fallender Wahrscheinlichkeit.
@@ -1818,11 +1818,7 @@ Folgender Algorithmus liefert arithmetische Progressionen zur Zerlegung von $I(L
 \item[6] Setze $k=k+1$ und gehe zu Schritt 5.
 \end{itemize}
 \end{Algorithmus}
-
-
 \begin{Beispiel}
-Für die Demonstration eines konkreten Beispiels wird die auf dem drei-Symbol Alphabet  $\A :=\left\{a, b, c\right\}$    mit $p_a=1 /2, p_b = 1/4, p_c = 1/4$ bestehende Nachricht "`abbac"' für $b=2,\;L=16$ kodiert und dekodiert. Algorithmus 4.3.1 liefert die disjunkten aritmetischen Progressionen:
-
 \begin{align*}
 \begin{tabular}{c|c|c}
 $x\in \A$ & $p_{i_{k}}\in \xP$ & $R_{i_{k}}$
@@ -1859,14 +1855,17 @@ $a$ & 1/2 & $\left\{0\right\}$
 $b, c$ & 1/4 & $\left\{1,3\right\}$ 
 \end{tabular}
 \end{align*}
-
-Als Kodierungsfunktion erhält man nun
+\end{Beispiel}
+\begin{Beispiel}
+Für die Demonstration eines konkreten Beispiels wird die auf dem drei-Symbol Alphabet  $\A :=\left\{a, b, c\right\}$    mit $p_a=1 /2, p_b = 1/4, p_c = 1/4$ bestehende Nachricht "`abbac"' für $b=2,\;L=16$ kodiert und dekodiert. Sei
 \begin{align*}
-\C(a,x)=2 x,\quad
-\C(b,x) = 4 x + 1,\quad
-\C(c,x) = 4 x + 3,
+\C(a,x)&=2 x
+\\
+\C(b,x) &= 4 x + 1
+\\
+\C(c,x) &= 4 x + 3.
 \end{align*}
-also die den Symbolen korrespondierenden $b$-eindeutigen Index-Mengen:
+Dann erhält man durch einfaches Rechnen die den Symbolen korrespondierenden $b$-eindeutigen Index-Mengen:
 \par
 \vspace{0.5cm}
 \begin{center}
@@ -1881,7 +1880,7 @@ c	&  & &  & 4& 	&  &  &  5&  &  &  & 6 &  &  & & 7 	\\
 \end{tabular}
 \end{center}
 \vspace{0.5cm}
-Durch Invertierung erhält man sofort die zugehörige Dekodierungsfunktion:
+Offensichtlich lässt sich folgende Inverse definieren:
 $$
 \D(x):
                \begin{cases}
@@ -1890,8 +1889,8 @@ $$
 									\left(c, (x-3)/ 4 \right)          & \text{für}\,\, x \equiv 3 \,\text{mod}\, 4\\
                 \end{cases}
 $$
+Dabei gilt: Wird $u\in\A$ mit $\C$ codiert wächst $x$ um den Faktor $X = 1 / p_u$. Für $L=16$ und $b=2$ erhält man das normalisierte Interval $I=\left\{16, 17,\ldots,31\right\}$.
 
-Die Prozedur der Verschlüsselung und Entschlüsselung lässt sich nachfolgender Tabelle entnehmen:
 \begin{center}
 {\color{gray!50!blue}\rule{8cm}{0.5mm}}
 \\
@@ -1911,7 +1910,7 @@ encode 'a' & & decode 'a'
 \\
 $\uparrow$ & 8 & $\downarrow$
 \\
-$x \not\in I_{a}$; save(1) &  & $x\not\in I(L,b)$; read()=1;
+$x \not\in I_{a}$; save(1) &  & $x\not\in I$; read()=1;
 \\
 $\uparrow$ & 17 & $\downarrow$
 \\
@@ -1919,11 +1918,11 @@ encode 'b' & & decode 'b'
 \\
 $\uparrow$ & 4 & $\downarrow$ 
 \\
-$x \not\in I_{b}$; save(0) &  & $x\not\in I(L,b)$; read()=0;
+$x \not\in I_{b}$; save(0) &  & $x\not\in I$; read()=0;
 \\
 $\uparrow$ & 8 & $\downarrow$
 \\
-$x \not\in I_{b}$; save(1) &  &$x\not\in I(L,b)$; read()=1;
+$x \not\in I_{b}$; save(1) &  &$x\not\in I$; read()=1;
 \\
 $\uparrow$ & 17 & $\downarrow$
 \\
@@ -1931,11 +1930,22 @@ encode 'b' & & decode 'b'
 \\
 $\uparrow$ & 4 & $\downarrow$
 \\
-$x \not\in I_{b}$; save(1) &  &$x\not\in I(L,b)$; read()=1;
+$x \not\in I_{b}$; save(1) &  &$x\not\in I$; read()=1;
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{c c c}
+Kodierer & x & Dekodierer
+\end{tabular}
+\vspace{-0.2cm}
 \\
+{\color{gray!50!blue}\rule{8cm}{0.1mm}}
+\\
+\begin{tabular}{c c c}
 $\uparrow$ & 9 & $\downarrow$
 \\
-$x \not\in I_{b}$; save(0) &  &$x\not\in I(L,b)$; read()=0;
+$x \not\in I_{b}$; save(0) &  &$x\not\in I$; read()=0;
 \\
 $\uparrow$ & 18 & $\downarrow$
 \\
@@ -1943,7 +1953,7 @@ encode 'a' & & decode 'b'
 \\
 $\uparrow$ & 9 & $\downarrow$
 \\
-$x \not\in I_{a}$; save(1) &  & $x\not\in I(L,b)$; read()=1;
+$x \not\in I_{a}$; save(1) &  & $x\not\in I$; read()=1;
 \\
 $\uparrow$ & 19 & $\downarrow$
 \\
@@ -1951,11 +1961,11 @@ encode 'c' & & decode 'c'
 \\
 $\uparrow$ & 4 & $\downarrow$
 \\
-$x \not\in I_{c}$; save(0) &  & $x\not\in I(L,b)$; read()=0;
+$x \not\in I_{c}$; save(0) &  & $x\not\in I$; read()=0;
 \\
 $\uparrow$ & 8 & $\downarrow$
 \\
-x $\not\in I_{c}$; save(0) &  & $x\not\in I(L,b)$; read()=0;
+x $\not\in I_{c}$; save(0) &  & $x\not\in I$; read()=0;
 \\
 $\uparrow$ & 16  & $\downarrow$
 \\
@@ -2021,12 +2031,12 @@ Sei $F_{s}$ die Häufigkeit des Symbols $s\in\A$ und $M:=\sum_{s\in\A}F_{s}$.
 \end{align*} 
 wobei
 \begin{align*}
-\R := x^{'}\,\text{mod}\,M, \quad B_{s}:=\sum_{i=0}^{s-1} F_{s},
-\quad
-\xL(z):= \max_{B_{s} \leq z} s .
+\R &:= x^{'}\,\text{mod}\,M, \quad B_{s}:=\sum_{i=0}^{s-1} F_{s}
+\\
+\xL(z)&:= \max_{B_{s} \leq z} s .
 \end{align*}
 Die Funktion $\xL$ determiniert dabei das Symbol.
-$\C$ und $\D$ sind invers:
+Zunächst zeigen wir, dass $\C$ und $\D$ invers sind:
 \begin{align*}
 \D \circ \C(s, x)&=\left(\xL(\R),F_{s}\cdot \left\lfloor   1 / M \left( 
 M\cdot \left\lfloor  x / F_{s}\right\rfloor  + B_{s}   +  \left(x\,\text{mod}\,F_{s}\right)
@@ -2066,7 +2076,8 @@ Abschließend folgt:
 \xL(\R) = \xL\left(x^{'}\,\text{mod}\,M\right)= \xL(B_{s} + x\,\text{mod}\,F_{s})= \max_{0\leq x\,\text{mod}\,F_{s}} s = s.
 \end{align*}
 Das Verfahren lässt sich folgendermaßen beschreiben:
-\begin{center}
+\begin{Algorithmus}
+\\
 \begin{tabular}{c|c}
 Verschlüsselung & Entschlüsselung
 \\
@@ -2089,12 +2100,12 @@ $x\leftarrow \C(x,s) $  &
 \\
 END PROCEDURE & 
 \end{tabular}
-\end{center}
+\end{Algorithmus}
 \begin{Beispiel}
-Zur Demonstration eines konkreten Beispiel wird wieder die auf dem  3-Symbol-Alphabet $\A:=\{a, b, c\}$ mit den Häufigkeiten $F_{a}:=11, F_{b}:=3,  F_{c}:=2$ bestehende Nachricht "`abbac"' betrachtet:
+Zur Demonstration eines konkreten Beispiel betrachten wir das 3-Symbol-Alphabet $\A:=\{a, b, c\}$ mit den Häufigkeiten $F_{a}:=11, F_{b}:=3,  F_{c}:=2$ und die Nachricht "`abbac"':
 \par
 \vspace{0.5cm}
-Es gilt dann $M=16$ und man erhält folgende Lookup-Tabelle:
+Es gilt dann $M=16$. Damit erhalten wir als Lookup-Tabelle:
 \begin{center}
 \begin{tabular}{c|c|c|c}
 $x$ & $<11$ & $11 \leq x <14$ & $14\leq x$
@@ -2122,15 +2133,15 @@ encode 'a' & & decode 'a'
 \\
 $\uparrow$ & 21 & $\downarrow$
 \\
-$x \not\in I(L,b)$; save(1) &  & read()=1;
+$x \not\in I$; save(1) &  & read()=1;
 \\
 $\uparrow$ & 43 & $\downarrow$
 \\
-$x \not\in I(L,b)$; save(0) &  & read()=0;
+$x \not\in I$; save(0) &  & read()=0;
 \\
 $\uparrow$ & 86 & $\downarrow$
 \\
-$x \not\in I(L,b)$; save(0) &  & read()=0;
+$x \not\in I$; save(0) &  & read()=0;
 \\
 $\uparrow$ & 172 & $\downarrow$
 \\
@@ -2138,12 +2149,25 @@ encode 'b' & & decode 'b'
 \\
 $\uparrow$ & 31 & $\downarrow$
 \\
-$x \not\in I(L,b)$; save(0) &  & read()=0;
+$x \not\in I$; save(0) &  & read()=0;
 \\
 $\uparrow$ & 62 & $\downarrow$
 \\
-$x \not\in I(L,b)$; save(0) &  & read()=0;
+$x \not\in I$; save(0) &  & read()=0;
+\end{tabular}
+\end{center}
+\newpage
+\begin{center}
+{\color{gray!50!blue}\rule{8cm}{0.5mm}}
 \\
+\begin{tabular}{c c c}
+Kodierer & x & Dekodierer
+\end{tabular}
+\vspace{-0.2cm}
+\\
+{\color{gray!50!blue}\rule{8cm}{0.1mm}}
+\\
+\begin{tabular}{c c c}
 $\uparrow$ & 124 & $\downarrow$
 \\
 encode 'b' & & decode 'b'
@@ -2154,15 +2178,15 @@ encode 'a' & & decode 'a'
 \\
 $\uparrow$ & 17 & $\downarrow$
 \\
-$x \not\in I(L,b)$; save(1) &  &  read()=1;
+$x \not\in I$; save(1) &  &  read()=1;
 \\
 $\uparrow$ & 35 & $\downarrow$
 \\
-$x \not\in I(L,b)$; save(1) &  & read()=1;
+$x \not\in I$; save(1) &  & read()=1;
 \\
 $\uparrow$ & 71 & $\downarrow$
 \\
-$x \not\in I(L,b)$; save(0) &  &  read()=0;
+$x \not\in I$; save(0) &  &  read()=0;
 \\
 $\uparrow$ & 142 & $\downarrow$
 \\
@@ -2177,10 +2201,12 @@ initialer Zustand & & lesen beendet
 \end{center}
 \end{Beispiel}
 \subsection{Vergleich der beiden Verfahren}
-Das {\tt{rans}}-Verfahren stellt keine Bedingungen an die Werte der Auftrittswahrscheinlichkeiten oder die Wahl des normalisierten Intervalls, außerdem ist das Verfahren sehr leicht zu implementieren.
+Das ANS-Verfahren stellt keine Bedingungen an die Werte der Auftrittswahrscheinlichkeiten oder die Wahl des normalisierten Intervalls, außerdem ist das Verfahren sehr leicht zu implementieren.
 \par
-Die Generierung der benötigten Indexmengen für das {\tt{uans}}-Verfahren ist sehr aufwendig und auch nur durch Approximation der Auftrittswahrscheinlichkeiten möglich. Außerdem
-muss das normalisierte Intervall so gewählt werden, dass jedes Symbol mindestens einen Repräsentanten innerhalb  des normalisierten Intervalls besitzt:
+Die Generierung der Indexmengen bei dem uANS-Verfahren ist sehr aufwendig und auch nur durch Einschränkung der Werte der Auftrittswahrscheinlichkeiten möglich.
+\par
+Das normalisierte Intervall bei dem uANS-Verfahren muss so gewählt werden, dass jedes Symbol mindestens einen Repräsentanten innerhalb  
+$I(L,b)$ besitzt:
 \par
 Sei z.B. $L=2$ und $b=3$, $\A:=\left\{a, b, c, d\right\}$ mit $p_{a}=1/2$, $p_{b}=1/4$ und $p_{c}=p_{d}=1/8$. 
 Dann gilt:
@@ -2194,27 +2220,27 @@ L^{*} = \max \left\{r_{k}\,|\,r_{k}\in R_{i_{k}}, 0\leq i_{k} < N-1\right\} +1
 \end{align*} 
 dann gilt für alle Reste $0 \leq r_{k} < L^{*}$. Verschiebt man dieses Intervall noch um die größte auftretende Potenz von 2 (=:M), so besitzt jede Indexmenge einen Repräsentanten im Intervall $[M,M + L^{*}-1]$, also auch in $I(b,L)$ für $b=2$ und $L:=M$ $($da $L^{*} \leq M)$, also gilt für die korrespondierenden Indexmengen $I_{i_{k}} \neq \varnothing$.
 \par
-Eine weiterer Nachteil findet sich in dem Umstand, dass {\tt{uans}}-Verfahren nicht immer terminiert:
+Eine weiterer Nachteil findet sich in dem Umstand, dass uANS-Verfahren nicht immer terminiert:
 \par
-Sei z.B. $b=4$ und $L=16$ und $\alpha$ ein Symbol mit der relativen Häufigkeit $p_{\alpha}=1/32$. Angenommen Algorithmus 4.3.1 liefert einen Modulorest $0 < r < 16$, dann erhält man als zugehörige Indexmenge $I_{\alpha}=\{1\}$. Falls der Kodiererer z.B. bei  $x=48$ das Symbol $\alpha$ ließt, so teilt er so lange durch $b$ bis er einen Wert aus $I_{\alpha}$ erhält, was nie der Fall ist.
+Sei z.B. $b=4$ und $L=16$ und $\alpha$ ein Symbol mit der relativen Häufigkeit $p_{\alpha}=1/32$. Angenommen Algorithmus \ref{ALGdivideNI} liefert einen Modulorest $0 < r < 16$, dann erhält man die zugehörige Indexmenge $I_{\alpha}=\{1\}$. Falls der Kodiererer bei  $x=48$ das Symbol $\alpha$ ließt, so teilt er so lange durch $b$ bis er einen Wert aus $I_{\alpha}$ erhält, was nie der Fall ist.
 \par
-Zusammenfassend ist das {\tt{rans}}-Verfahren damit besser geeignet. 
+Zusammenfassend ist das ANS-Verfahren damit besser geeignet. 
 \par
-Im Falle der Terminierung liefert das {\tt{uans}}-Verfahren  aber die bessere Kompressionsrate:
+Im Falle der Terminierung liefert das uANS-Verfahren  aber die bessere Kom{\tt{pre}}ssionsrate:
 \begin{Beispiel}
 Man betrachte die Komprimierung des Wortes $\mathcal{T}$:="`MISSISSIPPI"'  für $b=2$, $L=16$, $M=8$ durch beide Verfahren:
 \par
 \vspace{0.5cm}
 \begin{minipage}[h]{.5\textwidth}
-$\mathcal{T}\stackrel{{\tt{uans}}}{\mapsto} 0010000010010110010110\;19$
+$\mathcal{T}\stackrel{\text{uANS}}{\mapsto} 0010000010010110010110\;19$
 \end{minipage}
 \hfill
  \begin{minipage}[h]{.5\textwidth}
-$\mathcal{T}\stackrel{{\tt{rans}}}{\mapsto} 1|01|100|1|110|00|0|00|1|0010|19$
+$\mathcal{T}\stackrel{\text{ANS}}{\mapsto} 1|01|100|1|110|00|0|00|1|0010|19$
 \end{minipage}   
 \vspace{0.5cm}
 \\
-Das {\tt{rans}}-Verfahren benötigt zur Dekomprimierung von $\mathcal{T}$ zusätzliche Information. Der Grund diese Umstandes liegt in der Konstruktion: Das {\tt{rans}}-Verfahren normalisiert nur bei der Kodierung aus positiver Richtung in das "`normalisierte Interval"' $I(L,b)$, während das {\tt{uans}}-Verfahren das Bitmuster so lange ausließt und den augenblicklichen Wert erhöht, bis ein Wert größer als $L$ gefunden ist.
+Das ANS-Verfahren benötigt zur Dekomprimierung von $\mathcal{T}$ zusätzliche Information. Der Grund diese Umstandes liegt in der Konstruktion: Das ANS-Verfahren normalisiert nur bei der Kodierung aus positiver Richtung in das "`normalisierte Interval"' $I(L,b)$, während das uANS-Verfahren das Bitmuster so lange ausließt und den augenblicklichen Wert erhöht, bis ein Wert größer als $L$ gefunden ist.
 \end{Beispiel}
 
 \section{Vergleich zu Huffmann und Arithmetischem Kodieren}
