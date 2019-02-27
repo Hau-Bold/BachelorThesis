@@ -31,14 +31,15 @@
 \BOOKMARK [2][-]{subsection.4.5}{Vergleich der beiden Verfahren}{section.4}% 31
 \BOOKMARK [1][-]{section.5}{Vergleich zu Huffmann und Arithmetischem Kodieren}{}% 32
 \BOOKMARK [1][-]{section.6}{Vektorisierung}{}% 33
-\BOOKMARK [2][-]{subsection.6.1}{Normalisierung}{section.6}% 34
-\BOOKMARK [3][-]{subsubsection.6.1.1}{Normalisierung der H\344ufigkeiten des uans-Verfahrens}{subsection.6.1}% 35
-\BOOKMARK [3][-]{subsubsection.6.1.2}{Normalisierung der H\344ufigkeiten des rans-Verfahrens}{subsection.6.1}% 36
-\BOOKMARK [2][-]{subsection.6.2}{Wahl des normalisierten Intervalls}{section.6}% 37
-\BOOKMARK [1][-]{section.7}{Ergebnisse}{}% 38
-\BOOKMARK [2][-]{subsection.7.1}{Ergebnisse der Normalisierung}{section.7}% 39
-\BOOKMARK [2][-]{subsection.7.2}{Ergebnisse der Filterung}{section.7}% 40
-\BOOKMARK [3][-]{subsubsection.7.2.1}{Verhalten der Entropie unter Verwendung der Filterung und Normalisierung}{subsection.7.2}% 41
-\BOOKMARK [1][-]{section.8}{Abbildungsverzeichnis}{}% 42
-\BOOKMARK [1][-]{section.9}{Kommandozeilenparameter}{}% 43
-\BOOKMARK [1][-]{section.10}{Literaturverzeichnis}{}% 44
+\BOOKMARK [2][-]{subsection.6.1}{Bestimmung der H\344ufigkeiten}{section.6}% 34
+\BOOKMARK [2][-]{subsection.6.2}{Normalisierung}{section.6}% 35
+\BOOKMARK [3][-]{subsubsection.6.2.1}{Normalisierung der H\344ufigkeiten des uans-Verfahrens}{subsection.6.2}% 36
+\BOOKMARK [3][-]{subsubsection.6.2.2}{Normalisierung der H\344ufigkeiten des rans-Verfahrens}{subsection.6.2}% 37
+\BOOKMARK [2][-]{subsection.6.3}{Wahl des normalisierten Intervalls}{section.6}% 38
+\BOOKMARK [1][-]{section.7}{Ergebnisse}{}% 39
+\BOOKMARK [2][-]{subsection.7.1}{Ergebnisse der Normalisierung}{section.7}% 40
+\BOOKMARK [2][-]{subsection.7.2}{Ergebnisse der Filterung}{section.7}% 41
+\BOOKMARK [3][-]{subsubsection.7.2.1}{Verhalten der Entropie unter Verwendung der Filterung und Normalisierung f\374r das uans-Verfahren}{subsection.7.2}% 42
+\BOOKMARK [1][-]{section.8}{Abbildungsverzeichnis}{}% 43
+\BOOKMARK [1][-]{section.9}{Kommandozeilenparameter}{}% 44
+\BOOKMARK [1][-]{section.10}{Literaturverzeichnis}{}% 45

@@ -32,14 +32,15 @@
 \contentsline {subsection}{\numberline {4.5}Vergleich der beiden Verfahren}{29}{subsection.4.5}
 \contentsline {section}{\numberline {5}Vergleich zu Huffmann und Arithmetischem Kodieren}{30}{section.5}
 \contentsline {section}{\numberline {6}Vektorisierung}{31}{section.6}
-\contentsline {subsection}{\numberline {6.1}Normalisierung}{31}{subsection.6.1}
-\contentsline {subsubsection}{\numberline {6.1.1}Normalisierung der H\IeC {\"a}ufigkeiten des {\tt {uans}}-Verfahrens}{31}{subsubsection.6.1.1}
-\contentsline {subsubsection}{\numberline {6.1.2}Normalisierung der H\IeC {\"a}ufigkeiten des {\tt {rans}}-Verfahrens}{31}{subsubsection.6.1.2}
-\contentsline {subsection}{\numberline {6.2}Wahl des normalisierten Intervalls}{32}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.1}Bestimmung der H\IeC {\"a}ufigkeiten}{31}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Normalisierung}{31}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}Normalisierung der H\IeC {\"a}ufigkeiten des {\tt {uans}}-Verfahrens}{31}{subsubsection.6.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2}Normalisierung der H\IeC {\"a}ufigkeiten des {\tt {rans}}-Verfahrens}{32}{subsubsection.6.2.2}
+\contentsline {subsection}{\numberline {6.3}Wahl des normalisierten Intervalls}{32}{subsection.6.3}
 \contentsline {section}{\numberline {7}Ergebnisse}{35}{section.7}
 \contentsline {subsection}{\numberline {7.1}Ergebnisse der Normalisierung}{35}{subsection.7.1}
 \contentsline {subsection}{\numberline {7.2}Ergebnisse der Filterung}{38}{subsection.7.2}
-\contentsline {subsubsection}{\numberline {7.2.1}Verhalten der Entropie unter Verwendung der Filterung und Normalisierung}{39}{subsubsection.7.2.1}
-\contentsline {section}{\numberline {8}Abbildungsverzeichnis}{40}{section.8}
-\contentsline {section}{\numberline {9}Kommandozeilenparameter}{41}{section.9}
-\contentsline {section}{\numberline {10}Literaturverzeichnis}{43}{section.10}
+\contentsline {subsubsection}{\numberline {7.2.1}Verhalten der Entropie unter Verwendung der Filterung und Normalisierung f\IeC {\"u}r das {\tt {uans}}-Verfahren}{39}{subsubsection.7.2.1}
+\contentsline {section}{\numberline {8}Abbildungsverzeichnis}{41}{section.8}
+\contentsline {section}{\numberline {9}Kommandozeilenparameter}{42}{section.9}
+\contentsline {section}{\numberline {10}Literaturverzeichnis}{44}{section.10}

@@ -19,6 +19,7 @@
 \usepackage{verbatim}
 \usepackage{fancyhdr}
 \usepackage[hang]{footmisc}
+\usepackage[center]{caption2}
 \renewcommand{\subsectionmark}[\thepage]{\markright{{#1}}}
 \textheight220mm
 \headheight 28pt
@@ -2222,8 +2223,15 @@ Der Huffmann-Algorithmus kodiert jedes Symbol einzeln, während der erweiterte H
 
 \newpage
 \section{Vektorisierung}
-In diesem Abschnitt werden die beiden in Kapitel ~\ref{ANS} besprochenen Verfahren auf Bilddateien angewendet, also 
- $\A=\{0,1,\ldots,255\}$. Die Ermittlung der Häufigkeiten $F_{s}\;s\in\A$ durch Iteration über sämtliche RGBA-Werte erfolgt parallelisiert. 
+In diesem Abschnitt werden die beiden in Kapitel ~\ref{ANS} besprochenen Verfahren auf Bilddateien angewendet, im Folgenden gilt also
+ $\A=\{0,1,\ldots,255\}$.  
+\subsection{Bestimmung der Häufigkeiten}
+Zum Laden einer Bilddatei wird die Funktion \footnote{Hierfür wird die unter \cite{Barret} zu Verfügung gestellte Bibliothek verwendet.} 
+\begin{verbatim}
+stbi_load(char const *filename, int *x, int *y, int *comp, int req_comp)
+\end{verbatim}
+ welche einen Zeiger auf ein Array vom Typ {\tt{unsigned char}} liefert, verwendet.
+Die Ermittlung der Häufigkeiten $F_{s}\;s\in\A$  erfolgt dann durch Iteration über dieses Array.\footnote{Die Bestimmung der Häufigkeiten erfolgt parallel, bei der Programmierung der parallelen Algorithmen orientierte sich der Autor an \cite{Williams}.}
 \subsection{Normalisierung}
 Wesentliche Voruassetzung für die Anwendung der beiden Verfahren ist eine Normalisierung der Häufigkeiten $F_{s}\;s\in\A$ welche Gegenstand der beiden folgenden Unterabschnitte ist.
 
@@ -2430,109 +2438,145 @@ Die Implementierung wurde in Java umgesetzt und steht unter \url{https://github.
 \subsection{Ergebnisse der Normalisierung}
 Im Folgenden wird der Einfluss der Normalisierung auf ein Bild (Siehe nächster Abschnitt Filtertyp 0) demonstriert:
 \par
-\hspace{1.5cm}
 \begin{center}
-\includegraphics[width=0.8\linewidth,height=0.7\textheight]{Normalization/unnormalized}
+\includegraphics[width=0.8\linewidth,height=0.7\textheight]{Normalization/lena_unnormalized}
 \captionof{figure}{Häufigkeiten - Ohne Normalisierung}
 \end{center}
 \begin{center}
-\includegraphics[width=0.8\linewidth,height=0.7\textheight]{Normalization/normalized}
+\includegraphics[width=0.8\linewidth,height=0.7\textheight]{Normalization/lena_normalized}
 \captionof{figure}{Häufigkeiten - Normalisierung {\tt{rans}}}
 \end{center}
 \begin{center}
-\includegraphics[width=0.8\linewidth,height=0.7\textheight]{Normalization/normalizedPowerOfTwo}
+\includegraphics[width=0.8\linewidth,height=0.7\textheight]{Normalization/lena_normalizedPowerOfTwo}
 \captionof{figure}{Häufigkeiten - Normalisierung {\tt{uans}}}
 \end{center}
 \newpage
 \subsection{Ergebnisse der Filterung}
-Im Folgenden wird er Einfluss der verwendeten Filter demonstriert. 
+Im Folgenden wird er Einfluss der verwendeten Filter demonstriert. Die Werte der Entropie finden sich in Tabelle
 \par
-\hspace{1.5cm}
-%\begin{center}
-%\includegraphics[width=0.8\linewidth,height=0.7\textheight]{{\tt{pre}}conditioning/Bounty}
-%\captionof{figure}{Filtertyp 0 - {\tt{none}}}
-%\end{center}
-%
-%\begin{center}
-%\includegraphics[width=0.8\linewidth,height=0.7\textheight]{{\tt{pre}}conditioning/test_SUB}
-%\captionof{figure}{Filtertyp 1 - {\tt{sub}}}
-%\end{center}
-%
-%\begin{center}
-%\includegraphics[width=0.8\linewidth,height=0.7\textheight]{{\tt{pre}}conditioning/test_UP}
-%\captionof{figure}{Filtertyp 2 - {\tt{up}}}
-%\end{center}
-%
-%\begin{center}
-%\includegraphics[width=0.8\linewidth,height=0.7\textheight]{{\tt{pre}}conditioning/test_AVERAGE2}
-%\captionof{figure}{Filtertyp 3 - {\tt{average2}}}
-%\end{center}
-%
-%\begin{center}
-%\includegraphics[width=0.8\linewidth,height=0.7\textheight]{{\tt{pre}}conditioning/test_AVERAGE3}
-%\captionof{figure}{Filtertyp 4 - {\tt{average3}}}
-%\end{center}
-%
-%\begin{center}
-%\includegraphics[width=0.8\linewidth,height=0.7\textheight]{{\tt{pre}}conditioning/test_AVERAGE4}
-%\captionof{figure}{Filtertyp 5 - {\tt{average4}}}
-%\end{center}
-%
-%\begin{center}
-%\includegraphics[width=0.8\linewidth,height=0.7\textheight]{{\tt{pre}}conditioning/test_AVERAGE5}
-%\captionof{figure}{Filtertyp 6 - {\tt{average5}}}
-%\end{center}
-%
-%\begin{center}
-%\includegraphics[width=0.8\linewidth,height=0.7\textheight]{{\tt{pre}}conditioning/test_AVERAGE6}
-%\captionof{figure}{Filtertyp 7 - {\tt{average6}}}
-%\end{center}\begin{center}
-%
-%\includegraphics[width=0.8\linewidth,height=0.7\textheight]{{\tt{pre}}conditioning/test_AVERAGE7}
-%\captionof{figure}{Filtertyp 8 - {\tt{average7}}}
-%\end{center}
-%
-%\begin{center}
-%\includegraphics[width=0.8\linewidth,height=0.7\textheight]{{\tt{pre}}conditioning/test_AVERAGE8}
-%\captionof{figure}{Filtertyp 9 - {\tt{average8}}}
-%\end{center}
+\begin{figure}[h]
+    \centering
+\begin{minipage}[h]{.45\linewidth}
+\centering
+\includegraphics[width=0.55\linewidth]{preconditioning/lena}
+\captionof{figure}{{\tt{none}}}
+\end{minipage}
+\hfill
+\begin{minipage}[h]{.45\linewidth}
+\centering
+\includegraphics[width=0.55\linewidth]{preconditioning/lena_sub}
+\captionof{figure}{{\tt{sub}}}
+\end{minipage}
+\end{figure}
 
-\begin{center}
-\includegraphics[width=0.8\linewidth,height=0.7\textheight]{preconditioning/test_PAETH}
-\captionof{figure}{Filtertyp 6 - {\tt{paeth}}}
-\end{center}
+\begin{figure}[h]
+    \centering
+\begin{minipage}[h]{.45\linewidth}
+\centering
+\includegraphics[width=0.55\linewidth]{preconditioning/lena_up}
+\captionof{figure}{{\tt{up}}}
+\end{minipage}
+\hfill
+\begin{minipage}[h]{0.45\linewidth}
+\centering
+\includegraphics[width=0.55\linewidth]{preconditioning/lena_av2}
+\captionof{figure}{{\tt{average2}}}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+\begin{minipage}[h]{.45\linewidth}
+\centering
+\includegraphics[width=0.55\linewidth]{preconditioning/lena_av3}
+\captionof{figure}{{\tt{average3}}}
+\end{minipage}
+\hfill
+\begin{minipage}[h]{0.45\linewidth}
+\centering
+\includegraphics[width=0.55\linewidth]{preconditioning/lena_av4}
+\captionof{figure}{{\tt{average4}}}
+\end{minipage}
+\end{figure}
+
 \newpage
-\subsubsection{Verhalten der Entropie unter Verwendung der Filterung und Normalisierung}
-Abschließend geben wir das Verhalten der Entropie unter Verwendung der Normalisierung der Filterung wieder. Stufe 0 steht für die Entropie ohne Normalisierung, Stufe 1 für die Entropie nach Normalisierung. Stufe 2 (3) gibt den Wert der Entropie nach Verwendung eines Filters ohne (mit) vorheriger Normalisierung wieder,  und Stufe 4 (5) den Wert nach Einsatz eines Filters und anschließender Normalisierung mit (ohne) vorheriger Normalisierung. 
+\begin{figure}[h]
+    \centering
+\begin{minipage}[h]{.45\linewidth}
+\centering
+\includegraphics[width=0.55\linewidth]{preconditioning/lena_av5}
+\captionof{figure}{{\tt{average5}}}
+\end{minipage}
+\hfill
+\begin{minipage}[h]{0.45\linewidth}
+\centering
+\includegraphics[width=0.55\linewidth]{preconditioning/lena_av6}
+\captionof{figure}{{\tt{average6}}}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+\begin{minipage}[h]{.45\linewidth}
+\centering
+\includegraphics[width=0.55\linewidth]{preconditioning/lena_av7}
+\captionof{figure}{{\tt{average7}}}
+\end{minipage}
+\hfill
+\begin{minipage}[h]{0.45\linewidth}
+\centering
+\includegraphics[width=0.55\linewidth]{preconditioning/lena_av8}
+\captionof{figure}{{\tt{average8}}}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+\begin{minipage}[h]{.45\linewidth}
+\centering
+\includegraphics[width=0.55\linewidth]{preconditioning/lena_paeth}
+\captionof{figure}{{\tt{paeth}}}
+\end{minipage}
+\hfill
+\begin{minipage}[h]{0.45\linewidth}
+\end{minipage}
+\end{figure}
+
+
+\subsubsection{Verhalten der Entropie unter Verwendung der Filterung und Normalisierung für das {\tt{uans}}-Verfahren}
+Abschließend geben wir das Verhalten der Entropie unter Verwendung der Normalisierung und anschließender Filterung wieder. Zu Beginn beträgt die Entropie des betrachteten Bildes 7.766.
+
+
+ Die erste Spalte gibt den Wert der Entropie nach Verwendung eines Filters  Stufe 2  gibt den Wert der Entropie nach für die Entropie nach Normalisierung. wieder. Die hier aufgelisteten Daten sind Ergebnisse der \CC -Implementierung. 
 \par
 Für die Normalisierung ANS erhält man folgende Werte:
 \par
 \vspace{1cm}
-\begin{tabular}{c | c | c | c | c | c | c}
-Filtertyp & 0 &  1 & 2 & 3 & 4A & 4B
+\begin{tabular}{c | c | c }
+Filtertyp & nach Filterung &  nach Normalisierung 
 \\
 \hline
-\textbf{{\tt{none}}} &  7.58792 & 7.58793 & 7.58792 & 7.58792  & 7.58793 &  7.58792
+\textbf{{\tt{none}}} &  7.766 & 7.77295
 \\
-\textbf{Sub} & 7.58792 &   7.58793 & 5.52772 &  5.52772 &5.52773  & 5.52773 
+\textbf{Sub} & 5.49393 &   5.8999
 \\
-\textbf{Up} & 7.58792 &  7.58793 & 5.3858 & 5.3858  & 5.38582 & 5.38582 
+\textbf{Up} & 4.8265 &  5.04883
 \\
-\textbf{Average2} & 7.58792 &  7.58793 & 6.1528 & 6.1528 & 6.1528 & 6.1528 
+\textbf{Average2} & 5.97444 &  6.21094
 \\
-\textbf{Average3} & 7.58792 &  7.58793 & 6.39763 & 6.39763 & 6.39762 & 6.39762 
+\textbf{Average3} & 6.12365&  6.4113%correctly continue with average 4(i.e. 5) 
 \\
-\textbf{Average4} & 7.58792 &  7.58793 & 6.58027 & 6.58027 & 6.58027 & 6.58027 
+\textbf{Average4} & 7.766 &  7.58793 
 \\
-\textbf{Average5} & 7.58792 &  7.58793 & 6.95311 & 6.95311 & 6.95314 & 6.95314 
+\textbf{Average5} & 7.766 &  7.58793 
 \\
-\textbf{Average6} & 7.58792 &  7.58793 & 7.16235 & 7.16235 & 7.16235 &  7.16235 
+\textbf{Average6} & 7.766 &  7.58793 
 \\
-\textbf{Average7} & 7.58792 &  7.58793 & 7.2852 &  7.2852 &  7.2852 & 7.2852 
+\textbf{Average7} & 7.766 &  7.58793 
 \\
-\textbf{Average8} & 7.58792 &  7.58793 & 7.38257 & 7.38257  & 7.38258 & 7.38258 
+\textbf{Average8} & 7.766 &  7.58793 
 \\
-\textbf{Paeth} & 7.58792 &  7.58793 & 5.00477 &  5.00477  &  5.00478 & 5.00478 
+\textbf{Paeth} & 7.766 &  7.58793 
 \end{tabular}
 \par
 \vspace{1cm}
@@ -2594,8 +2638,9 @@ Filtertyp & 0 &  1 & 2 & 3 & 4 & 5
 \bibitem[10]{apple}{\it Apple Open-Sources its New Compression Algorithm LZFSE} \url{https://www.infoq.com/news/2016/07/apple-lzfse-lossless-opensource}
 \bibitem[11]{google}{\it Google Draco 3D compressor} \url{https://github.com/google/draco}
 \bibitem[12]{png}{\it PNG (Portable Network Graphics) Specification} \url{https://www.w3.org/TR/PNG-Filters.html}
-\bibitem[13]{Breymann}{Breymann U.} {\it DER C++ Programmierer},Carl Hanser Verlag München, (2015).
-\bibitem[14]{Breymann}{Williams A.} {\it C++ Concurrency IN ACTION},Manning Publications Co Shelter Island NY 11964 (2012).
+\bibitem[13]{Breymann}{Breymann U.} {\it DER C++ Programmierer}, Carl Hanser Verlag München, (2015).
+\bibitem[14]{Williams}{Williams A.} {\it C++ Concurrency IN ACTION}, Manning Publications Co Shelter Island NY 11964 (2012).
+\bibitem[15]{Barret}{\it stb single-file public domain libraries for C/\CC } \url{https://github.com/nothings/stb}
 \end{thebibliography}
 
 \newpage
