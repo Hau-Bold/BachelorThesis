@@ -17,8 +17,8 @@ Class=LaTeXView
 Document=Bachelorarbeit.tex
 
 [Frame0_View0,0]
-TopLine=2601
-Cursor=90763
+TopLine=2597
+Cursor=90511
 
 [SessionInfo]
 FrameCount=1

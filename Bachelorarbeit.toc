@@ -40,7 +40,8 @@
 \contentsline {section}{\numberline {7}Ergebnisse}{35}{section.7}
 \contentsline {subsection}{\numberline {7.1}Ergebnisse der Normalisierung}{35}{subsection.7.1}
 \contentsline {subsection}{\numberline {7.2}Ergebnisse der Filterung}{38}{subsection.7.2}
-\contentsline {subsubsection}{\numberline {7.2.1}Verhalten der Entropie unter Verwendung der Filterung und Normalisierung f\IeC {\"u}r das {\tt {uans}}-Verfahren}{39}{subsubsection.7.2.1}
-\contentsline {section}{\numberline {8}Abbildungsverzeichnis}{41}{section.8}
-\contentsline {section}{\numberline {9}Kommandozeilenparameter}{42}{section.9}
-\contentsline {section}{\numberline {10}Literaturverzeichnis}{44}{section.10}
+\contentsline {subsubsection}{\numberline {7.2.1}Verhalten der Entropie unter Verwendung der Filterung und Normalisierung f\IeC {\"u}r das {\tt {uans}}-Verfahren}{40}{subsubsection.7.2.1}
+\contentsline {section}{\numberline {8}Kommandozeilenparameter}{41}{section.8}
+\contentsline {section}{\numberline {9}Tabellenverzeichnis}{42}{section.9}
+\contentsline {section}{\numberline {10}Abbildungsverzeichnis}{43}{section.10}
+\contentsline {section}{\numberline {11}Literaturverzeichnis}{44}{section.11}

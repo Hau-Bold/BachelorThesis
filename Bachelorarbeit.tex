@@ -2542,83 +2542,50 @@ Im Folgenden wird er Einfluss der verwendeten Filter demonstriert. Die Werte der
 \end{minipage}
 \end{figure}
 
-
-\subsubsection{Verhalten der Entropie unter Verwendung der Filterung und Normalisierung für das {\tt{uans}}-Verfahren}
-Abschließend geben wir das Verhalten der Entropie unter Verwendung der Normalisierung und anschließender Filterung wieder. Zu Beginn beträgt die Entropie des betrachteten Bildes 7.766.
-
-
- Die erste Spalte gibt den Wert der Entropie nach Verwendung eines Filters  Stufe 2  gibt den Wert der Entropie nach für die Entropie nach Normalisierung. wieder. Die hier aufgelisteten Daten sind Ergebnisse der \CC -Implementierung. 
-\par
-Für die Normalisierung ANS erhält man folgende Werte:
-\par
-\vspace{1cm}
-\begin{tabular}{c | c | c }
-Filtertyp & Entropie nach Filterung & Entropie nach Normalisierung {\tt{uans}}
-\\
-\hline
-{\tt{none}} &  7.766 & 7.77295
-\\
-{\tt{sub}} & 5.49393 &   5.8999
-\\
-{\tt{up}} & 4.8265 &  5.04883
-\\
-{\tt{average2}} & 5.97444 &  6.21094
-\\
-{\tt{average3}} & 6.12365&  6.4113 
-\\
-{\tt{average4}} & 6.3044 &  6.5791
-\\
-{\tt{average5}} & 6.79384&  6.93262
-\\
-{\tt{average6}} & 6.96592 &  7.05664
-\\
-{\tt{average7}} & 7.14682 &  7.21094
-\\
-{\tt{average8}}& 7.21671 &  7.3125%correctly continue with average 4(i.e. 5)
-\\
-{\tt{paeth}} & 4.59783 &  5.24121
-\end{tabular}
-\par
-\vspace{1cm}
-
-Für die Normalisierung uABS erhält man folgende Werte:
-\par
-\vspace{1cm}
-\begin{tabular}{c | c | c | c | c | c | c}
-Filtertyp & 0 &  1 & 2 & 3 & 4 & 5
-\\
-\hline
-\textbf{{\tt{none}}} &  7.58792 & 7.63281 & 7.58792 & 7.58792  & 7.58793 &  7.63281
-\\
-\textbf{Sub} & 7.58792 &   7.63281 & 5.52772 &  5.52772 &  5.52773   & 6.0918
-\\
-\textbf{Up} & 7.58792 &  7.63281 & 5.3858 & 5.3858  &  5.38582  &  6.00684 
-\\
-\textbf{Average2} & 7.58792 &  7.63281 & 6.1528 & 6.1528 & 6.1528  & 6.20898
-\\
-\textbf{Average3} & 7.58792 &  7.63281 & 6.39763 & 6.39763 & 6.1528 & 6.6543 
-\\
-\textbf{Average4} & 7.58792 &  7.63281 & 6.58027 & 6.58027 & 6.58027  & 6.62695 
-\\
-\textbf{Average5} & 7.58792 &  7.63281 & 6.95311 & 6.95311 & 7.10156 &  7.10156 
-\\
-\textbf{Average6} & 7.58792 &  7.63281 & 7.16235 & 7.16235 & 7.23828 &  7.23828 
-\\
-\textbf{Average7} & 7.58792 &  7.63281 & 7.2852 &  7.2852 & 7.47656   &  7.47656
-\\
-\textbf{Average8} & 7.58792 &  7.63281 & 7.38257 &  7.38257  & 7.50391  & 7.50391
-\\
-\textbf{Paeth} & 7.58792 &  7.63281 & 5.00477 &   5.00477  & 5.21973  & 5.21973 
-\end{tabular}
-
-
 \newpage
-\section{Abbildungsverzeichnis}
-\listoffigures
-
+\subsubsection{Verhalten der Entropie unter Verwendung der Filterung und Normalisierung für das {\tt{uans}}-Verfahren}
+Abschließend geben wir das Verhalten der Entropie unter Verwendung einer Filterung und anschließender Normalisierung - also zur Laufzeit\footnote{Die hier aufgelisteten Daten entstammen der \CC -Implementierung. } - wieder. Zu Beginn beträgt die Entropie des betrachteten Bildes 7.766.
+ Die zweite Spalte gibt den Wert der Entropie nach Verwendung eines Filters wieder, die dritte bzw. vierte Spalte dokumentiert die Entropie nach zusätzlicher Normalisierung 
+\par
+\vspace{1cm}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{c | c | c | c}
+Filtertyp & nach Filterung &  {\tt{uans}} & {\tt{rans}}
+\\
+\hline
+{\tt{none}} & 7.766 & 7.77295 & 7.8796
+\\
+{\tt{sub}} & 5.49393 & 5.8999 & 6.24298
+\\
+{\tt{up}} & 4.8265 & 5.04883 & 569749 
+\\
+{\tt{average2}} & 5.97444 & 6.21094 & 6.62404
+\\
+{\tt{average3}} & 6.12365& 6.4113 & 6.80125
+\\
+{\tt{average4}} & 6.3044 & 6.5791 & 6.89326
+\\
+{\tt{average5}} & 6.79384 & 6.93262 & 7.2642
+\\
+{\tt{average6}} & 6.96592 & 7.05664 & 7.40429
+\\
+{\tt{average7}} & 7.14682 & 7.21094 & 7.49495
+\\
+{\tt{average8}}& 7.21671 & 7.3125 & 7.5623
+\\
+{\tt{paeth}} & 4.59783 & 5.24121 & 5.38627
+\end{tabular}
+\caption{Werte der Entropie zur Laufzeit}
+\end{center}
+\end{table}
 \newpage
 \section{Kommandozeilenparameter}\label{Kommandozeilenparameter}
 \newpage
+\section{Tabellenverzeichnis}
+\listoftables 
+\newpage
+\section{Abbildungsverzeichnis}
 \listoffigures
 \newpage
 \section{Literaturverzeichnis}
