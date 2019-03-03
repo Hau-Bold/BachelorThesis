@@ -28,7 +28,7 @@
 \contentsline {subsection}{\numberline {4.1}Einf\IeC {\"u}hrung}{21}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Einf\IeC {\"u}hrendes Beispiel: Uniform binary variant streaming ({\tt {uabs}})}{21}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}{\tt {uabs}} f\IeC {\"u}r n-elementige Symbolalphabete ({\tt {uans}})}{23}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Allgemeine Asymmetrische Zahlensysteme ({\tt {rans}})}{26}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.4}Range variants and streaming: ({\tt {rans}})}{26}{subsection.4.4}
 \contentsline {subsection}{\numberline {4.5}Vergleich der beiden Verfahren}{29}{subsection.4.5}
 \contentsline {section}{\numberline {5}Vergleich zu Huffmann und Arithmetischem Kodieren}{30}{section.5}
 \contentsline {section}{\numberline {6}Vektorisierung}{31}{section.6}
@@ -37,11 +37,15 @@
 \contentsline {subsubsection}{\numberline {6.2.1}Normalisierung der H\IeC {\"a}ufigkeiten des {\tt {uans}}-Verfahrens}{31}{subsubsection.6.2.1}
 \contentsline {subsubsection}{\numberline {6.2.2}Normalisierung der H\IeC {\"a}ufigkeiten des {\tt {rans}}-Verfahrens}{32}{subsubsection.6.2.2}
 \contentsline {subsection}{\numberline {6.3}Wahl des normalisierten Intervalls}{32}{subsection.6.3}
-\contentsline {section}{\numberline {7}Ergebnisse}{35}{section.7}
-\contentsline {subsection}{\numberline {7.1}Ergebnisse der Normalisierung}{35}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}Ergebnisse der Filterung}{38}{subsection.7.2}
-\contentsline {subsubsection}{\numberline {7.2.1}Verhalten der Entropie unter Verwendung der Filterung und Normalisierung f\IeC {\"u}r das {\tt {uans}}-Verfahren}{40}{subsubsection.7.2.1}
-\contentsline {section}{\numberline {8}Kommandozeilenparameter}{41}{section.8}
-\contentsline {section}{\numberline {9}Tabellenverzeichnis}{42}{section.9}
-\contentsline {section}{\numberline {10}Abbildungsverzeichnis}{43}{section.10}
-\contentsline {section}{\numberline {11}Literaturverzeichnis}{44}{section.11}
+\contentsline {subsection}{\numberline {6.4}Indexmengenbildung des {\tt {uans}}-Verfahren}{32}{subsection.6.4}
+\contentsline {subsection}{\numberline {6.5}Iterationswege der Kompressoren}{33}{subsection.6.5}
+\contentsline {subsection}{\numberline {6.6}Endresultat der Kompression: Bin\IeC {\"a}re Datei}{33}{subsection.6.6}
+\contentsline {section}{\numberline {7}Ergebnisse}{36}{section.7}
+\contentsline {subsection}{\numberline {7.1}Ergebnisse der Normalisierung}{36}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Ergebnisse der Filterung}{39}{subsection.7.2}
+\contentsline {subsubsection}{\numberline {7.2.1}Verhalten der Entropie unter Verwendung der Filterung und Normalisierung f\IeC {\"u}r das {\tt {uans}}-Verfahren}{41}{subsubsection.7.2.1}
+\contentsline {subsection}{\numberline {7.3}Ergebnisse der Kompression}{41}{subsection.7.3}
+\contentsline {section}{\numberline {8}Kommandozeilenparameter}{42}{section.8}
+\contentsline {section}{\numberline {9}Tabellenverzeichnis}{43}{section.9}
+\contentsline {section}{\numberline {10}Abbildungsverzeichnis}{44}{section.10}
+\contentsline {section}{\numberline {11}Literaturverzeichnis}{45}{section.11}

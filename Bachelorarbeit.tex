@@ -19,7 +19,6 @@
 \usepackage{verbatim}
 \usepackage{fancyhdr}
 \usepackage[hang]{footmisc}
-\usepackage[center]{caption2}
 \renewcommand{\subsectionmark}[\thepage]{\markright{{#1}}}
 \textheight220mm
 \headheight 28pt
@@ -2011,7 +2010,7 @@ Da für alle $x>-1$ gilt $\text{log}(x+1)\leq x$ folgt
 				     %\includegraphics[width=\textwidth, height = 0.5\textheight]{
 %Entropieschranken}
 %\end{figure}
-\subsection{Allgemeine Asymmetrische Zahlensysteme ({\tt{rans}})}
+\subsection{Range variants and streaming: ({\tt{rans}})}
 In diesem Abschnitt betrachten das in \cite{Krajcevski} angegebene Verfahren, welches ohne die Benutzung der in der {\tt{uabs}} verwendeten Index-Mengen auskommt und die Auftrittswahrscheinlichkeiten der einzelnen Symbole nicht approximieren muss:
 \par
 Sei $F_{s}$ die Häufigkeit des Symbols $s\in\A$ und $M:=\sum_{s\in\A}F_{s}$.
@@ -2177,7 +2176,7 @@ initialer Zustand & & lesen beendet
 {\color{gray!50!red}\rule{8cm}{0.1mm}}
 \end{center}
 \end{Beispiel}
-\subsection{Vergleich der beiden Verfahren}
+\subsection{Vergleich der beiden Verfahren}\label{vglBeiderVerfahren}
 Das {\tt{rans}}-Verfahren stellt keine Bedingungen an die Werte der Auftrittswahrscheinlichkeiten oder die Wahl des normalisierten Intervalls, außerdem ist das Verfahren sehr leicht zu implementieren.
 \par
 Die Generierung der benötigten Indexmengen für das {\tt{uans}}-Verfahren ist sehr aufwendig und auch nur durch Approximation der Auftrittswahrscheinlichkeiten möglich. Außerdem
@@ -2223,67 +2222,45 @@ Der Huffmann-Algorithmus kodiert jedes Symbol einzeln, während der erweiterte H
 
 \newpage
 \section{Vektorisierung}
-In diesem Abschnitt werden die beiden in Kapitel ~\ref{ANS} besprochenen Verfahren auf Bilddateien angewendet, im Folgenden gilt also
- $\A=\{0,1,\ldots,255\}$.  
+In diesem Abschnitt werden die beiden in Kapitel ~\ref{ANS} besprochenen Verfahren auf Bilddateien angewendet, d.h. im Folgenden gilt $\A=\{0,1,\ldots,255\}$.  
 \subsection{Bestimmung der Häufigkeiten}
 Zum Laden einer Bilddatei wird die Funktion \footnote{Hierfür wird die unter \cite{Barret} zu Verfügung gestellte Bibliothek verwendet.} 
 \begin{verbatim}
 stbi_load(char const *filename, int *x, int *y, int *comp, int req_comp)
 \end{verbatim}
  welche einen Zeiger auf ein Array vom Typ {\tt{unsigned char}} liefert, verwendet.
-Die Ermittlung der Häufigkeiten $F_{s}\;s\in\A$  erfolgt dann durch Iteration über dieses Array.\footnote{Die Bestimmung der Häufigkeiten erfolgt parallel, bei der Programmierung der parallelen Algorithmen orientierte sich der Autor an \cite{Williams}.}
+Die Ermittlung der Häufigkeiten $F_{s},\;s\in\A$  erfolgt dann durch Iteration über dieses Array\footnote{Die Bestimmung der Häufigkeiten erfolgt parallel, bei der Programmierung der parallelen Algorithmen orientiert sich der Autor an \cite{Williams}.} während derer die jeweiligen Einträge eines {\tt{std::vector<uint32>}} der Größe 256 inkrementiert werden.
 \subsection{Normalisierung}
-Wesentliche Voruassetzung für die Anwendung der beiden Verfahren ist eine Normalisierung der Häufigkeiten $F_{s}\;s\in\A$ welche Gegenstand der beiden folgenden Unterabschnitte ist.
+Wesentliche Voraussetzung für die Anwendung der beiden Verfahren ist eine Normalisierung der Häufigkeiten $F_{s}\;s\in\A$ welche Gegenstand der beiden folgenden Unterabschnitte ist.
 
 \subsubsection{Normalisierung der Häufigkeiten des {\tt{uans}}-Verfahrens}
 
-Zunächst wird die Summe aller Häufigkeiten und jede auftretende Häufigkeit durch eine Potenz von Zwei approximiert.
+Zunächst wird die Summe aller Häufigkeiten und jede auftretende Häufigkeit durch eine Potenz von Zwei approximiert:
 \par
 
 \begin{center}
-\begin{tabular}{c}
-FUNCTION NEXTPOWEROF2({\tt{uint32 x}}) 
+\begin{tabular}{l | l}
+FUNCTION NEARESTPO2({\tt{uint32 x}}) & FUNCTION NORMALIZE() 
 \\
-$UP=2$; $BELOW=1$; 
+$u=2$; $b=1$;  & y = NEARESTPO2(SUM); 
 \\
-{\tt{WHILE}}$({\tt{x}} > 1)$ 
+{\tt{WHILE}}$({\tt{x}} > 1)$ ${\tt{x}} >>= 1;$ $u <<= 1;$ & {\tt{WHILE}}((S=getSUM()) != y) 
 \\
-${\tt{x}} >>= 1;$ $UP <<= 1;$
+{\tt{END {\tt{WHILE}}}} & {\tt{IF}}(S > y)
 \\
-{\tt{END {\tt{WHILE}}}}
+b = u >> 1;   & MAX = getMaximalFrequency();MAX >> 1;
 \\
-BELOW = UP >> 1;  
+{\tt{return}} u-{\tt{x}} > {\tt{x}} - b ? b : u; & {\tt{ELSE}}
 \\
-{\tt{return}} UP-{\tt{x}} > {\tt{x}} - BELOW ? BELOW : UP;
+END FUNCTION & MIN = getMinimalFrequency();MIN << 1;
 \\
-END FUNCTION
+& {\tt{END WHILE}}
+\\
+& END FUNCTION
 \end{tabular} 
 \end{center}
 
-Anschließend müssen die Häufigkeiten derart verändert werden, dass ihre Summe mit der Approximation der ursprünglichen Summe wieder übereinstimmt. Aus Gründen der Performanz und der Konsistenz werden hierbei nur echt positive Häufigkeiten berücksichtigt:
-
-\begin{center}
-\begin{tabular}{c}
-FUNCTION NORMALIZE() 
-\\
-y = NEXTPOWEROF2(SUM); 
-\\
-{\tt{WHILE}}((S=getSUM()) != y) 
-\\
-{\tt{IF}}(S > y)
-\\
-MAX = getMaximalFrequency();MAX >> 1;
-\\
-{\tt{ELSE}}
-\\
-MIN = getMinimalFrequency();MIN << 1;
-\\
-{\tt{END WHILE}}
-\\
-END FUNCTION
-\end{tabular} 
-\end{center}
-
+Anschließend müssen die Häufigkeiten derart verändert werden, dass ihre Summe mit der Approximation der ursprünglichen Summe wieder übereinstimmt. Aus Gründen der Performanz und der Konsistenz werden hierbei nur echt positive Häufigkeiten berücksichtigt: Solange die Summe der Häufigkeiten nicht mit der Approximation der Summe übereinstimmt wird je nach Wert die maximale Häufigkeit halbiert oder die minimale Häufigkeit verdoppelt.   
  
 \subsubsection{Normalisierung der Häufigkeiten des {\tt{rans}}-Verfahrens}
 Wie in \cite{Krajcevski} vorgeschlagen, werden die Häufigkeiten zunächst derart skaliert, dass für ihre Summe $M= 2^{11}$ gilt. 
@@ -2291,14 +2268,59 @@ Die Normalisierung erfolgt analog zur Normalisierung des {\tt{uans}}-Verfahren, 
 
 
 \subsection{Wahl des normalisierten Intervalls}
-Für beide Verfahren werden unterschiedliche Intervalle gewählt. Für das {\tt{rans}}-Verfahren erfolgt die feste Wahl von $b= 2^{16}$ und $L=2^{13}$ während bei dem {\tt{uans}}-Verfahren $b=2$ gewählt wird und $L$ abhängig von Approximation der Summe der Häufigkeiten ist:
-\begin{minipage}[h]{.7\textwidth}
-Abschließend besprechen wir die Anwendung von uANS bei der Komprimierung von Bildern:
+Für beide Verfahren werden unterschiedliche Intervalle gewählt. Für das {\tt{rans}}-Verfahren erfolgt die feste Wahl von $b= 2^{16}$ und $L=2^{13}$ während bei dem {\tt{uans}}-Verfahren $b=2$ gewählt wird und $L$ abhängig von Approximation der Summe der Häufigkeiten ist, also erst zur Laufzeit (vgl. ~\ref{vglBeiderVerfahren}) bestimmt wird.\footnote{Auch hier ist eine Skalierung wie bei der Umsetzung des {\tt{rans}}-Verfahrens möglich.} 
 
-Anschließend werden alle vertikalen Pixelreihen parallel codiert.
+\subsection{Indexmengenbildung des {\tt{uans}}-Verfahren}
+Wie bereits besprochen basiert das Verfahren auf der Generierung von 
+Indexmengen. Hierfür müssen zunächst Symbole mit gleicher Häufigkeit 
+zusammengefasst werden. Hierfür empfiehlt sich folgender Datentyp:
+
+\begin{verbatim}
+struct SymbolsWithSameFrequency
+	{
+		uint32 Fs;//the frequency
+		std::vector<Symbol> m_Symbols;
+		std::vector<uint32> m_ModuloRests;
+		//....
+	};
+\end{verbatim}
+
+In der Implementierung wird der die Moduloreste enthaltende {\tt{std::vector<uint32>}} vorinitialisiert, also z.B mit $0,1,2,\ldots,2^{m}-1$ für die 
+Häufigkeit $F_{s}=2^m$.
+Anschließend werden die Indexmengen gemäß Algorithmus 4.3.1 generiert: 
+\par
+Zunächst werden alle ermittelten {\tt{SymbolsWithSameFrequency}}  nach 
+wachsender Häufigkeit sortiert: $S_{0},S_{1},S_{2}\ldots$.
+\par
+Angenommen $S_{i}$ 
+verfügt über $n_{i}$ Symbole und die Häufigkeit $F_{i}$, dann werden $n_{i}$ 
+Moduloreste $r_{n_{i}}$ gewählt und mit diesen Datentypen der Form
+\begin{verbatim}
+class IndexSubset
+{
+private:
+	uint32 m_Frequency;
+	uint32 m_ModuloRest;
+	Symbol m_Symbol;
+	std::vector<uint32> m_Indices;
+	\\...
+};
+\end{verbatim} 
+
+initialisiert. Die Indizes werden anschließend durch Auswertung der generierten 
+arithmetischen Progression bestimmt. 
+Für $j> i$ werden dann sämtliche Moduloreste  $r_{n_{j}}$ aus $S_{j}$ 
+entfernt für die gilt 
+\begin{align*}
+r_{n_{j}} - r_{n_{i}} \equiv 0\;\text{mod}\;F_{i}.
+\end{align*}
+Der Kompressor 
+\subsection{Iterationswege der Kompressoren}
+\begin{minipage}[h]{.5\textwidth}
+Bei der Iteration über die Bilddatei stehen den Kompressoren drei mögliche Wege zur Parallelverarbeitung zu Verfügung: Zeilen-, spalten- und kanalweise. Nebenstehende Abbildung zeigt die spaltenweise Iteration: Die Kompressoren $\mathcal{C}^{i}$ und die Dekompressoren $\mathcal{D}^{i}$ kodieren bzw. dekodieren die $i$-ten Pixelreihen parallel. Allerdings ist die Wahl des Weges unerheblich und dient lediglich zur Überprüfung der Stabilität.
 \end{minipage}
 \hfill
-\begin{minipage}[h]{.4\textwidth}
+\begin{minipage}[h]{.5\textwidth}
 \begin{flushright}
 \begin{tikzpicture}
  \draw
@@ -2357,6 +2379,10 @@ Anschließend werden alle vertikalen Pixelreihen parallel codiert.
 \end{tikzpicture}
 \end{flushright}
 \end{minipage}
+
+\subsection{Endresultat der Kompression: Binäre Datei}
+Das Endergebnis der Kompression wird in einem binären Format festgehalten welches parallel zur gelesenen Bilddatei auf Platte geschrieben wird. Hierfür werden zunächst wichtige Parameter wie die Dimension des komprimierten Bildes, Vorkonditionierer, Anzahl der Elemente des Vorkonditionerers, Kompressor und Iterationsweg geschrieben. Anschließend werden die normalisierten Häufigkeiten, das Ergebnis der Vorkonditionierung und die ermittelten Moduloreste geschrieben, wobei im Falle des {\tt{uans}}-Verfahrens die ermitteltens bits vor dem Schreibvorgang zu {\tt{uint8}} Zahlen zusammengefasst werden. 
+
 \begin{Beispiel}
 \begin{minipage}[h]{.5\textwidth}
 Wir ermitteln für nebenstehendes Bild das Quellalphabet mit zugehörigen Wahrscheinlichkeiten:
@@ -2434,21 +2460,21 @@ Symbol & Häufigkeit & Wahrscheinlichkeit
 \newpage
 \section{Ergebnisse}
 Im Folgenden wird der Einfluss der Normalisierung und der Filterung auf Bilder demonstriert.
-Die Implementierung wurde in Java umgesetzt und steht unter \url{https://github.com/Hau-Bold/ImageProcessor} zu Verfügung.
+Die Implementierung zur Visualisierung wurde in Java umgesetzt und steht unter \url{https://github.com/Hau-Bold/ImageProcessor} zu Verfügung.
 \subsection{Ergebnisse der Normalisierung}
-Im Folgenden wird der Einfluss der Normalisierung auf ein Bild (Siehe nächster Abschnitt Filtertyp 0) demonstriert:
+Im Folgenden wird der Einfluss der Normalisierung auf die Häufigkeiten eines Bildes (Siehe nächster Abschnitt Filtertyp {\tt{none}}) demonstriert:
 \par
 \begin{center}
 \includegraphics[width=0.8\linewidth,height=0.7\textheight]{Normalization/lena_unnormalized}
-\captionof{figure}{Häufigkeiten - Ohne Normalisierung}
+\captionof{figure}{Ohne Normalisierung}
 \end{center}
 \begin{center}
 \includegraphics[width=0.8\linewidth,height=0.7\textheight]{Normalization/lena_normalized}
-\captionof{figure}{Häufigkeiten - Normalisierung {\tt{rans}}}
+\captionof{figure}{Normalisierung {\tt{rans}}}
 \end{center}
 \begin{center}
 \includegraphics[width=0.8\linewidth,height=0.7\textheight]{Normalization/lena_normalizedPowerOfTwo}
-\captionof{figure}{Häufigkeiten - Normalisierung {\tt{uans}}}
+\captionof{figure}{Normalisierung {\tt{uans}}}
 \end{center}
 \newpage
 \subsection{Ergebnisse der Filterung}
@@ -2579,6 +2605,41 @@ Filtertyp & nach Filterung &  {\tt{uans}} & {\tt{rans}}
 \caption{Werte der Entropie zur Laufzeit}
 \end{center}
 \end{table}
+\subsection{Ergebnisse der Kompression}
+In diesem Unterabschnitt wird das Verhalten der Dateigröße unter Verwendung der beiden Verfahren angegeben. Zu Beginn beträgt die Größe des betrachteten Bildes
+145200 Bytes.
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{c | c | c}
+Filtertyp &  {\tt{uans}} & {\tt{rans}}
+\\
+\hline
+{\tt{none}} & 144.263& 
+\\
+{\tt{sub}} & 102.400 &  
+\\
+{\tt{up}} & 90.112 & 
+\\
+{\tt{average2}} & 110.592 &  
+\\
+{\tt{average3}} & 114.688 & 
+\\
+{\tt{average4}} & 118.784& 
+\\
+{\tt{average5}} & 126.976 & 
+\\
+{\tt{average6}} & 131.072 & 
+\\
+{\tt{average7}} & 131.072 & 
+\\
+{\tt{average8}}& 135.168 &  
+\\
+{\tt{paeth}} & 86.016 &  
+\end{tabular}
+\caption{Verhalten der Dateigröße in Bytes}
+\end{center}
+\end{table}
+
 \newpage
 \section{Kommandozeilenparameter}\label{Kommandozeilenparameter}
 \newpage
