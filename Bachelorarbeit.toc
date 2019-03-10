@@ -10,7 +10,7 @@
 \contentsline {subsubsection}{\numberline {2.3.4}Huffman-Algorithmus}{7}{subsubsection.2.3.4}
 \contentsline {subsubsection}{\numberline {2.3.5}Erweiterte Huffman-Codierung}{9}{subsubsection.2.3.5}
 \contentsline {subsubsection}{\numberline {2.3.6}Arithmetisches Kodieren}{10}{subsubsection.2.3.6}
-\contentsline {section}{\numberline {3}Kompression von Bilddateien durch Anwendung von Filtern}{12}{section.3}
+\contentsline {section}{\numberline {3}Entropiereduktion von Bilddateien durch Anwendung von Filtern}{12}{section.3}
 \contentsline {subsection}{\numberline {3.1}Verwendete Filter}{12}{subsection.3.1}
 \contentsline {subsubsection}{\numberline {3.1.1}Filtertyp 0: {\tt {none}} }{12}{subsubsection.3.1.1}
 \contentsline {subsubsection}{\numberline {3.1.2}Filtertyp 1: {\tt {sub}}}{12}{subsubsection.3.1.2}
@@ -39,13 +39,14 @@
 \contentsline {subsection}{\numberline {6.3}Wahl des normalisierten Intervalls}{32}{subsection.6.3}
 \contentsline {subsection}{\numberline {6.4}Indexmengenbildung des {\tt {uans}}-Verfahren}{32}{subsection.6.4}
 \contentsline {subsection}{\numberline {6.5}Iterationswege der Kompressoren}{33}{subsection.6.5}
-\contentsline {subsection}{\numberline {6.6}Endresultat der Kompression: Bin\IeC {\"a}re Datei}{33}{subsection.6.6}
-\contentsline {section}{\numberline {7}Ergebnisse}{36}{section.7}
-\contentsline {subsection}{\numberline {7.1}Ergebnisse der Normalisierung}{36}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}Ergebnisse der Filterung}{39}{subsection.7.2}
-\contentsline {subsubsection}{\numberline {7.2.1}Verhalten der Entropie unter Verwendung der Filterung und Normalisierung f\IeC {\"u}r das {\tt {uans}}-Verfahren}{41}{subsubsection.7.2.1}
-\contentsline {subsection}{\numberline {7.3}Ergebnisse der Kompression}{41}{subsection.7.3}
-\contentsline {section}{\numberline {8}Kommandozeilenparameter}{42}{section.8}
-\contentsline {section}{\numberline {9}Tabellenverzeichnis}{43}{section.9}
-\contentsline {section}{\numberline {10}Abbildungsverzeichnis}{44}{section.10}
-\contentsline {section}{\numberline {11}Literaturverzeichnis}{45}{section.11}
+\contentsline {subsection}{\numberline {6.6}Beschr\IeC {\"a}nkung der Werte auf das normalisierte Intervall $I(L,b)$}{33}{subsection.6.6}
+\contentsline {subsection}{\numberline {6.7}Endresultat der Kompression: Bin\IeC {\"a}re Datei}{33}{subsection.6.7}
+\contentsline {section}{\numberline {7}Ergebnisse}{34}{section.7}
+\contentsline {subsection}{\numberline {7.1}Ergebnisse der Normalisierung}{34}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Ergebnisse der Filterung}{37}{subsection.7.2}
+\contentsline {subsubsection}{\numberline {7.2.1}Verhalten der Entropie unter Verwendung der Filterung und Normalisierung}{39}{subsubsection.7.2.1}
+\contentsline {subsection}{\numberline {7.3}Ergebnisse der Kompression}{39}{subsection.7.3}
+\contentsline {section}{\numberline {8}Kommandozeilenparameter}{40}{section.8}
+\contentsline {section}{\numberline {9}Tabellenverzeichnis}{41}{section.9}
+\contentsline {section}{\numberline {10}Abbildungsverzeichnis}{42}{section.10}
+\contentsline {section}{\numberline {11}Literaturverzeichnis}{43}{section.11}

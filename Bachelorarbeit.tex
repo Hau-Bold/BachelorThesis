@@ -207,7 +207,7 @@ Hierfür schlägt Jaroslaw Duda\cite{Duda} ein neues Verfahren mit dem Namen "`a
 Im Rahmen dieser Bachelorarbeit über asymmetrische Zahlensysteme sollen zunächst grundlegende Begriffe aus dem Bereich der Codierungstheorie geklärt und gänge Entropiecodierer besprochen werden.
 Anschließend sollen die in \cite{Giesen}, \cite{Duda} und \cite{Krajcevski} angegebene Verfahren {\tt{uabs}} und {\tt{rans}} untersucht werden.
 \par
-Ziel dieser Arbeit ist Verallgemeinerung des {\tt{uabs}}-Verfahrens auf ein $n$-elementiges Symbolalphabet ({\tt{uans}}-Verfahren) und die Anwendung des  {\tt{uans}}- sowie des {\tt{rans}}-Verfahren auf Bilddateien. Zusätzlich soll der Einfluß einer vorgeschalteten Filterung -- die in Kapitel ~\ref{Filter} besprochen wird -- untersucht werden. Hierfür werden die verwendeten Filter und die beiden Verfahren in \CC implementiert. 
+Ziel dieser Arbeit ist Verallgemeinerung des {\tt{uabs}}-Verfahrens auf ein $n$-elementiges Symbolalphabet ({\tt{uans}}-Verfahren) und die Anwendung des  {\tt{uans}}- sowie des {\tt{rans}}-Verfahren auf Bilddateien. Zusätzlich soll der Einfluß einer vorgeschalteten Filterung -- die in Kapitel ~\ref{Filter} besprochen wird -- untersucht werden. Hierfür werden die verwendeten Filter und die beiden Verfahren in \CC implementiert\footnote{Unter \url{https://github.com/Hau-Bold/ANS_Java} befindet sich eine Implementierung mit Java (Swing)}. 
 \par
 \vspace{0.5cm}
 Nachfolgende Abbildung veranschaulicht den Programmfluss:
@@ -722,8 +722,8 @@ bb & 0.995 &0.1111111010\ldots & 8 & 11111110
 \end{center}
 \end{Beispiel}
 \newpage
-\section{Kompression von Bilddateien durch Anwendung von Filtern}\label{Filter}
-Die Komprimierung von Bilddateien kann durch eine Filterung erfolgen, welche mit Ausnahme des unten vorgestellten Filtertyps {\tt{none}} in einer Erniedrigung der Entropie resultieren kann. Im Folgenden sollen die implementierten Filter anhand eines Bildes ( i.F. als {\tt{img}} bezeichnet) mit den Dimensionen  h (Höhe), w (Breite) und c (Anzahl der Farbkanäle) kurz besprochen werden. Das Ergebnis der Vorfilterung wird mit {\tt{pre}}, das der Umkehrung mit {\tt{post}} bezeichnet. Zusätzlich müssen für die Umkehrung  Werte in einem container - der i.F. als {\tt{res}} bezeichnet wird - gespeichert werden. Die neben den Algorithmen gezeichneten Gitter dienen zur Verdeutlichung des gewählten Iterationsweges.
+\section{Entropiereduktion von Bilddateien durch Anwendung von Filtern}\label{Filter}
+Die Komprimierung von Bilddateien kann durch eine Filterung erfolgen, welche mit Ausnahme des unten vorgestellten Filtertyps {\tt{none}} in einer Erniedrigung der Entropie resultieren kann. Im Folgenden sollen die implementierten Filter anhand eines Bildes ( i.F. als {\tt{img}} bezeichnet) mit den Dimensionen  h (Höhe), w (Breite) und c (Anzahl der Farbkanäle) kurz besprochen werden. Das Ergebnis der Vorfilterung wird mit {\tt{pre}}, das der Umkehrung mit {\tt{post}} bezeichnet. Zusätzlich müssen für die Umkehrung  Werte in einem container - der i.F. als {\tt{res}} bezeichnet wird - gespeichert werden. Die neben den Algorithmen gezeichneten Gitter dienen zur Verdeutlichung des gewählten Iterationsweges. 
 
 \begin{Definition}
 Sei  $(i,j) \in [0, h-1]\times[0, w-1]$ und $0\leq k < c$.
@@ -2005,11 +2005,6 @@ Da für alle $x>-1$ gilt $\text{log}(x+1)\leq x$ folgt
 &\geq \sum_{k=1}^{N}\frac{1}{k} -  \sum_{k=1}^{N-1}\frac{1}{k} > 0.
 \end{align*}
 \end{proof}
-%\begin{figure}
-	    %\centering
-				     %\includegraphics[width=\textwidth, height = 0.5\textheight]{
-%Entropieschranken}
-%\end{figure}
 \subsection{Range variants and streaming: ({\tt{rans}})}
 In diesem Abschnitt betrachten das in \cite{Krajcevski} angegebene Verfahren, welches ohne die Benutzung der in der {\tt{uabs}} verwendeten Index-Mengen auskommt und die Auftrittswahrscheinlichkeiten der einzelnen Symbole nicht approximieren muss:
 \par
@@ -2198,7 +2193,7 @@ Eine weiterer Nachteil findet sich in dem Umstand, dass {\tt{uans}}-Verfahren ni
 \par
 Sei z.B. $b=4$ und $L=16$ und $\alpha$ ein Symbol mit der relativen Häufigkeit $p_{\alpha}=1/32$. Angenommen Algorithmus 4.3.1 liefert einen Modulorest $0 < r < 16$, dann erhält man als zugehörige Indexmenge $I_{\alpha}=\{1\}$. Falls der Kodiererer z.B. bei  $x=48$ das Symbol $\alpha$ ließt, so teilt er so lange durch $b$ bis er einen Wert aus $I_{\alpha}$ erhält, was nie der Fall ist.
 \par
-Zusammenfassend ist das {\tt{rans}}-Verfahren damit besser geeignet. 
+Zusammenfassend ist das {\tt{rans}}-Verfahren damit flexibler. 
 \par
 Im Falle der Terminierung liefert das {\tt{uans}}-Verfahren  aber die bessere Kompressionsrate:
 \begin{Beispiel}
@@ -2268,7 +2263,7 @@ Die Normalisierung erfolgt analog zur Normalisierung des {\tt{uans}}-Verfahren, 
 
 
 \subsection{Wahl des normalisierten Intervalls}
-Für beide Verfahren werden unterschiedliche Intervalle gewählt. Für das {\tt{rans}}-Verfahren erfolgt die feste Wahl von $b= 2^{16}$ und $L=2^{13}$ während bei dem {\tt{uans}}-Verfahren $b=2$ gewählt wird und $L$ abhängig von Approximation der Summe der Häufigkeiten ist, also erst zur Laufzeit (vgl. ~\ref{vglBeiderVerfahren}) bestimmt wird.\footnote{Auch hier ist eine Skalierung wie bei der Umsetzung des {\tt{rans}}-Verfahrens möglich.} 
+Für beide Verfahren werden unterschiedliche Intervalle gewählt. Für das {\tt{rans}}-Verfahren erfolgt die feste Wahl von $b= 2^{16}$ und $L=2^{16}$ wie unter \cite{Duda1} empfohlen, während bei dem {\tt{uans}}-Verfahren $b=2$ gewählt wird und $L$ abhängig von Approximation der Summe der Häufigkeiten ist, also erst zur Laufzeit (vgl. ~\ref{vglBeiderVerfahren}) bestimmt wird.\footnote{Auch hier ist eine Skalierung wie bei der Umsetzung des {\tt{rans}}-Verfahrens möglich.} 
 
 \subsection{Indexmengenbildung des {\tt{uans}}-Verfahren}
 Wie bereits besprochen basiert das Verfahren auf der Generierung von 
@@ -2379,84 +2374,13 @@ Bei der Iteration über die Bilddatei stehen den Kompressoren drei mögliche Weg
 \end{tikzpicture}
 \end{flushright}
 \end{minipage}
+\subsection{Beschränkung der Werte auf das normalisierte Intervall $I(L,b)$}
+Im Falle des {\tt{uans}}-Verfahrens wird an der Stelle $x\in I(L,b)$ das Symbol $\alpha$ gelesen. Falls $x\in I_{\alpha}$ ist keine Normalisierung notwendig. Andernfalls erfolgt solange ein Rechtsshift um eine Stelle bis $x\in I_{\alpha}$. Nach Konstruktion gilt dann $x^{'} = F_{\alpha} * x + r_{\alpha} \in I(L,b)$.
+\par
+Im Fall des {\tt{rans}}-Verfahrens gibt es zwei Möglichkeiten zur Beschränkung der Werte von $x$ auf das Normalisierte Intervall:
 
 \subsection{Endresultat der Kompression: Binäre Datei}
-Das Endergebnis der Kompression wird in einem binären Format festgehalten welches parallel zur gelesenen Bilddatei auf Platte geschrieben wird. Hierfür werden zunächst wichtige Parameter wie die Dimension des komprimierten Bildes, Vorkonditionierer, Anzahl der Elemente des Vorkonditionerers, Kompressor und Iterationsweg geschrieben. Anschließend werden die normalisierten Häufigkeiten, das Ergebnis der Vorkonditionierung und die ermittelten Moduloreste geschrieben, wobei im Falle des {\tt{uans}}-Verfahrens die ermitteltens bits vor dem Schreibvorgang zu {\tt{uint8}} Zahlen zusammengefasst werden. 
-
-\begin{Beispiel}
-\begin{minipage}[h]{.5\textwidth}
-Wir ermitteln für nebenstehendes Bild das Quellalphabet mit zugehörigen Wahrscheinlichkeiten:
-\par
-\vspace{0.5cm}
-\begin{tabular}{c|c|c}
-Symbol & Häufigkeit & Wahrscheinlichkeit
-\\
-\hline
-0	& 12646 &	0.0015075206756591797\\ \hline
-1&	8275&	9.864568710327148E-4\\ \hline
-2&	14176&	0.001689910888671875\\ \hline
-3&	20429&	0.00243532657623291	\\ \hline
-4&	27937&	0.0033303499221801758\\ \hline
-5&	36130&	0.0043070316314697266\\ \hline
-6&	42426&	0.005057573318481445	\\ \hline
-20&	83726&	0.009980916976928711	\\ \hline
-21	&83340&	0.00993490219116211	\\ \hline
-22&	83170	&0.009914636611938477	\\ \hline
-23&	82148&	0.009792804718017578	\\ \hline
-24&	82140&	0.009791851043701172\\ \hline
-25&	81860&	0.009758472442626953\\ \hline
-26&	80743&	0.00962531566619873	\\ \hline
-27&	79633&	0.009492993354797363\\ \hline
-28&	79572&	0.009485721588134766\\ \hline
-29&	78508&	0.009358882904052734\\ \hline
-30&	78026&	0.009301424026489258\\ \hline
-31&	76967&	0.00917518138885498	\\ \hline
-32&	75330&	0.008980035781860352
-\end{tabular}
-\captionof{figure}{Auszug: erste 50 Symbole}
-\vspace{0.5cm}
-\end{minipage}
-\hfill
-\begin{minipage}[h]{.4\textwidth}
-\begin{flushright}
-\includegraphics[width=0.9\linewidth,height=0.5\textheight]{antechima}
-\hfill\captionof{figure}{Blick von der Antechima in das untere Sarchetal.}
-\end{flushright}
-\end{minipage}
-\begin{minipage}[h]{.5\textwidth}
-Wir dekomprimieren nach obigem Verfahren und setzen sämtliche rgb-Werte auf r$00$.
-\begin{tabular}{c|c|c}
-Symbol & Häufigkeit & Wahrscheinlichkeit
-\\
-\hline
-33&	73876&	0.008806705474853516\\ \hline
-34&	72291&	0.008617758750915527\\ \hline
-35&	70384&	0.008390426635742188\\ \hline
-36&	68368&	0.008150100708007812\\ \hline
-37&	66323&	0.007906317710876465\\ \hline
-38&	64607&	0.007701754570007324\\ \hline
-39&	62227&	0.007418036460876465\\ \hline
-40&	59856&	0.0071353912353515625\\ \hline
-41&	57758&	0.0068852901458740234\\ \hline
-42&	55613&	0.006629586219787598\\ \hline
-43&	53136&	0.0063343048095703125\\ \hline
-44&	50396&	0.006007671356201172\\ \hline
-45&	48412&	0.005771160125732422\\ \hline
-46&	45429&	0.005415558815002441\\ \hline
-47&	43096&	0.005137443542480469\\ \hline
-48&	41076&	0.004896640777587891\\ \hline
-49&	38609&	0.004602551460266113\\ \hline
-50&	36859&	0.004393935203552246\\ \hline
-\end{tabular}
-\end{minipage}
-\hfill
-\begin{minipage}[h]{.4\textwidth}
-\begin{flushright}
-\includegraphics[width=0.9\linewidth,height=0.5\textheight]{uncompressed}
-\end{flushright}
-\end{minipage}
-\captionof{figure}{Auszug: erste 50 Symbole - Fortsetzung}
-\end{Beispiel}
+Das Endergebnis der Kompression wird in einem binären Format festgehalten welches parallel zur gelesenen Bilddatei auf Platte geschrieben wird. Hierfür werden zunächst wichtige Parameter wie die Dimension des komprimierten Bildes, Vorkonditionierer, Anzahl der Elemente des Vorkonditionerers, Kompressor und Iterationsweg geschrieben. Anschließend werden die normalisierten Häufigkeiten, das Ergebnis der Vorkonditionierung und die ermittelten Moduloreste geschrieben, wobei im Falle des {\tt{uans}}-Verfahrens die ermittelten bits vor dem Schreibvorgang zu {\tt{uint8}} Zahlen zusammengefasst werden. 
 \newpage
 \section{Ergebnisse}
 Im Folgenden wird der Einfluss der Normalisierung und der Filterung auf Bilder demonstriert.
@@ -2478,7 +2402,7 @@ Im Folgenden wird der Einfluss der Normalisierung auf die Häufigkeiten eines Bi
 \end{center}
 \newpage
 \subsection{Ergebnisse der Filterung}
-Im Folgenden wird er Einfluss der verwendeten Filter demonstriert. Die Werte der Entropie finden sich in Tabelle
+Im Folgenden wird der Einfluss der verwendeten Filter demonstriert. Die Werte der Entropie finden sich in Tabelle
 \par
 \begin{figure}[h]
     \centering
@@ -2569,9 +2493,9 @@ Im Folgenden wird er Einfluss der verwendeten Filter demonstriert. Die Werte der
 \end{figure}
 
 \newpage
-\subsubsection{Verhalten der Entropie unter Verwendung der Filterung und Normalisierung für das {\tt{uans}}-Verfahren}
-Abschließend geben wir das Verhalten der Entropie unter Verwendung einer Filterung und anschließender Normalisierung - also zur Laufzeit\footnote{Die hier aufgelisteten Daten entstammen der \CC -Implementierung. } - wieder. Zu Beginn beträgt die Entropie des betrachteten Bildes 7.766.
- Die zweite Spalte gibt den Wert der Entropie nach Verwendung eines Filters wieder, die dritte bzw. vierte Spalte dokumentiert die Entropie nach zusätzlicher Normalisierung 
+\subsubsection{Verhalten der Entropie unter Verwendung der Filterung und Normalisierung}
+Abschließend geben wir das Verhalten der Entropie unter Verwendung einer Filterung und anschließender Normalisierung - also zur Laufzeit\footnote{Die hier aufgelisteten Daten entstammen der \CC -Implementierung. } - wieder. Im Grundzustand beträgt die Entropie des betrachteten Bildes 7.766.
+ Die zweite Spalte gibt den Wert der Entropie nach Verwendung eines Filters wieder, die dritte bzw. vierte Spalte dokumentiert die Entropie nach zusätzlicher Normalisierung bzgl. des verwendeten Verfahrens.
 \par
 \vspace{1cm}
 \begin{table}[h]
@@ -2642,6 +2566,24 @@ Filtertyp &  {\tt{uans}} & {\tt{rans}}
 
 \newpage
 \section{Kommandozeilenparameter}\label{Kommandozeilenparameter}
+Abschließend wird ein Überblick über die Konfiguration der Kommandozeilenparameter für das Programm gegeben:
+\par
+Der entgegenzunehmende Formatstring hat folgende Gestalt:
+\begin{verbatim}
+Pfad Vorkonditionierer Kompressor Iterationsweg 
+\end{verbatim}
+\begin{itemize}
+	\item {\tt{Pfad}}: Absoluter Pfad zu Bilddatei
+	\item {\tt{Vorkonditionerer}}: $n\in \{0,\ldots, 10\}$
+	\\
+	Dabei entsprechen die Ganzzahlen den in Kapitel 3 besprochenen Filtern.
+	\item {\tt{Kompressor}}: $n\in\{1,2\}$
+	\\
+	Das {\tt{rans}}-Verfahren wird durch $n=0$ gewählt, dass {\tt{uans}}-Verfahren durch $n=1$.
+	\item {\tt{Iterationsweg}}: $n\in\{0,1,2\}$
+	\\
+	Zeilenweise Iteration bei der Kompression wird durch $n=0$ gewählt, spaltenweise durch $n=1$ und kanalweise durch $n=2$.
+\end{itemize} 
 \newpage
 \section{Tabellenverzeichnis}
 \listoftables 
@@ -2668,7 +2610,8 @@ Filtertyp &  {\tt{uans}} & {\tt{rans}}
 \bibitem[12]{png}{\it PNG (Portable Network Graphics) Specification} \url{https://www.w3.org/TR/PNG-Filters.html}
 \bibitem[13]{Breymann}{Breymann U.} {\it DER C++ Programmierer}, Carl Hanser Verlag München, (2015).
 \bibitem[14]{Williams}{Williams A.} {\it C++ Concurrency IN ACTION}, Manning Publications Co Shelter Island NY 11964 (2012).
-\bibitem[15]{Barret}{\it stb single-file public domain libraries for C/\CC } \url{https://github.com/nothings/stb}
+\bibitem[15]{Barret}{\it stb single-file public domain libraries for C/\CC} \url{https://github.com/nothings/stb}
+\bibitem[16]{Duda1}{\it Range ANS (rANS) - direct alternative for range coding}\url{https://encode.ru/threads/1870-Range-ANS-(rANS)-faster-direct-replacement-for-range-coding}
 \end{thebibliography}
 
 \newpage
