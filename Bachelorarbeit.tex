@@ -197,6 +197,15 @@ Coburg, \today
 \end{center}
 
 \end{titlepage}
+\newpage
+\section*{Vorwort}
+Diese Arbeit entstand während des Wintersemesters 18/19. Für die Anregung und Ermutigung, mich mit diesem Thema auseinanderzusetzen, für die wertvollen Impulse und seine permanente Unterstützung möchte ich Herrn Prof. Dr. Quirin Meyer meinen besonderen Dank aussprechen.
+\par
+\vspace{5mm}
+\par
+Insbesondere möchte ich mich bei meiner Freundin Julia Isabel Schmidt und meinen lieben Eltern, Dr. Walter und Cornelia Krasser für die bedingungslose Unterstützung während dieses Studiums bedanken.
+\pagebreak
+
 
 \newpage
 \tableofcontents
@@ -204,10 +213,11 @@ Coburg, \today
 \section{Einleitung}
 Im Zeitalter der Digitalisierung werden immer größere Datenmengen produziert, gespeichert und übertragen, was sowohl den Einsatz als auch die Suche nach effizienten Verfahren zur Datenkom{\tt{pre}}ssion unerläßlich macht.
 Hierfür schlägt Jaroslaw Duda\cite{Duda} ein neues Verfahren mit dem Namen "`asymmetrische Zahlensysteme"' vor, das seitdem von Unternehmen wie Facebook\cite{fb}, Google\cite{google} und Apple\cite{apple} verwendet wird. 
+\par
 Im Rahmen dieser Bachelorarbeit über asymmetrische Zahlensysteme sollen zunächst grundlegende Begriffe aus dem Bereich der Codierungstheorie geklärt und gänge Entropiecodierer besprochen werden.
 Anschließend sollen die in \cite{Giesen}, \cite{Duda} und \cite{Krajcevski} angegebene Verfahren {\tt{uabs}} und {\tt{rans}} untersucht werden.
 \par
-Ziel dieser Arbeit ist Verallgemeinerung des {\tt{uabs}}-Verfahrens auf ein $n$-elementiges Symbolalphabet ({\tt{uans}}-Verfahren) und die Anwendung des  {\tt{uans}}- sowie des {\tt{rans}}-Verfahren auf Bilddateien. Zusätzlich soll der Einfluß einer vorgeschalteten Filterung -- die in Kapitel ~\ref{Filter} besprochen wird -- untersucht werden. Hierfür werden die verwendeten Filter und die beiden Verfahren in \CC implementiert\footnote{Unter \url{https://github.com/Hau-Bold/ANS_Java} befindet sich eine Implementierung mit Java (Swing)}. 
+Ziel dieser Arbeit ist eine eigenständige Verallgemeinerung des {\tt{uabs}}-Verfahrens auf $n$-elementige Symbolalphabete ({\tt{uans}}-Verfahren) und die Anwendung des  {\tt{uans}}- sowie des {\tt{rans}}-Verfahren auf Bilddateien. Zusätzlich soll der Einfluss einer vorgeschalteten Filterung -- die in Kapitel ~\ref{Filter} besprochen wird -- untersucht werden. Hierfür werden die verwendeten Filter und die beiden Verfahren in \CC implementiert\footnote{Unter \url{https://github.com/Hau-Bold/ANS_Java} befindet sich eine Umsetzung der Verfahren in Java (Swing)}. 
 \par
 \vspace{0.5cm}
 Nachfolgende Abbildung veranschaulicht den Programmfluss:
@@ -243,7 +253,7 @@ finaler Zustand & finaler Zustand
 \end{tabular}
 {\color{gray!50!red}\rule{9cm}{0.1mm}}
 \vspace{0.5cm}
-\captionof{figure}{Programmfluß der Implementierung}
+\captionof{figure}{Programmfluss der Implementierung}
 \end{center}
 In Leserichtung wird das Bild gelesen, vorkonditionert, normalisiert und 
 anschließend komprimiert.
@@ -269,7 +279,7 @@ Sei $\mu_c$ die Anzahl der Bits von $X_c$ und $\mu$ die Anzahl der Bits von $X$.
 $
 \mu_c \slash \mu
 $
-definierte Ausdruck Kompressionsquotient\footnote{\footnotesize{1Der Kehrwert des Kompressionsquotienten wird auch Kompressionsfaktor genannt.}}.
+definierte Ausdruck Kompressionsquotient\footnote{\footnotesize{Der Kehrwert des Kompressionsquotienten wird auch Kompressionsfaktor genannt.}}.
 \end{Definition}
 \subsection{Über die Möglichkeit der Datenkompression}
  Vesteht man unter Datenkompression ein Verfahren, das eine bestimmte Repräsentation in eine andere überführt, die stets weniger Bits als die urspüngliche benötigt, dann zeigt ein einfaches Abzählargument, dass es ein solches Verfahren nicht geben kann. Diese Argumentation wird in Arbeiten zum Thema Kolmogorov-Komplexität als sog. Inkompressibilitätsargument bezeichnet und begründet, warum sich bestimmte Bitfolgen nicht komprimieren lassen: Die Kolmogorov-Komplexität einer Bitfolge $t$ ist definiert als die Länge des kürzesten "`Programms"', welches $t$ erzeugt\footnote{\footnotesize{Bei geeigneter Formalisierung des Begriffs
@@ -794,7 +804,7 @@ $\text{{\tt{pre}}}_{x,y,k}\footnotemark\leftarrow \text{{\tt{img}}}_{x,y,k} - \t
 \\
 $x++$; & {\tt{WHILE}}$(x>1)$
 \end{tabular}
-\footnotetext{Die Berechnung muß ohne Überlauf erfolgen.}
+\footnotetext{Die Berechnung muss ohne Überlauf erfolgen.}
 
 \begin{center}
 \begin{tabular}{c|c}
@@ -1639,11 +1649,11 @@ die zugehörigen Kodierungs- und Dekodierungsfunktionen. Dabei liefert die Kodie
 \begin{align*}
 \D \circ \C  \left( b, \C(a,x)\right)  = (b, \C(a,x))
 \end{align*}
-Nach Konstruktion verhält sich $x$ wie ein Stack: Der letzte verschlüsselte Wert ist der erste, den die Dekodierungsfunktion liefert. Nachdem $\C$ für wachsendes $x$ über alle Grenzen wächst, muß $x$ auf ein Intervall mit festen Grenzen eingeschränkt werden: Hierfür wird in \cite{Duda} das sog. "` normalisierte Intervall "' 
+Nach Konstruktion verhält sich $x$ wie ein Stack: Der letzte verschlüsselte Wert ist der erste, den die Dekodierungsfunktion liefert. Nachdem $\C$ für wachsendes $x$ über alle Grenzen wächst, muss $x$ auf ein Intervall mit festen Grenzen eingeschränkt werden: Hierfür wird in \cite{Duda} das sog. "` normalisierte Intervall "' 
 \begin{align*}
 I(L,b):=\{L,L+1,\ldots,b\cdot L-1\}
 \end{align*}
-für beliebiges $L \in \N$ und $b\in \N, b\geq 2$ definiert, wobei $b$ die Basis des Kodierungsverfahrens bezeichnet. Ferner muß gewährleistet sein, dass für $x^{'} = \C(s,x)$  und $(s,y) = \D(y^{'})$ stets $(x^{'}, y) \in I\times I$ gilt. Hierfür wird in \cite{Krajcevski} folgende Konvention getroffen:
+für beliebiges $L \in \N$ und $b\in \N, b\geq 2$ definiert, wobei $b$ die Basis des Kodierungsverfahrens bezeichnet. Ferner muss gewährleistet sein, dass für $x^{'} = \C(s,x)$  und $(s,y) = \D(y^{'})$ stets $(x^{'}, y) \in I\times I$ gilt. Hierfür wird in \cite{Krajcevski} folgende Konvention getroffen:
 \begin{flushleft}
 1)\;Sei  $x^{'} > b\cdot L -1$. Ersetze $x^{'}$ solange durch  $\left\lfloor \frac{x^{'}}{b}  \right\rfloor$  bis $x^{'} \in I$
 \\
@@ -1981,7 +1991,7 @@ Damit folgt:
 \\
 & <  \sum_{k=1}^{N} \frac{1}{k} - \text{log}(N-1) .
 \end{align*}
-Wir betrachten nur die obere Reihe, die Schlußfolgerung für die untere Reihe ist analog:
+Wir betrachten nur die obere Reihe, die Schlussfolgerung für die untere Reihe ist analog:
 \par
 Die Folge 
 \begin{align*}
@@ -2191,7 +2201,7 @@ dann gilt für alle Reste $0 \leq r_{k} < L^{*}$. Verschiebt man dieses Interval
 \par
 Eine weiterer Nachteil findet sich in dem Umstand, dass {\tt{uans}}-Verfahren nicht immer terminiert:
 \par
-Sei z.B. $b=4$ und $L=16$ und $\alpha$ ein Symbol mit der relativen Häufigkeit $p_{\alpha}=1/32$. Angenommen Algorithmus 4.3.1 liefert einen Modulorest $0 < r < 16$, dann erhält man als zugehörige Indexmenge $I_{\alpha}=\{1\}$. Falls der Kodiererer z.B. bei  $x=48$ das Symbol $\alpha$ ließt, so teilt er so lange durch $b$ bis er einen Wert aus $I_{\alpha}$ erhält, was nie der Fall ist.
+Sei z.B. $b=4$ und $L=16$ und $\alpha$ ein Symbol mit der relativen Häufigkeit $p_{\alpha}=1/32$. Angenommen Algorithmus 4.3.1 liefert einen Modulorest $0 < r < 16$, dann erhält man als zugehörige Indexmenge $I_{\alpha}=\{1\}$. Falls der Kodiererer z.B. bei  $x=48$ das Symbol $\alpha$ liest, so teilt er so lange durch $b$ bis er einen Wert aus $I_{\alpha}$ erhält, was nie der Fall ist.
 \par
 Zusammenfassend ist das {\tt{rans}}-Verfahren damit flexibler. 
 \par
@@ -2209,14 +2219,14 @@ $\mathcal{T}\stackrel{{\tt{rans}}}{\mapsto} 1|01|100|1|110|00|0|00|1|0010|19$
 \end{minipage}   
 \vspace{0.5cm}
 \\
-Das {\tt{rans}}-Verfahren benötigt zur Dekomprimierung von $\mathcal{T}$ zusätzliche Information. Der Grund diese Umstandes liegt in der Konstruktion: Das {\tt{rans}}-Verfahren normalisiert nur bei der Kodierung aus positiver Richtung in das "`normalisierte Interval"' $I(L,b)$, während das {\tt{uans}}-Verfahren das Bitmuster so lange ausließt und den augenblicklichen Wert erhöht, bis ein Wert größer als $L$ gefunden ist.
+Das {\tt{rans}}-Verfahren benötigt zur Dekomprimierung von $\mathcal{T}$ zusätzliche Information. Der Grund diese Umstandes liegt in der Konstruktion: Das {\tt{rans}}-Verfahren normalisiert nur bei der Kodierung aus positiver Richtung in das "`normalisierte Interval"' $I(L,b)$, während das {\tt{uans}}-Verfahren das Bitmuster so lange ausliest und den augenblicklichen Wert erhöht, bis ein Wert größer als $L$ gefunden ist.
 \end{Beispiel}
 
 \section{Vergleich zu Huffmann und Arithmetischem Kodieren}
 Der Huffmann-Algorithmus kodiert jedes Symbol einzeln, während der erweiterte Huffman-Algorithmus zu einer gegebenen Länge jede erdenkliche Folge einzeln verschlüsselt. Der Vorteil der Erweiterung liegt darin, dass sich ein anfänglich nicht zu komprimierender Code doch komprimieren lässt. Allerdings ist die Codierung ab einer bestimmten Länge kaum realisierbar. Dieses Problem tritt bei der Verwendung von asymmetrischen Zahlensystemen nicht auf: Jede Folge ist komprimierbar.
 
 \newpage
-\section{Vektorisierung}
+\section{Anwendung auf Bilddateien}
 In diesem Abschnitt werden die beiden in Kapitel ~\ref{ANS} besprochenen Verfahren auf Bilddateien angewendet, d.h. im Folgenden gilt $\A=\{0,1,\ldots,255\}$.  
 \subsection{Bestimmung der Häufigkeiten}
 Zum Laden einer Bilddatei wird die Funktion \footnote{Hierfür wird die unter \cite{Barret} zu Verfügung gestellte Bibliothek verwendet.} 
@@ -2230,7 +2240,7 @@ Wesentliche Voraussetzung für die Anwendung der beiden Verfahren ist eine Norma
 
 \subsubsection{Normalisierung der Häufigkeiten des {\tt{uans}}-Verfahrens}
 
-Zunächst wird die Summe aller Häufigkeiten und jede auftretende Häufigkeit durch eine Potenz von Zwei approximiert:
+Zunächst wird die Summe aller Häufigkeiten und jede auftretende Häufigkeit durch eine Potenz von zwei approximiert:
 \par
 
 \begin{center}
@@ -2243,11 +2253,11 @@ $u=2$; $b=1$;  & y = NEARESTPO2(SUM);
 \\
 {\tt{END {\tt{WHILE}}}} & {\tt{IF}}(S > y)
 \\
-b = u >> 1;   & MAX = getMaximalFrequency();MAX >> 1;
+b = u >> 1;   & MAX = getMaximalFrequency() >> 1;
 \\
 {\tt{return}} u-{\tt{x}} > {\tt{x}} - b ? b : u; & {\tt{ELSE}}
 \\
-END FUNCTION & MIN = getMinimalFrequency();MIN << 1;
+END FUNCTION & MIN = getMinimalFrequency() << 1;
 \\
 & {\tt{END WHILE}}
 \\
@@ -2255,7 +2265,7 @@ END FUNCTION & MIN = getMinimalFrequency();MIN << 1;
 \end{tabular} 
 \end{center}
 
-Anschließend müssen die Häufigkeiten derart verändert werden, dass ihre Summe mit der Approximation der ursprünglichen Summe wieder übereinstimmt. Aus Gründen der Performanz und der Konsistenz werden hierbei nur echt positive Häufigkeiten berücksichtigt: Solange die Summe der Häufigkeiten nicht mit der Approximation der Summe übereinstimmt wird je nach Wert die maximale Häufigkeit halbiert oder die minimale Häufigkeit verdoppelt.   
+Anschließend müssen die Häufigkeiten derart verändert werden, dass ihre Summe mit der Approximation der ursprünglichen Summe wieder übereinstimmt. Aus Gründen der Performanz und der Konsistenz werden hierbei nur echt positive Häufigkeiten berücksichtigt: Solange die Summe der Häufigkeiten nicht mit der Approximation der Summe übereinstimmt, wird je nach Wert der Approximation die maximale Häufigkeit (MAX) halbiert oder die minimale Häufigkeit (MIN) verdoppelt.   
  
 \subsubsection{Normalisierung der Häufigkeiten des {\tt{rans}}-Verfahrens}
 Wie in \cite{Krajcevski} vorgeschlagen, werden die Häufigkeiten zunächst derart skaliert, dass für ihre Summe $M= 2^{11}$ gilt. 
@@ -2309,10 +2319,10 @@ entfernt für die gilt
 \begin{align*}
 r_{n_{j}} - r_{n_{i}} \equiv 0\;\text{mod}\;F_{i}.
 \end{align*}
-Der Kompressor 
+
 \subsection{Iterationswege der Kompressoren}
 \begin{minipage}[h]{.5\textwidth}
-Bei der Iteration über die Bilddatei stehen den Kompressoren drei mögliche Wege zur Parallelverarbeitung zu Verfügung: Zeilen-, spalten- und kanalweise. Nebenstehende Abbildung zeigt die spaltenweise Iteration: Die Kompressoren $\mathcal{C}^{i}$ und die Dekompressoren $\mathcal{D}^{i}$ kodieren bzw. dekodieren die $i$-ten Pixelreihen parallel. Allerdings ist die Wahl des Weges unerheblich und dient lediglich zur Überprüfung der Stabilität.
+Bei der Iteration über die Bilddatei stehen den Kompressoren drei mögliche Wege zur Parallelverarbeitung zu Verfügung: Zeilen-, spalten- und kanalweise. Nebenstehende Abbildung zeigt die zeilenweise Iteration: Die Kompressoren $\mathcal{C}^{i}$ und die Dekompressoren $\mathcal{D}^{i}$ kodieren bzw. dekodieren die $i$-ten Pixelzeile parallel. Zunächst wurden alle drei Iterationswege implementiert, allerdings erwies sich die Wahl des Weges als unerheblich und wurde bei Tests nur zur Überprüfung der Stabilität benutzt. Die Iteration des Kompressors in der Implementierung erfolgt stets zeilenweise.
 \end{minipage}
 \hfill
 \begin{minipage}[h]{.5\textwidth}
@@ -2338,55 +2348,69 @@ Bei der Iteration über die Bilddatei stehen den Kompressoren drei mögliche Weg
 		(3.5,3.0) -- (3.5,0.0)
 		(4.0,3.0) -- (4.0,0.0)
 	%	nodes for encoding
-		(0.25,3.7)node[]{$\mathcal{C}^{1}$}
-		(0.25,3.3)node[]{$\downarrow$}
-		(0.75,3.7)node[]{$\mathcal{C}^{2}$}
-			(0.75,3.3)node[]{$\downarrow$}
-		(1.25,3.7)node[]{$\mathcal{C}^{3}$}
-			(1.25,3.3)node[]{$\downarrow$}
-		(1.75,3.7)node[]{$\mathcal{C}^{4}$}
-			(1.75,3.3)node[]{$\downarrow$}
-		(2.25,3.7)node[]{$\mathcal{C}^{5}$}
-			(2.25,3.3)node[]{$\downarrow$}
-		(2.75,3.7)node[]{$\mathcal{C}^{6}$}
-			(2.75,3.3)node[]{$\downarrow$}
-		(3.25,3.7)node[]{$\mathcal{C}^{7}$}
-			(3.25,3.3)node[]{$\downarrow$}
-		(3.75,3.7)node[]{$\mathcal{C}^{8}$}
-			(3.75,3.3)node[]{$\downarrow$}
+		(-0.75,2.8)node[]{$\mathcal{C}^{1}$}
+		(-0.25,2.7)node[]{$\rightarrow$}
+		(-0.75,2.3)node[]{$\mathcal{C}^{2}$}
+			(-0.25,2.2)node[]{$\rightarrow$}
+		(-0.75,1.8)node[]{$\mathcal{C}^{3}$}
+			(-0.25,1.7)node[]{$\rightarrow$}
+		(-0.75,1.3)node[]{$\mathcal{C}^{4}$}
+			(-0.25,1.2)node[]{$\rightarrow$}
+		(-0.75,0.8)node[]{$\mathcal{C}^{5}$}
+			(-0.25,0.7)node[]{$\rightarrow$}
+		(-0.75,0.3)node[]{$\mathcal{C}^{6}$}
+			(-0.25,0.2)node[]{$\rightarrow$}
 %				nodes for decoding
-				(0.25,-0.7)node[]{$\mathcal{D}^{1}$}
-		(0.25,-0.3)node[]{$\uparrow$}
-		(0.75,-0.7)node[]{$\mathcal{D}^{2}$}
-			(0.75,-0.3)node[]{$\uparrow$}
-		(1.25,-0.7)node[]{$\mathcal{D}^{3}$}
-			(1.25,-0.3)node[]{$\uparrow$}
-		(1.75,-0.7)node[]{$\mathcal{D}^{4}$}
-			(1.75,-0.3)node[]{$\uparrow$}
-		(2.25,-0.7)node[]{$\mathcal{D}^{5}$}
-			(2.25,-0.3)node[]{$\uparrow$}
-		(2.75,-0.7)node[]{$\mathcal{D}^{6}$}
-			(2.75,-0.3)node[]{$\uparrow$}
-		(3.25,-0.7)node[]{$\mathcal{D}^{7}$}
-			(3.25,-0.3)node[]{$\uparrow$}
-		(3.75,-0.7)node[]{$\mathcal{D}^{8}$}
-			(3.75,-0.3)node[]{$\uparrow$};	
+				(4.75,2.8)node[]{$\mathcal{D}^{1}$}
+		(4.25,2.7)node[]{$\leftarrow$}
+		(4.75,2.3)node[]{$\mathcal{D}^{2}$}
+			(4.25,2.3)node[]{$\leftarrow$}
+		(4.75, 1.8)node[]{$\mathcal{D}^{3}$}
+			(4.25,1.8)node[]{$\leftarrow$}
+		(4.75,1.3)node[]{$\mathcal{D}^{4}$}
+			(4.25,1.3)node[]{$\leftarrow$}
+		(4.75,0.8)node[]{$\mathcal{D}^{5}$}
+			(4.25,0.7)node[]{$\leftarrow$}
+		(4.75,0.3)node[]{$\mathcal{D}^{6}$}
+			(4.25,0.2)node[]{$\leftarrow$};	
 \end{tikzpicture}
 \end{flushright}
+\vspace{2cm}
 \end{minipage}
 \subsection{Beschränkung der Werte auf das normalisierte Intervall $I(L,b)$}
+\subsubsection{{\tt{uans}}-Verfahrens}
 Im Falle des {\tt{uans}}-Verfahrens wird an der Stelle $x\in I(L,b)$ das Symbol $\alpha$ gelesen. Falls $x\in I_{\alpha}$ ist keine Normalisierung notwendig. Andernfalls erfolgt solange ein Rechtsshift um eine Stelle bis $x\in I_{\alpha}$. Nach Konstruktion gilt dann $x^{'} = F_{\alpha} * x + r_{\alpha} \in I(L,b)$.
-\par
-Im Fall des {\tt{rans}}-Verfahrens gibt es zwei Möglichkeiten zur Beschränkung der Werte von $x$ auf das Normalisierte Intervall:
-
+\subsubsection{{\tt{rans}}-Verfahrens}
+Im Fall des {\tt{rans}}-Verfahrens erfolgt die Normalisierung und Denormalisierung auf das Normalisierte Intervall wie unter \cite{Giesen} empfohlen:
+\begin{center}
+\begin{tabular}{c|c}
+Normalisierung & Denormalisierung
+\\
+\hline
+FUNCTION NORMALIZE(x, buffer) & FUNCTION DENORMALIZE(x, buffer)
+\\
+{\tt{WHILE}} $\C(x,s) > L*b - 1$ {\tt{do}} &  {\tt{WHILE}} $x < L$ {\tt{do}}
+\\
+buffer.save(x\,\text{mod}\,b)& $x\leftarrow b\cdot x + \text{buffer.read()}$
+\\
+$x \leftarrow \left\lfloor x / b \right\rfloor$ & {\tt{END {\tt{WHILE}}}}
+\\
+{\tt{END {\tt{WHILE}}}} & END FUNCTION
+\\
+END FUNCTION & 
+\end{tabular}
+\end{center}
+Nachteilig gegenüber des {\tt{uans}}-Verfahrens erwies sich hier die Notwendigkeit sich die  Anzahl der Normalisierungsschritte (i.F Normalisierungstiefe) pro gelesenem Symbol einzeln abzuspeichern. Dieser Nachteil wurde bereits in Abschnitt 4.5 angedeutet und besitzt wesentlichen Einfluss auf die Größe der Datei nach Komprimierung. Jeglicher Versuch das Programm zu konfigurieren um ein Abspeichern der Normalisierungstiefe zu umgehen resultierte in einem nicht synchronen Datenkompressionschema.  
 \subsection{Endresultat der Kompression: Binäre Datei}
-Das Endergebnis der Kompression wird in einem binären Format festgehalten welches parallel zur gelesenen Bilddatei auf Platte geschrieben wird. Hierfür werden zunächst wichtige Parameter wie die Dimension des komprimierten Bildes, Vorkonditionierer, Anzahl der Elemente des Vorkonditionerers, Kompressor und Iterationsweg geschrieben. Anschließend werden die normalisierten Häufigkeiten, das Ergebnis der Vorkonditionierung und die ermittelten Moduloreste geschrieben, wobei im Falle des {\tt{uans}}-Verfahrens die ermittelten bits vor dem Schreibvorgang zu {\tt{uint8}} Zahlen zusammengefasst werden. 
+Die Komprimierung wird in einem binären Format festgehalten welches parallel der gelesenen Bilddatei auf Platte geschrieben wird. Hierfür werden zunächst Konfigurationsparameter wie die Dimension der Ausgangsdatei, Vorkonditionierer und Kompressor sowie wichtige Parameter wie Anzahl der Elemente des Vorkonditionerers geschrieben. Anschließend werden die normalisierten Häufigkeiten, das Ergebnis der Vorkonditionierung und die ermittelten Moduloreste geschrieben, wobei im Falle des {\tt{uans}}-Verfahrens die ermittelten bits vor dem Schreibvorgang zu {\tt{uint8}} Zahlen zusammengefasst werden. 
+Im Falle des {\tt{rans}}-Verfahrens müssen zusätzlich die ermittelteten Normalisierungstiefen geschrieben werden welche ebenfalls zu {\tt{uint8}} Zahlen zusammengefasst werden.
 \newpage
 \section{Ergebnisse}
 Im Folgenden wird der Einfluss der Normalisierung und der Filterung auf Bilder demonstriert.
-Die Implementierung zur Visualisierung wurde in Java umgesetzt und steht unter \url{https://github.com/Hau-Bold/ImageProcessor} zu Verfügung.
+
 \subsection{Ergebnisse der Normalisierung}
-Im Folgenden wird der Einfluss der Normalisierung auf die Häufigkeiten eines Bildes (Siehe nächster Abschnitt Filtertyp {\tt{none}}) demonstriert:
+Im Folgenden wird der Einfluss der Normalisierung auf die Häufigkeiten eines Bildes (Siehe nächster Abschnitt Filtertyp {\tt{none}}) demonstriert.
+Die Implementierung zur Visualisierung wurde in Java umgesetzt und steht unter \cite{Haubold} zu Verfügung.
 \par
 \begin{center}
 \includegraphics[width=0.8\linewidth,height=0.7\textheight]{Normalization/lena_unnormalized}
@@ -2538,51 +2562,87 @@ In diesem Unterabschnitt wird das Verhalten der Dateigröße unter Verwendung de
 Filtertyp &  {\tt{uans}} & {\tt{rans}}
 \\
 \hline
-{\tt{none}} & 144.263& 
+{\tt{none}} & 144.263& 162.851
 \\
-{\tt{sub}} & 102.400 &  
+{\tt{sub}} & 102.400 & 123.737 
 \\
-{\tt{up}} & 90.112 & 
+{\tt{up}} & 90.112 & 111.921
 \\
-{\tt{average2}} & 110.592 &  
+{\tt{average2}} & 110.592 &  132.109
 \\
-{\tt{average3}} & 114.688 & 
-\\
-{\tt{average4}} & 118.784& 
-\\
-{\tt{average5}} & 126.976 & 
-\\
-{\tt{average6}} & 131.072 & 
-\\
-{\tt{average7}} & 131.072 & 
-\\
-{\tt{average8}}& 135.168 &  
-\\
-{\tt{paeth}} & 86.016 &  
+{\tt{average3}} & 114.688 & 134.987
 \end{tabular}
 \caption{Verhalten der Dateigröße in Bytes}
 \end{center}
 \end{table}
 
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{c | c | c}
+Filtertyp &  {\tt{uans}} & {\tt{rans}}
+\\
+\hline
+{\tt{average4}} & 118.784& 137.895
+\\
+{\tt{average5}} & 126.976 & 146.629
+\\
+{\tt{average6}} & 131.072 & 150.452
+\\
+{\tt{average7}} & 131.072 & 153.400
+\\
+{\tt{average8}}& 135.168 & 154.936
+\\
+{\tt{paeth}} & 86.016 & 107.149
+\end{tabular}
+\caption{Verhalten der Dateigröße in Bytes (Fortsetzung)}
+\end{center}
+\end{table}
+Auffällig hierbei sind die schlechten Werte des {\tt{rans}}-Verfahren: Lediglich bei den Filtertype 1--5 und 10 resultiert eine Anwendung des Verfahrens in einer Komprimierung während das {\tt{uans}}-Verfahren in jedem Falle die Bilddatei komprimiert.
+\par
+Interessant ist auch das Ergebnis unter Verwendung des {\tt{paeth}}- und des {\tt{up}}-Filters: Diese Filter liefern mit Abstand die beste Komprimierung. 
+\par
+\vspace{0.5cm}
+Wie bereits besprochen musste im Falle des {\tt{rans}}-Verfahrens die Normalisierungstiefe abgespeichert werden um die Bilddatei wiederherstellen zu können. Dieser Umstand liefert die schlechteren Werte des Verfahrens gegenüber {\tt{uans}}. Ein Verzicht resultiert zwar in ähnlichen Zahlen, bietet aber derzeit keine Möglichkeit zur Dekomprimierung der Ausgangsdatei.
+\par
+\vspace{0.5cm}
+Abschließend hierfür sei noch das Ergebnis der Dekomprimierung unter dieser Voraussetzung gezeigt: 
+\begin{figure}[h]
+    \centering
+\begin{minipage}[h]{.45\linewidth}
+\centering
+\includegraphics[width=0.55\linewidth]{preconditioning/lena}
+\captionof{figure}{Ausgangsdatei}
+\end{minipage}
+\hfill
+\begin{minipage}[h]{0.45\linewidth}
+\centering
+\includegraphics[width=0.55\linewidth]{preconditioning/lena_ON}
+\captionof{figure}{Ergebnis ohne Berücksichtigung der Normalisierungstiefe}
+\end{minipage}
+\end{figure}
+\par
+\vspace{1cm}
+Im Falle einer Abspeicherung der Normalisierungstiefe lässt sich die Ausgangsdatei wieder erfolgreich durch Dekomprimierung herstellen.
+
 \newpage
 \section{Kommandozeilenparameter}\label{Kommandozeilenparameter}
 Abschließend wird ein Überblick über die Konfiguration der Kommandozeilenparameter für das Programm gegeben:
 \par
-Der entgegenzunehmende Formatstring hat folgende Gestalt:
-\begin{verbatim}
-Pfad Vorkonditionierer Kompressor Iterationsweg 
-\end{verbatim}
+Der entgegenzunehmende Formatstring setzt sich folgendermaßen zusammen:
+\begin{center}
+{\tt{Pfad}} {\tt{Vorkonditionerer}} {\tt{Kompressor}} ({\tt{-v}}) 
+\end{center}
 \begin{itemize}
-	\item {\tt{Pfad}}: Absoluter Pfad zu Bilddatei
+	\item {\tt{Pfad}}: Absoluter Pfad 
 	\item {\tt{Vorkonditionerer}}: $n\in \{0,\ldots, 10\}$
 	\\
-	Dabei entsprechen die Ganzzahlen den in Kapitel 3 besprochenen Filtern.
+	Die Ganzzahlen entsprechen den in Kapitel 3 besprochenen Filtern.
 	\item {\tt{Kompressor}}: $n\in\{1,2\}$
 	\\
-	Das {\tt{rans}}-Verfahren wird durch $n=0$ gewählt, dass {\tt{uans}}-Verfahren durch $n=1$.
-	\item {\tt{Iterationsweg}}: $n\in\{0,1,2\}$
+	Das {\tt{rans}}-Verfahren wird durch $n=0$ selektiert, dass {\tt{uans}}-Verfahren durch $n=1$.
+	\item {\tt{-v}}:
 	\\
-	Zeilenweise Iteration bei der Kompression wird durch $n=0$ gewählt, spaltenweise durch $n=1$ und kanalweise durch $n=2$.
+Der geklammerte Parameter (verbosing) ist optional. Bei Konkatenation werden spezifische Größen wie Entropie, Zeitdauer und Dateigröße während der Laufzeit des Verfahrens auf der Konsole ausgegeben.
 \end{itemize} 
 \newpage
 \section{Tabellenverzeichnis}
@@ -2612,6 +2672,7 @@ Pfad Vorkonditionierer Kompressor Iterationsweg
 \bibitem[14]{Williams}{Williams A.} {\it C++ Concurrency IN ACTION}, Manning Publications Co Shelter Island NY 11964 (2012).
 \bibitem[15]{Barret}{\it stb single-file public domain libraries for C/\CC} \url{https://github.com/nothings/stb}
 \bibitem[16]{Duda1}{\it Range ANS (rANS) - direct alternative for range coding}\url{https://encode.ru/threads/1870-Range-ANS-(rANS)-faster-direct-replacement-for-range-coding}
+\bibitem[17]{Haubold}{\it ImageProcessor} \url{https://github.com/Hau-Bold/ImageProcessor}
 \end{thebibliography}
 
 \newpage
@@ -2625,9 +2686,10 @@ Pfad Vorkonditionierer Kompressor Iterationsweg
 \noindent Coburg, den \today
 
 \vspace{0.5cm}
-
+\begin{flushright}
+\includegraphics{Unter}
+\end{flushright}
 \raggedleft Michael Krasser\quad\quad \par}
-
 \vfill
 \end{titlepage}
 
