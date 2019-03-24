@@ -203,7 +203,7 @@ Diese Arbeit entstand während des Wintersemesters 18/19. Für die Anregung und 
 \par
 \vspace{5mm}
 \par
-Insbesondere möchte ich mich bei meiner Freundin Julia Isabel Schmidt und meinen Eltern, Dr. Walter und Cornelia Krasser für ihre Unterstützung während meines Studiums bedanken.
+Insbesondere möchte ich mich bei meiner Freundin Julia Isabel Schmidt und meinen lieben Eltern, Dr. Walter und Cornelia Krasser für ihre Unterstützung während meines Studiums bedanken.
 \pagebreak
 \newpage
 \begin{center}
@@ -698,16 +698,11 @@ Als numerische Repräsentation lässt sich jetzt z.B das arithmetische Mittel
 \mathfrak{T}^{}(a_{i_{1}}\ldots a_{i_{m}})= \frac{l^{m} + u^{m}}{2}
 \end{align*}
 wählen.
-\vspace{0.5cm}
-\\
-\begin{minipage}[h]{.4\textwidth}
- Damit ist die einzige Information die zur Berechnung der numerischen Repräsentation benötig wird die Funktion $F$. Die Rekonstruktion der Folge aus $\mathfrak{T}$ erfolgt dann über nebenstehenden Algorithmus.
-\vspace{0.5cm}
-\\
-\end{minipage}
-\hfill
 \begin{minipage}[h]{.5\textwidth}
-\begin{tabular}{l}
+ Damit ist die einzige Information, die der Algorithmus zur Berechnung der numerischen Repräsentation benötig, die Funktion $F$. Die Rekonstruktion der Folge aus $\mathfrak{T}$ erfolgt dann über nebenstehenden Algorithmus.
+\end{minipage}
+\begin{minipage}[h]{.5\textwidth}
+\begin{tabular}{c}
 Sei $l^{0}=0$, $u^{0}=1$
 \\
 {\tt{For k:=1 to m do}}
@@ -725,10 +720,7 @@ Berechne $l^{k}$ und $u^{k}$
 {\tt{end}}
 \end{tabular}
 \end{minipage}
-\vspace{0.5cm}
-\\
 Sei $\mathfrak{T}(a_{i_{1}}a_{i_{2}}\ldots a_{i_{m}}) = (u^{m} - l^{m})/2$ eine numerische Repräsentation für die Folge $a_{i_{1}}a_{i_{2}}\ldots a_{i_{m}}$. Die binäre Darstellung der numerischen Repräsentation kann  beliebig lang bzw. unendlich sein. In diesem Kapitel zeigen wir, wie man die Repräsentation mit Hilfe einer kleinen Anzahl von Bits kodieren kann. 
-\vspace{0.5cm}
 \par
 Es sei
 $$
@@ -760,14 +752,14 @@ bb & 0.995 &0.1111111010\ldots & 8 & 11111110
 \end{center}
 \end{Beispiel}
 \newpage
-\section{Entropiereduktion von Bilddateien}\label{Filter}
+\section{Entropiereduktion von Bilddateien durch Anwendung von Filtern}\label{Filter}
 Die Komprimierung von Bilddateien kann durch eine Filterung erfolgen, welche mit Ausnahme des unten vorgestellten Filtertyps {\tt{none}} in einer Erniedrigung der Entropie resultieren kann. Im Folgenden sollen die implementierten Filter anhand eines Bildes ( i.F. als {\tt{img}} bezeichnet) mit den Dimensionen  h (Höhe), w (Breite) und c (Anzahl der Farbkanäle) kurz besprochen werden. Das Ergebnis der Vorfilterung wird mit {\tt{pre}}, das der Umkehrung mit {\tt{post}} bezeichnet. Zusätzlich müssen für die Umkehrung  Werte in einem container - der i.F. als {\tt{res}} bezeichnet wird - gespeichert werden. Die neben den Algorithmen gezeichneten Gitter dienen zur Verdeutlichung des gewählten Iterationsweges. 
 
 \begin{Definition}
 Sei  $(i,j) \in [0, h-1]\times[0, w-1]$ und $0\leq k < c$.
 Dann bezeichnet  $\text{*}(i,j,k):=\text{*}_{i,j,k}$ den Wert von * an der Stelle $(i,j,k)$.
 \end{Definition}
-Die Wahl der Filter orientiert sich an \cite{png}, die Filtertypen 4 -- 9 wurden analog zu Filtertyp 2 entwickelt:
+Die Wahl der Filter orientiert sich an \cite{png}:
 \subsection{Verwendete Filter}
 \subsubsection{Filtertyp 0: {\tt{none}} }
 Hierbei wird keine Vorfilterung betrieben. Jedes Byte von {\tt{img}} verbleibt unverändert.
@@ -1023,7 +1015,7 @@ END PROCEDURE & END PROCEDURE
 
 \subsubsection{Filtertyp 4: {\tt{average3}}}
 \begin{minipage}[h]{.6\textwidth}
-Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem linken, oberen und rechten Nachbarn ersetzt. Für jeden Farbkanal wird die rechte Kante des Bildes gespeichert.
+Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem linken,oberen und rechten  Nachbarn ersetzt. Für jeden Farbkanal wird die rechte Kante des Bildes gespeichert.
 \vspace{1cm}
 \end{minipage}
 \hfill
@@ -1190,7 +1182,7 @@ END PROCEDURE & END PROCEDURE
 
 \subsubsection{Filtertyp 6: {\tt{average5}}}
 \begin{minipage}[h]{.6\textwidth}
-Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem linken, links oberen, oberen, rechten und unteren Nachbarn ersetzt. Für jeden Farbkanal wird die untere Kante des Bildes gespeichert.
+Jedes Pixel von {\tt{img}} wird durch die Differenz zu dem Mittelwert aus seinem linken,links oberen, oberen, rechten und unteren Nachbarn ersetzt. Für jeden Farbkanal wird die untere Kante des Bildes gespeichert.
 \vspace{0.5cm}
 \end{minipage}
 \hfill
@@ -1677,7 +1669,7 @@ die zugehörigen Kodierungs- und Dekodierungsfunktionen. Dabei liefert die Kodie
 \begin{align*}
 \D \circ \C  \left( b, \C(a,x)\right)  = (b, \C(a,x))
 \end{align*}
-Nach Konstruktion verhält sich $x$ wie ein Stack: Der letzte verschlüsselte Wert ist der erste, den die Dekodierungsfunktion liefert. Nachdem $\C$ für wachsendes $x$ über alle Grenzen wächst, muss $x$ auf ein Intervall mit festen Grenzen eingeschränkt werden: Hierfür wird in \cite{Duda} das sog. "`normalisierte Intervall"' 
+Nach Konstruktion verhält sich $x$ wie ein Stack: Der letzte verschlüsselte Wert ist der erste, den die Dekodierungsfunktion liefert. Nachdem $\C$ für wachsendes $x$ über alle Grenzen wächst, muss $x$ auf ein Intervall mit festen Grenzen eingeschränkt werden: Hierfür wird in \cite{Duda} das sog. "` normalisierte Intervall "' 
 \begin{align*}
 I(L,b):=\{L,L+1,\ldots,b\cdot L-1\}
 \end{align*}
@@ -2225,7 +2217,7 @@ Wählt man $L^{*}$ derart, dass
 \begin{align*}
 L^{*} = \max \left\{r_{k}\,|\,r_{k}\in R_{i_{k}}, 0\leq i_{k} < N-1\right\} +1
 \end{align*} 
-dann gilt für alle Reste $0 \leq r_{k} < L^{*}$. Verschiebt man dieses Intervall noch um die größte auftretende Potenz von zwei (=:M), so besitzt jede Indexmenge einen Repräsentanten im Intervall $[M,M + L^{*}-1]$, also auch in $I(b,L)$ für $b=2$ und $L:=M$ $($da $L^{*} \leq M)$, also gilt für die korrespondierenden Indexmengen $I_{i_{k}} \neq \varnothing$.
+dann gilt für alle Reste $0 \leq r_{k} < L^{*}$. Verschiebt man dieses Intervall noch um die größte auftretende Potenz von 2 (=:M), so besitzt jede Indexmenge einen Repräsentanten im Intervall $[M,M + L^{*}-1]$, also auch in $I(b,L)$ für $b=2$ und $L:=M$ $($da $L^{*} \leq M)$, also gilt für die korrespondierenden Indexmengen $I_{i_{k}} \neq \varnothing$.
 \par
 Eine weiterer Nachteil findet sich in dem Umstand, dass {\tt{uans}}-Verfahren nicht immer terminiert:
 \par
@@ -2250,8 +2242,8 @@ $\mathcal{T}\stackrel{{\tt{rans}}}{\mapsto} 1|01|100|1|110|00|0|00|1|0010|19$
 Das {\tt{rans}}-Verfahren benötigt zur Dekomprimierung von $\mathcal{T}$ zusätzliche Information. Der Grund diese Umstandes liegt in der Konstruktion: Das {\tt{rans}}-Verfahren normalisiert nur bei der Kodierung aus positiver Richtung in das "`normalisierte Interval"' $I(L,b)$, während das {\tt{uans}}-Verfahren das Bitmuster so lange ausliest und den augenblicklichen Wert erhöht, bis ein Wert größer als $L$ gefunden ist.
 \end{Beispiel}
 
-\subsection{Vergleich zu Huffmann und Arithmetischem Kodieren}
-Der Huffmann-Algorithmus kodiert jedes Symbol einzeln, während der erweiterte Huffman-Algorithmus zu einer gegebenen Länge jede erdenkliche Folge einzeln verschlüsselt. Der Vorteil der Erweiterung liegt darin, dass sich ein anfänglich nicht zu komprimierender Code doch komprimieren lässt. Allerdings ist die Codierung ab einer bestimmten Länge kaum realisierbar. Dieses Problem tritt bei der Verwendung von asymmetrischen Zahlensystemen nicht auf.
+\section{Vergleich zu Huffmann und Arithmetischem Kodieren}
+Der Huffmann-Algorithmus kodiert jedes Symbol einzeln, während der erweiterte Huffman-Algorithmus zu einer gegebenen Länge jede erdenkliche Folge einzeln verschlüsselt. Der Vorteil der Erweiterung liegt darin, dass sich ein anfänglich nicht zu komprimierender Code doch komprimieren lässt. Allerdings ist die Codierung ab einer bestimmten Länge kaum realisierbar. Dieses Problem tritt bei der Verwendung von asymmetrischen Zahlensystemen nicht auf: Jede Folge ist komprimierbar.
 
 \newpage
 \section{Anwendung auf Bilddateien}
@@ -2454,7 +2446,7 @@ Die Implementierung zur Visualisierung wurde in Java umgesetzt und steht unter \
 \end{center}
 \newpage
 \subsection{Ergebnisse der Filterung}
-Im Folgenden wird der Einfluss der verwendeten Filter demonstriert. Die Werte der Entropie finden sich in Tabelle 1.
+Im Folgenden wird der Einfluss der verwendeten Filter demonstriert. Die Werte der Entropie finden sich in Tabelle
 \par
 \begin{figure}[h]
     \centering
@@ -2650,7 +2642,7 @@ Abschließend hierfür sei noch das Ergebnis der Dekomprimierung unter dieser Vo
 \end{figure}
 \par
 \vspace{1cm}
-Im Falle einer Abspeicherung der Normalisierungstiefe lässt sich die Ausgangsdatei wieder erfolgreich dekomprimieren.
+Im Falle einer Abspeicherung der Normalisierungstiefe lässt sich die Ausgangsdatei wieder erfolgreich durch Dekomprimierung herstellen.
 
 \newpage
 \section{Kommandozeilenparameter}\label{Kommandozeilenparameter}
@@ -2672,11 +2664,6 @@ Der entgegenzunehmende Formatstring setzt sich folgendermaßen zusammen:
 	\\
 Der geklammerte Parameter (verbosing) ist optional. Bei Konkatenation werden spezifische Größen wie Entropie, Zeitdauer und Dateigröße während der Laufzeit des Verfahrens auf der Konsole ausgegeben.
 \end{itemize} 
-\newpage
-\section{Ausblick}
-Leider war es dem Autor dieser Arbeit innerhalb des zeitlichen Rahmens nicht möglich weitere Untersuchungen hinsichtlich einer Verallgemeinerung des {\tt{paeth}}-Filters anzustellen. Nachdem dieser Filter eine hervorragende Entropiereduktion liefert, sind Untersuchungen in dieser Richtung sicher sinnvoll. Ebenso bietet eine mehrfache Anwendung der besprochenen Filter Boden für Untersuchungen über das Verhalten der Entropie. 
-\par
-Außerdem wäre eine Verbesserung des {\tt{rans}}-Verfahren dahingehend wünschenswert, dass auf eine Abspeicherung der Normalisierungstiefe verzichtet werden kann. Im Rahmen dieser Arbeit konnte keine Gewähr für eine Komprimierung von Bilddateien unter Verwendung des {\tt{rans}} gegeben werden, während das eigenständig entwickelte {\tt{uans}}-Verfahren in jedem Fall brauchbare Ergebnisse lieferte.  
 \newpage
 \section{Tabellenverzeichnis}
 \listoftables 

@@ -1,18 +1,18 @@
 \select@language {ngerman}
-\contentsline {figure}{\numberline {1}{\ignorespaces Programmfluss der Implementierung}}{4}{figure.1}
-\contentsline {figure}{\numberline {2}{\ignorespaces Ohne Normalisierung}}{36}{figure.2}
-\contentsline {figure}{\numberline {3}{\ignorespaces Normalisierung {\tt {rans}}}}{37}{figure.3}
-\contentsline {figure}{\numberline {4}{\ignorespaces Normalisierung {\tt {uans}}}}{38}{figure.4}
-\contentsline {figure}{\numberline {5}{\ignorespaces {\tt {none}}}}{39}{figure.5}
-\contentsline {figure}{\numberline {6}{\ignorespaces {\tt {sub}}}}{39}{figure.6}
-\contentsline {figure}{\numberline {7}{\ignorespaces {\tt {up}}}}{39}{figure.7}
-\contentsline {figure}{\numberline {8}{\ignorespaces {\tt {average2}}}}{39}{figure.8}
-\contentsline {figure}{\numberline {9}{\ignorespaces {\tt {average3}}}}{39}{figure.9}
-\contentsline {figure}{\numberline {10}{\ignorespaces {\tt {average4}}}}{39}{figure.10}
-\contentsline {figure}{\numberline {11}{\ignorespaces {\tt {average5}}}}{40}{figure.11}
-\contentsline {figure}{\numberline {12}{\ignorespaces {\tt {average6}}}}{40}{figure.12}
-\contentsline {figure}{\numberline {13}{\ignorespaces {\tt {average7}}}}{40}{figure.13}
-\contentsline {figure}{\numberline {14}{\ignorespaces {\tt {average8}}}}{40}{figure.14}
-\contentsline {figure}{\numberline {15}{\ignorespaces {\tt {paeth}}}}{40}{figure.15}
-\contentsline {figure}{\numberline {16}{\ignorespaces Ausgangsdatei}}{42}{figure.16}
-\contentsline {figure}{\numberline {17}{\ignorespaces Ergebnis ohne Ber\IeC {\"u}cksichtigung der Normalisierungstiefe}}{42}{figure.17}
+\contentsline {figure}{\numberline {1}{\ignorespaces Programmfluss der Implementierung}}{5}{figure.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces Ohne Normalisierung}}{37}{figure.2}
+\contentsline {figure}{\numberline {3}{\ignorespaces Normalisierung {\tt {rans}}}}{38}{figure.3}
+\contentsline {figure}{\numberline {4}{\ignorespaces Normalisierung {\tt {uans}}}}{39}{figure.4}
+\contentsline {figure}{\numberline {5}{\ignorespaces {\tt {none}}}}{40}{figure.5}
+\contentsline {figure}{\numberline {6}{\ignorespaces {\tt {sub}}}}{40}{figure.6}
+\contentsline {figure}{\numberline {7}{\ignorespaces {\tt {up}}}}{40}{figure.7}
+\contentsline {figure}{\numberline {8}{\ignorespaces {\tt {average2}}}}{40}{figure.8}
+\contentsline {figure}{\numberline {9}{\ignorespaces {\tt {average3}}}}{40}{figure.9}
+\contentsline {figure}{\numberline {10}{\ignorespaces {\tt {average4}}}}{40}{figure.10}
+\contentsline {figure}{\numberline {11}{\ignorespaces {\tt {average5}}}}{41}{figure.11}
+\contentsline {figure}{\numberline {12}{\ignorespaces {\tt {average6}}}}{41}{figure.12}
+\contentsline {figure}{\numberline {13}{\ignorespaces {\tt {average7}}}}{41}{figure.13}
+\contentsline {figure}{\numberline {14}{\ignorespaces {\tt {average8}}}}{41}{figure.14}
+\contentsline {figure}{\numberline {15}{\ignorespaces {\tt {paeth}}}}{41}{figure.15}
+\contentsline {figure}{\numberline {16}{\ignorespaces Ausgangsdatei}}{43}{figure.16}
+\contentsline {figure}{\numberline {17}{\ignorespaces Ergebnis ohne Ber\IeC {\"u}cksichtigung der Normalisierungstiefe}}{43}{figure.17}

@@ -9,7 +9,7 @@
 \BOOKMARK [3][-]{subsubsection.2.3.4}{Huffman-Algorithmus}{subsection.2.3}% 9
 \BOOKMARK [3][-]{subsubsection.2.3.5}{Erweiterte Huffman-Codierung}{subsection.2.3}% 10
 \BOOKMARK [3][-]{subsubsection.2.3.6}{Arithmetisches Kodieren}{subsection.2.3}% 11
-\BOOKMARK [1][-]{section.3}{Entropiereduktion von Bilddateien durch Anwendung von Filtern}{}% 12
+\BOOKMARK [1][-]{section.3}{Entropiereduktion von Bilddateien}{}% 12
 \BOOKMARK [2][-]{subsection.3.1}{Verwendete Filter}{section.3}% 13
 \BOOKMARK [3][-]{subsubsection.3.1.1}{Filtertyp 0: none }{subsection.3.1}% 14
 \BOOKMARK [3][-]{subsubsection.3.1.2}{Filtertyp 1: sub}{subsection.3.1}% 15
@@ -29,25 +29,26 @@
 \BOOKMARK [2][-]{subsection.4.3}{uabs f\374r n-elementige Symbolalphabete \(uans\)}{section.4}% 29
 \BOOKMARK [2][-]{subsection.4.4}{Range variants and streaming: \(rans\)}{section.4}% 30
 \BOOKMARK [2][-]{subsection.4.5}{Vergleich der beiden Verfahren}{section.4}% 31
-\BOOKMARK [1][-]{section.5}{Vergleich zu Huffmann und Arithmetischem Kodieren}{}% 32
-\BOOKMARK [1][-]{section.6}{Anwendung auf Bilddateien}{}% 33
-\BOOKMARK [2][-]{subsection.6.1}{Bestimmung der H\344ufigkeiten}{section.6}% 34
-\BOOKMARK [2][-]{subsection.6.2}{Normalisierung}{section.6}% 35
-\BOOKMARK [3][-]{subsubsection.6.2.1}{Normalisierung der H\344ufigkeiten des uans-Verfahrens}{subsection.6.2}% 36
-\BOOKMARK [3][-]{subsubsection.6.2.2}{Normalisierung der H\344ufigkeiten des rans-Verfahrens}{subsection.6.2}% 37
-\BOOKMARK [2][-]{subsection.6.3}{Wahl des normalisierten Intervalls}{section.6}% 38
-\BOOKMARK [2][-]{subsection.6.4}{Indexmengenbildung des uans-Verfahren}{section.6}% 39
-\BOOKMARK [2][-]{subsection.6.5}{Iterationswege der Kompressoren}{section.6}% 40
-\BOOKMARK [2][-]{subsection.6.6}{Beschr\344nkung der Werte auf das normalisierte Intervall I\(L,b\)}{section.6}% 41
-\BOOKMARK [3][-]{subsubsection.6.6.1}{uans-Verfahrens}{subsection.6.6}% 42
-\BOOKMARK [3][-]{subsubsection.6.6.2}{rans-Verfahrens}{subsection.6.6}% 43
-\BOOKMARK [2][-]{subsection.6.7}{Endresultat der Kompression: Bin\344re Datei}{section.6}% 44
-\BOOKMARK [1][-]{section.7}{Ergebnisse}{}% 45
-\BOOKMARK [2][-]{subsection.7.1}{Ergebnisse der Normalisierung}{section.7}% 46
-\BOOKMARK [2][-]{subsection.7.2}{Ergebnisse der Filterung}{section.7}% 47
-\BOOKMARK [3][-]{subsubsection.7.2.1}{Verhalten der Entropie unter Verwendung der Filterung und Normalisierung}{subsection.7.2}% 48
-\BOOKMARK [2][-]{subsection.7.3}{Ergebnisse der Kompression}{section.7}% 49
-\BOOKMARK [1][-]{section.8}{Kommandozeilenparameter}{}% 50
-\BOOKMARK [1][-]{section.9}{Tabellenverzeichnis}{}% 51
-\BOOKMARK [1][-]{section.10}{Abbildungsverzeichnis}{}% 52
-\BOOKMARK [1][-]{section.11}{Literaturverzeichnis}{}% 53
+\BOOKMARK [2][-]{subsection.4.6}{Vergleich zu Huffmann und Arithmetischem Kodieren}{section.4}% 32
+\BOOKMARK [1][-]{section.5}{Anwendung auf Bilddateien}{}% 33
+\BOOKMARK [2][-]{subsection.5.1}{Bestimmung der H\344ufigkeiten}{section.5}% 34
+\BOOKMARK [2][-]{subsection.5.2}{Normalisierung}{section.5}% 35
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Normalisierung der H\344ufigkeiten des uans-Verfahrens}{subsection.5.2}% 36
+\BOOKMARK [3][-]{subsubsection.5.2.2}{Normalisierung der H\344ufigkeiten des rans-Verfahrens}{subsection.5.2}% 37
+\BOOKMARK [2][-]{subsection.5.3}{Wahl des normalisierten Intervalls}{section.5}% 38
+\BOOKMARK [2][-]{subsection.5.4}{Indexmengenbildung des uans-Verfahren}{section.5}% 39
+\BOOKMARK [2][-]{subsection.5.5}{Iterationswege der Kompressoren}{section.5}% 40
+\BOOKMARK [2][-]{subsection.5.6}{Beschr\344nkung der Werte auf das normalisierte Intervall I\(L,b\)}{section.5}% 41
+\BOOKMARK [3][-]{subsubsection.5.6.1}{uans-Verfahrens}{subsection.5.6}% 42
+\BOOKMARK [3][-]{subsubsection.5.6.2}{rans-Verfahrens}{subsection.5.6}% 43
+\BOOKMARK [2][-]{subsection.5.7}{Endresultat der Kompression: Bin\344re Datei}{section.5}% 44
+\BOOKMARK [1][-]{section.6}{Ergebnisse}{}% 45
+\BOOKMARK [2][-]{subsection.6.1}{Ergebnisse der Normalisierung}{section.6}% 46
+\BOOKMARK [2][-]{subsection.6.2}{Ergebnisse der Filterung}{section.6}% 47
+\BOOKMARK [3][-]{subsubsection.6.2.1}{Verhalten der Entropie unter Verwendung der Filterung und Normalisierung}{subsection.6.2}% 48
+\BOOKMARK [2][-]{subsection.6.3}{Ergebnisse der Kompression}{section.6}% 49
+\BOOKMARK [1][-]{section.7}{Kommandozeilenparameter}{}% 50
+\BOOKMARK [1][-]{section.8}{Ausblick}{}% 51
+\BOOKMARK [1][-]{section.9}{Tabellenverzeichnis}{}% 52
+\BOOKMARK [1][-]{section.10}{Abbildungsverzeichnis}{}% 53
+\BOOKMARK [1][-]{section.11}{Literaturverzeichnis}{}% 54
