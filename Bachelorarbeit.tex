@@ -180,7 +180,7 @@
 \vfill
 
 \Large Bachelorarbeit \\ [1ex] von \\ [1ex]
-Michael Krasser
+Dipl.-Math. Michael Krasser
 
 \vfill
 
@@ -199,7 +199,7 @@ Coburg, \today
 \end{titlepage}
 \newpage
 \section*{Vorwort}
-Diese Arbeit entstand während des Wintersemesters 18/19. Für die Anregung und Ermutigung, mich mit diesem Thema auseinanderzusetzen möchte ich Herrn Prof. Dr. Quirin Meyer meinen besonderen Dank aussprechen.
+Diese Arbeit entstand während des Wintersemesters 18/19. Für die Anregung und Ermutigung mich mit diesem Thema auseinanderzusetzen möchte ich Herrn Prof. Dr. Quirin Meyer meinen besonderen Dank aussprechen.
 \par
 \vspace{5mm}
 \par
@@ -229,7 +229,7 @@ Im Rahmen dieser Bachelorarbeit über asymmetrische Zahlensysteme sollen zunäch
 Anschließend sollen die in \cite{Giesen}, \cite{Duda} und \cite{Krajcevski} angegebene Verfahren {\tt{uabs}} und {\tt{rans}} untersucht werden.
 \par
 \vspace{0.5cm}
-Ziel dieser Arbeit ist eine eigenständige Verallgemeinerung des {\tt{uabs}}-Verfahrens auf $n$-elementige Symbolalphabete ({\tt{uans}}-Verfahren) und die Anwendung des  {\tt{uans}}- sowie des {\tt{rans}}-Verfahren auf Bilddateien. Zusätzlich soll der Einfluss einer vorgeschalteten Filterung -- die in Kapitel ~\ref{Filter} besprochen wird -- untersucht werden. Hierfür werden die verwendeten Filter und die beiden Verfahren in \CC implementiert\footnote{Unter \url{https://github.com/Hau-Bold/ANS_Java} befindet sich eine Umsetzung der Verfahren in Java (Swing)}. 
+Ziel dieser Arbeit ist eine eigenständige Verallgemeinerung des {\tt{uabs}}-Verfahrens auf $n$-elementige Symbolalphabete ({\tt{uans}}-Verfahren) und die Anwendung des  {\tt{uans}}- sowie des {\tt{rans}}-Verfahrens auf Bilddateien. Zusätzlich soll der Einfluss einer vorgeschalteten Filterung -- die in Kapitel ~\ref{Filter} besprochen wird -- untersucht werden. Hierfür werden die verwendeten Filter und die beiden Verfahren in \CC implementiert\footnote{Unter \url{https://github.com/Hau-Bold/ANS_Java} befindet sich eine Umsetzung der Verfahren in Java (Swing)}. 
 \par
 \vspace{0.5cm}
 Nachfolgende Abbildung veranschaulicht den Programmfluss:
@@ -2625,7 +2625,7 @@ Filtertyp &  {\tt{uans}} & {\tt{rans}}
 \caption{Verhalten der Dateigröße in Bytes (Fortsetzung)}
 \end{center}
 \end{table}
-Auffällig hierbei sind die schlechten Werte des {\tt{rans}}-Verfahren: Lediglich bei den Filtertype 1--5 und 10 resultiert eine Anwendung des Verfahrens in einer Komprimierung während das {\tt{uans}}-Verfahren in jedem Falle die Bilddatei komprimiert.
+Auffällig hierbei sind die schlechten Werte des {\tt{rans}}-Verfahren: Lediglich bei den Filtertypen 1--5 und 10 resultiert eine Anwendung des Verfahrens in einer Komprimierung während das {\tt{uans}}-Verfahren in jedem Falle die Bilddatei komprimiert.
 \par
 Interessant ist auch das Ergebnis unter Verwendung des {\tt{paeth}}- und des {\tt{up}}-Filters: Diese Filter liefern mit Abstand die beste Komprimierung. 
 \par
@@ -2676,7 +2676,7 @@ Der geklammerte Parameter (verbosing) ist optional. Bei Konkatenation werden spe
 \section{Ausblick}
 Leider war es dem Autor dieser Arbeit innerhalb des zeitlichen Rahmens nicht möglich weitere Untersuchungen hinsichtlich einer Verallgemeinerung des {\tt{paeth}}-Filters anzustellen. Nachdem dieser Filter eine hervorragende Entropiereduktion liefert, sind Untersuchungen in dieser Richtung sicher sinnvoll. Ebenso bietet eine mehrfache Anwendung der besprochenen Filter Boden für Untersuchungen über das Verhalten der Entropie. 
 \par
-Außerdem wäre eine Verbesserung des {\tt{rans}}-Verfahren dahingehend wünschenswert, dass auf eine Abspeicherung der Normalisierungstiefe verzichtet werden kann. Im Rahmen dieser Arbeit konnte keine Gewähr für eine Komprimierung von Bilddateien unter Verwendung des {\tt{rans}} gegeben werden, während das eigenständig entwickelte {\tt{uans}}-Verfahren in jedem Fall brauchbare Ergebnisse lieferte.  
+Außerdem wäre eine Verbesserung des {\tt{rans}}-Verfahren dahingehend wünschenswert, dass auf eine Abspeicherung der Normalisierungstiefe verzichtet werden kann. Im Rahmen dieser Arbeit konnte keine Gewähr für eine Komprimierung von Bilddateien unter Verwendung des {\tt{rans}}-Verfahrens gegeben werden, während das eigenständig entwickelte {\tt{uans}}-Verfahren in jedem Fall brauchbare Ergebnisse lieferte.  
 \newpage
 \section{Tabellenverzeichnis}
 \listoftables 
